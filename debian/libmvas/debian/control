@@ -1,0 +1,24 @@
+Source: libmvas
+Priority: optional
+Maintainer: Mea <siqueira@ime.usp.br>
+Build-Depends: cmake, debhelper (>= 9)
+Standards-Version: 3.9.8
+Section: libs
+Vcs-Git: https://github.com/l3nkz/libmvas.git
+
+Package: libmvas1
+Architecture: any
+Depends: ${shlibs:Depends}, ${misc:Depends}
+Description: Wrapper library for Linux' First Class 
+ Virtual Address Spaces
+
+Package: libmvas-dev
+Section: libdevel
+Architecture: any
+Depends: libmvas1 (= ${binary:Version}), ${misc:Depends}
+Provides: libmvas-dev
+Conflicts: libmvas-dev
+Description: libmvas (0.1)
+ libmvas library designed to be able to utilize Linux's first class address
+ space feature without the necessary support from glibc or other standard
+ C-libraries.

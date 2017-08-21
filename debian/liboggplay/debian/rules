@@ -1,0 +1,9 @@
+#!/usr/bin/make -f
+
+export LDFLAGS+=-lm
+
+%:
+	dh $@ --with quilt,autoreconf
+
+override_dh_strip:
+	dh_strip --dbg-package=liboggplay1-dbg
