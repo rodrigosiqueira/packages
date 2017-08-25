@@ -1,0 +1,2 @@
+Tests: 0001-run-against-library
+Depends: @, liboggplay1-dev, gcc, sound-theme-freedesktop

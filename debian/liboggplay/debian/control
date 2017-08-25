@@ -1,15 +1,23 @@
 Source: liboggplay
 Priority: extra
-Maintainer: Debian QA Group <packages@qa.debian.org>
-Build-Depends: debhelper (>= 9), dh-autoreconf, pkg-config, liboggz-dev, libfishsound-dev, libtheora-dev, libkate-dev, libsndfile-dev
-Standards-Version: 3.8.3
+Maintainer: Rodrigo Siqueira <siqueira@ime.usp.br>
+Build-Depends: debhelper (>= 9),
+               quilt,
+               dh-autoreconf,
+               pkg-config,
+               liboggz-dev,
+               libfishsound-dev,
+               libtheora-dev,
+               libkate-dev,
+               libsndfile-dev
+Standards-Version: 4.0.0
 Section: libs
 
 Package: liboggplay1
 Architecture: any
 Depends: ${shlibs:Depends}, ${misc:Depends}
 Description: Library for playing OGG multimedia
- A library designed to allow drop-in playback of Xiph.Org media in an
+ liboggplay was designed to allow drop-in playback of Xiph.Org media in an
  application. liboggplay handles demuxing and decoding, generates timestamps for
  raw data, maintains synchronisation across multiple streams, and provides a
  lock-free buffer implementation for easy multithreading.
@@ -17,27 +25,14 @@ Description: Library for playing OGG multimedia
 Package: liboggplay1-dev
 Section: libdevel
 Architecture: any
-Depends: liboggplay1 (= ${binary:Version}), ${misc:Depends}
+Depends: liboggplay1 (= ${binary:Version}), ${misc:Depends}, liboggz-dev
 Provides: liboggplay-dev
 Conflicts: liboggplay-dev
 Description: Library for playing OGG multimedia (development files)
- A library designed to allow drop-in playback of Xiph.Org media in an
+ liboggplay was designed to allow drop-in playback of Xiph.Org media in an
  application. liboggplay handles demuxing and decoding, generates timestamps for
  raw data, maintains synchronisation across multiple streams, and provides a
  lock-free buffer implementation for easy multithreading.
  .
  This package contains the header files and static libraries required for
  developing applications that use liboggplay.
-
-Package: liboggplay1-dbg
-Section: debug
-Architecture: any
-Depends: liboggplay1 (= ${binary:Version}), ${misc:Depends}
-Description: Library for playing OGG multimedia (debugging symbols)
- A library designed to allow drop-in playback of Xiph.Org media in an
- application. liboggplay handles demuxing and decoding, generates timestamps for
- raw data, maintains synchronisation across multiple streams, and provides a
- lock-free buffer implementation for easy multithreading.
- .
- This package contains debugging symbols useful for tracing bugs in the
- liboggplay1 package.

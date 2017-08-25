@@ -1,8 +1,14 @@
-liboggplay (0.2.1~git20091227-3) UNRELEASED; urgency=medium
+liboggplay (0.2.1~git20091227-4) UNRELEASED; urgency=medium
 
-  * lala
+  * New maintainer (Closes: #791527)
+  * Updated copyright to accomplish the machine-readable requirements
+  * Upgraded to debhelper 9
+  * Update liboggplay1-dev.install and liboggplay1.install to attend policy 4.0
+  * Added source/format and upgraded to quilt 3.0
+  * Bumped Standards-Version to 4.0.0
+  * Added tests
 
- -- Rodrigo Siqueira <siqueira@ime.usp.br>  Fri, 18 Aug 2017 12:52:18 +0000
+ -- Rodrigo Siqueira <siqueira@ime.usp.br>  Fri, 25 Aug 2017 18:16:34 +0000
 
 liboggplay (0.2.1~git20091227-2) unstable; urgency=medium
 
