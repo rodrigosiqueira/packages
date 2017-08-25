@@ -12,6 +12,7 @@ Build-Depends: debhelper (>= 9),
                libsndfile-dev
 Standards-Version: 4.0.0
 Section: libs
+Testsuite: autopkgtest
 
 Package: liboggplay1
 Architecture: any
