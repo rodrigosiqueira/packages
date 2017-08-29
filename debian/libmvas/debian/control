@@ -1,6 +1,6 @@
 Source: libmvas
 Priority: optional
-Maintainer: Mea <siqueira@ime.usp.br>
+Maintainer: Rodrigo Siqueira <siqueira@ime.usp.br>
 Build-Depends: cmake, debhelper (>= 9)
 Standards-Version: 3.9.8
 Section: libs
