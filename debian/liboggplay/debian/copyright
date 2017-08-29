@@ -7,7 +7,7 @@ Files: *
 Copyright: 2003, CSIRO Australia
 License: csiro
 
-Files: cpu.c
+Files: src/liboggplay/cpu.c
 Copyright: 2002-2007, The Xiph.Org Foundation and contributors
 License: BSD-3-clause
 

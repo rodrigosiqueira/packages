@@ -1,6 +1,7 @@
 #!/usr/bin/make -f
 
-export LDFLAGS+=-lm
+export DEB_LDFLAGS_MAINT_APPEND = -lm
+export DEB_BUILD_MAINT_OPTIONS = hardening=+all
 
 %:
 	dh $@ --with quilt,autoreconf

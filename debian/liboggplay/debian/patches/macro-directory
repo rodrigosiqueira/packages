@@ -1,3 +1,6 @@
+Description: Adapt to dh-autoreconf
+Author: Manuel A. Fernandez Montecelo <mafm@debian.org>
+
 --- a/configure.ac
 +++ b/configure.ac
 @@ -12,6 +12,8 @@
