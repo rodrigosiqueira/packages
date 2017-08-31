@@ -1,3 +1,14 @@
+pdfrw (0.3-1.1) UNRELEASED; urgency=medium
+
+  * New maintainer (Closes: #738298)
+  * New upstream version
+  * Bumped Standards-Version to 4.0.0
+  * Bumped debian/compat to 10
+  * Depend on debhelper >= 10
+  * Added package test with autopkgtests tool
+
+ -- Rodrigo Siqueira <siqueira@ime.usp.br>  Wed, 30 Aug 2017 19:18:45 -0300
+
 pdfrw (0.2-3) unstable; urgency=medium
 
   * QA upload.
