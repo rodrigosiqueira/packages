@@ -1,0 +1,5 @@
+version=4
+http://pkg-ruby-extras.alioth.debian.org/cgi-bin/gemwatch/mime .*/mime-(\d\S+)\.tar\.(?:bz2|gz|xz)
+https://rubygems.org/gems/mime .*/versions/(\d\S+)
+https://rubygems.org/gems/mime .*/downloads/mime-(\d\S+)\.gem
+https://rubygems.org/gems/mime/versions .*/gems/mime/versions/(\d\S+)

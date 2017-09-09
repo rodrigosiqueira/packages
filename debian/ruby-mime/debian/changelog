@@ -1,0 +1,55 @@
+ruby-mime (0.4.3-3) unstable; urgency=medium
+
+  * QA upload.
+  * Set QA Group as maintainer. (see #822205)
+
+ -- Joao Eriberto Mota Filho <eriberto@debian.org>  Mon, 12 Sep 2016 00:14:55 -0300
+
+ruby-mime (0.4.3-2) unstable; urgency=medium
+
+  [ Cédric Boutillier ]
+
+  * debian/control: use https:// in Vcs-* fields.
+
+  [ Joao Eriberto Mota Filho ]
+
+  * debian/control: bumped Standards-Version to 3.9.8.
+  * debian/copyright: updated information about packaging.
+  * debian/watch: bumped to version 4.
+
+ -- Joao Eriberto Mota Filho <eriberto@debian.org>  Mon, 23 May 2016 14:17:22 -0300
+
+ruby-mime (0.4.3-1) unstable; urgency=medium
+
+  * New upstream release.
+  * debian/copyright: updated the upstream copyright years.
+  * debian/rules: removed the override_dh_installchangelogs target. I am
+      dropping the 'unofficial' upstream changelog.
+  * debian/upstream.changelog: removed.
+
+ -- Joao Eriberto Mota Filho <eriberto@debian.org>  Sun, 08 Nov 2015 18:47:15 -0200
+
+ruby-mime (0.4.2-3) unstable; urgency=medium
+
+  * Upload to unstable. Welcome Jessie Stable!
+
+ -- Joao Eriberto Mota Filho <eriberto@debian.org>  Tue, 28 Apr 2015 16:38:30 -0300
+
+ruby-mime (0.4.2-2) experimental; urgency=medium
+
+  * Added the upstream changelog. Consequently:
+      - Added the debian/upstream.changelog.
+      - Added an override to debian/rules to install the
+        debian/upstream.changelog file.
+  * debian/copyright:
+      - Updated the packaging years.
+      - Updated the Source field.
+  * debian/watch: added new search lines to avoid the error 500.
+
+ -- Joao Eriberto Mota Filho <eriberto@debian.org>  Fri, 02 Jan 2015 09:15:51 -0200
+
+ruby-mime (0.4.2-1) experimental; urgency=medium
+
+  * Initial release (Closes: #773484)
+
+ -- Joao Eriberto Mota Filho <eriberto@debian.org>  Thu, 18 Dec 2014 19:13:36 -0200

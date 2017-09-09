@@ -1,0 +1,21 @@
+Source: ruby-mime
+Section: ruby
+Priority: optional
+Maintainer: Debian QA Group <packages@qa.debian.org>
+Build-Depends: debhelper (>= 9),
+               gem2deb
+Standards-Version: 3.9.8
+Homepage: http://ecentryx.com/gems/mime
+Vcs-Git: https://anonscm.debian.org/git/pkg-ruby-extras/ruby-mime.git
+Vcs-Browser: https://anonscm.debian.org/cgit/pkg-ruby-extras/ruby-mime.git
+XS-Ruby-Versions: all
+
+Package: ruby-mime
+Architecture: all
+Depends: ruby | ruby-interpreter,
+         ${misc:Depends}
+Description: MIME library for Ruby
+ ruby-mime is a library for building RFC compliant Multipurpose Internet
+ Mail Extensions (MIME) messages. It can be used to construct standardized
+ MIME messages for use in client/server communications, such as Internet
+ mail or HTTP multipart/form-data transactions.
