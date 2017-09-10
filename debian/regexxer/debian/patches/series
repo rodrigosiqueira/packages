@@ -1,0 +1,4 @@
+10_glib-single-include.patch
+20_regexxer-desktop.patch
+30_add-regex-header.patch
+40_do-not-compile-schemas.patch

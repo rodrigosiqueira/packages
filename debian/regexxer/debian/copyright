@@ -1,0 +1,101 @@
+Format: http://www.debian.org/doc/packaging-manuals/copyright-format/1.0/
+Upstream-Name: regexxer
+Upstream-Contact: Fabien Parent <parent.f@gmail.com>
+Source: http://regexxer.sf.net
+
+Files: *
+Copyright: 2002-2007 Daniel Elstner <daniel.kitta@gmail.com>
+           2009-2011 Fabien Parent <parent.f@gmail.com>
+License: GPL-2+
+
+Files: po/*
+Copyright:    ?-2010 Jorge González <jorgegonz@svn.gnome.org>
+           2001-2008 Kjartan Maraas <kmaraas@gnome.org>
+           2004      Adam Weinberger <adamw@gnome.org>
+           2004      Alberto Paro <alberto@paro.homeunix.org>
+           2004      Amanpreet Singh Alam <aalam@redhat.com>
+           2004      Ankit Patel <ankit@redhat.com>
+           2004      Benoît Dejean <tazforever@dlfp.org>
+           2004      Christian Rose <menthos@menthos.com>
+           2004      Funda Wang <fundawang@linux.net.cn>
+           2004      Gareth Owen <gowen72@yahoo.com>, David Lodge <dave@cirt.net>
+           2004      GNOME PL Team <translators@gnome.pl>
+           2004      Ilkka Tuohela <hile@iki.fi>
+           2004      Maxim Dziumanenko <mvd@mylinux.com.ua>
+           2004      Miloslav Trmac <mitr@volny.cz>
+           2004      Takeshi AIHANA <aihana@gnome.gr.jp>
+           2004      Tino Meinen <a.t.meinen@chello.nl>
+           2004-2005 Jordi Ivars <ear@oronetes.net>
+           2004-2006 Francisco Javier F. Serrador <serrador@cvs.gnome.org>
+           2004-2007 Satoru SATOH <ss@gnome.gr.jp>
+           2004-2008 Duarte Loreto <happyguy_pt@hotmail.com>
+           2005      Augustin KIBERWA  <akiberwa@yahoo.co.uk>
+           2005      Carole Karema <karemacarole@hotmail.com>
+           2005      Chao-Hsiung Liao <j_h_liau@yahoo.com.tw>
+           2005      David Soulayrol <david.soulayrol.2000@anciens.enib.fr>
+           2005      Donatien NSENGIYUMVA <ndonatienuk@yahoo.co.uk>
+           2005      Gabor Kelemen <kelemeng@gnome.hu>
+           2005      Ganesh Ghimire <gghimire@gmail.com>
+           2005      Jaydeep Bhusal <zaydeep@hotmail.com>
+           2005      JEAN BAPTISTE NGENDAHAYO <ngenda_denis@yahoo.co.uk>
+           2005      Jyotshna Shrestha <jyotshna@mpp.org.np>
+           2005      Noëlla Mupole <s24211045@tuks.co.za>
+           2005      Pawan Chitrakar <pawan@mpp.org.np>
+           2005      Philibert Ndandali  <ndandali@yahoo.fr>
+           2005      Steve Murphy <murf@e-tools.com>
+           2005      Terance Edward Sola <terance@lyse.net>
+           2005      Viateur MUGENZI <muvia1@yahoo.fr>
+           2005      Yasen Pramatarov <yasen@lindeas.com>
+           2005-2007 Clytie Siddall <clytie@riverland.net.au>
+           2006      Mahesh subedi <submanesh@hotmail.com>
+           2006-2008 Yannig Marchegay (Kokoyaya) <yannig@marchegay.org>
+           2006-2010 Iñaki Larrañaga Murgoitio <dooteo@euskalgnu.org>
+           2006-2011 Daniel Nylander <po@danielnylander.se>
+           2006-2011 Matej Urbančič <mateju@svn.gnome.org>
+           2007      Daniel Elstner <daniel.kitta@gmail.com>
+           2007      Djihed Afifi <djihed@gmail.com>
+           2007      Jonathan Ernst <jonathan@ernstfamily.ch>
+           2007      sonam pelden <sonaa_peldn@yahoo.com>
+           2007      Stéphane Raimbault <stephane.raimbault@gmail.com>
+           2007      Yavor Doganov <yavor@doganov.org>
+           2008      Jennie Petoumenou <epetoumenou@gmail.com>
+           2008      Lucas Lommer <llommer@svn.gnome.org>
+           2009      Dr.T.Vasudevan <agnihot3@gmail.com>
+           2009      I. Felix <ifelix@redhat.com>
+           2009-2011 Marek Černocký <marek@manet.cz>
+           2009-2011 Mario Blättermann <mariobl@freenet.de>
+           2010      delpass <delpass@gmail.com>
+           2010      Fran Diéguez <frandieguez@ubuntu.com>
+           2010-2011 Joe Hansen <joedalton2@yahoo.dk>
+           2010-2011 Peter Mráz <etkinator@gmail.com>
+           2011      Daniel Mustieles <daniel.mustieles@gmail.com>
+           2011      YunQiang Su <wzssyqa@gmail.com>
+           2011      Yuri Myasoedov <omerta13@yandex.ru>
+License: GPL-2+
+
+Files: debian/*
+Copyright: 2002-2008 Ross Burton <ross@debian.org>
+           2005      Petter Reinholdtsen <pere@debian.org>
+           2008      Kilian Krause
+           2012-2016 Michael Biebl <biebl@debian.org>
+           2014      Aurelien Jarno <aurel32@debian.org>
+           2014-2016 Joao Eriberto Mota Filho <eriberto@debian.org>
+           2016      Mònica Ramírez Arceda <monica@debian.org>
+License: GPL-2+
+
+License: GPL-2+
+ This package is free software; you can redistribute it and/or modify
+ it under the terms of the GNU General Public License as published by
+ the Free Software Foundation; either version 2 of the License, or
+ (at your option) any later version.
+ .
+ This package is distributed in the hope that it will be useful,
+ but WITHOUT ANY WARRANTY; without even the implied warranty of
+ MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+ GNU General Public License for more details.
+ .
+ You should have received a copy of the GNU General Public License
+ along with this program. If not, see <http://www.gnu.org/licenses/>
+ .
+ On Debian systems, the complete text of the GNU General
+ Public License version 2 can be found in "/usr/share/common-licenses/GPL-2".

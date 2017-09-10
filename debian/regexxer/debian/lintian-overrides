@@ -1,0 +1,2 @@
+# False positive. blhc --all shows nothing.
+regexxer: hardening-no-fortify-functions usr/bin/regexxer

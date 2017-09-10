@@ -1,0 +1,218 @@
+regexxer (0.10-3) unstable; urgency=medium
+
+  * QA upload.
+  * Migrations:
+      - DH level to 10.
+      - Dropped CDBS.
+      - Using dh_autoreconf now.
+  * debian/control:
+      - Bumped Standards-Version to 3.9.8.
+      - Improved the long description.
+  * debian/copyright:
+      - Added the copyright for all upstreams.
+      - Dropped dot-zero from GPL license short name.
+      - Updated the packaging copyright data.
+  * debian/docs: added the AUTHORS file.
+  * debian/lintian-overrides: added to override a false positive.
+  * debian/regexxer.manpages: renamed to manpages.
+  * debian/patches/:
+      - add-regex-header.patch: renamed to 30_add-regex-header.patch.
+      - do-not-compile-schemas.patch: renamed to
+        40_do-not-compile-schemas.patch.
+      - glib-single-include.patch: renamed to 10_glib-single-include.patch.
+      - regexxer.desktop: renamed to 20_regexxer-desktop.patch
+  * debian/watch:
+      - Bumped to version 4.
+      - Removed the extra source to avoid conflicts with uscan.
+
+ -- Joao Eriberto Mota Filho <eriberto@debian.org>  Wed, 12 Oct 2016 21:36:07 +0000
+
+regexxer (0.10-2) unstable; urgency=medium
+
+  * QA upload.
+  * Switch libgtk2.0-bin Build-Depends to gtk-update-icon-cache.
+    (Closes: #825448)
+
+ -- Michael Biebl <biebl@debian.org>  Fri, 27 May 2016 00:28:44 +0200
+
+regexxer (0.10-1) unstable; urgency=medium
+
+  * QA upload.
+  * New upstream release.
+  * Bump to Standards-Version 3.9.7. No changes required.
+  * Update build dependencies: 
+    - Port to gtkmm-3.0: libgtkmm-2.4-dev replaced by libgtkmm-3.0-dev and 
+      libgtksourceviewmm-3.0-dev added.
+    - Port to GSettings and GtkBuilder: libglademm-2.4-dev and
+      libgconfmm-2.6-dev dropped.
+    - Port from libpcre to GRegex: libpcre3-dev dropped.
+  * debian/patches:
+    - add-regex-header.patch: add missing header glibmm/regex.h.
+    - do-not-compile-schemas.patch: do not generate gschemas.compiled during
+      building process. 
+  * Remove debian/menu file since there is a .desktop file (See #741573).
+
+ -- Mònica Ramírez Arceda <monica@debian.org>  Sat, 27 Feb 2016 22:04:43 +0100
+
+regexxer (0.9-6) unstable; urgency=medium
+
+  * QA upload.
+  * debian/rules: move the extra LDFLAGS to DEB_LDFLAGS_MAINT_APPEND and
+    remove the ones already provided by dpkg-buildflags, so that all the
+    build flags are consistent.
+
+ -- Aurelien Jarno <aurel32@debian.org>  Wed, 01 Oct 2014 22:10:19 +0200
+
+regexxer (0.9-5) unstable; urgency=medium
+
+  * QA upload.
+  * debian/rules: use dh-autoreconf to fix mismatch between autoconf and
+    intltool causing FTBFS on some architectures.
+
+ -- Aurelien Jarno <aurel32@debian.org>  Wed, 01 Oct 2014 20:37:04 +0200
+
+regexxer (0.9-4) unstable; urgency=medium
+
+  * QA upload.
+  * debian/watch:
+      - Fixed.
+      - Added an extra check to SourceForge.net.
+  * debian/rules: added the DEB_BUILD_MAINT_OPTIONS and some extra LDFLAGS
+      options to enable the GCC hardening.
+
+ -- Joao Eriberto Mota Filho <eriberto@debian.org>  Wed, 17 Sep 2014 19:57:06 -0300
+
+regexxer (0.9-3) unstable; urgency=medium
+
+  * QA upload.
+  * Updated debhelper from 4 to 9.
+  * debian/control:
+      - Added the Homepage field.
+      - Improved the long description.
+      - Removed the leading article from short description.
+      - Set maintainer as Debian QA Group (see #569345)
+      - Updated Standards-Version from 3.7.3 to 3.9.5.
+  * debian/copyright:
+      - Updated to 1.0 format.
+  * debian/watch: updated to version 3 and improved.
+
+ -- Joao Eriberto Mota Filho <eriberto@debian.org>  Mon, 18 Aug 2014 14:07:01 -0300
+
+regexxer (0.9-2.1) unstable; urgency=low
+
+  * Non-maintainer upload.
+  * Use ">=" for libpcre3-dev build-dependency.
+  * Switch to dpkg source format 3.0 (quilt).
+  * Add debian/patches/glib-single-include.patch to fix build failures with
+    glib 2.32 where including individual headers is no longer allowed.
+    (Closes: #669449)
+
+ -- Michael Biebl <biebl@debian.org>  Sun, 06 May 2012 15:33:13 +0200
+
+regexxer (0.9-2) unstable; urgency=low
+
+  [ Ross Burton ]
+  
+  * Fix watch file (Closes: #453549)
+  * Bump Standards.
+  * Specify copyright owner
+  * Fix Apps/ in menu file
+
+  [ Kilian Krause ]
+  
+  * Add get-orig-source target.
+
+ -- Ross Burton <ross@debian.org>  Mon, 03 Mar 2008 10:18:26 +0000
+
+regexxer (0.9-1) unstable; urgency=low
+
+  * New upstream release.
+  * Fix FSF address.
+
+ -- Ross Burton <ross@debian.org>  Thu, 26 Apr 2007 11:23:28 +0100
+
+regexxer (0.8-3) unstable; urgency=low
+
+  * Acknowledge NMU (closes: #318016)
+  * Add debian/watch
+  * Bump Standards Version.
+  * Add linker flags to reduce library deps
+
+ -- Ross Burton <ross@debian.org>  Tue, 11 Oct 2005 15:13:24 +0100
+
+regexxer (0.8-2.1) unstable; urgency=low
+
+  * Non-maintainer upload to move package to new C++ ABI. (Closes: #318016)
+
+ -- Petter Reinholdtsen <pere@debian.org>  Fri,  9 Sep 2005 19:40:04 +0200
+
+regexxer (0.8-2) unstable; urgency=low
+
+  * debian/control: build-depend on intltool to get the required packages.
+
+ -- Ross Burton <ross@debian.org>  Wed, 10 Nov 2004 09:54:49 +0000
+
+regexxer (0.8-1) unstable; urgency=low
+
+  * New upstream release (closes: #280143)
+  * Update build-depends for the new gtkmm package names
+  
+ -- Ross Burton <ross@debian.org>  Sun,  7 Nov 2004 15:35:42 +0000
+
+regexxer (0.7-2) unstable; urgency=low
+
+  * Rebuild in a pbuilder, whoops (closes: #251540)
+
+ -- Ross Burton <ross@debian.org>  Mon, 31 May 2004 15:22:07 +0100
+
+regexxer (0.7-1) unstable; urgency=low
+
+  * New upstream release
+  * Move to Standards 3.6.1
+  * Bump deps for the GConf use
+
+ -- Ross Burton <ross@debian.org>  Mon, 17 May 2004 18:33:55 +0100
+
+regexxer (0.5-2) unstable; urgency=low
+
+  * Uppercase "regexxer" in the .desktop file
+
+ -- Ross Burton <ross@debian.org>  Mon, 19 Jan 2004 08:18:55 +0000
+
+regexxer (0.5-1) unstable; urgency=low
+
+  * New upstream release
+  * Update my email address
+  * Move to Standards 3.6.0
+  * Switch to CDBS
+
+ -- Ross Burton <ross@debian.org>  Mon,  3 Nov 2003 18:24:25 +0000
+
+regexxer (0.4-3) unstable; urgency=low
+
+  * Rebuild against GCC 3.2 libraries.
+  * Build-Depend upon gtkmm >= 2.2.0-2
+
+ -- Ross Burton <ross@burtonini.com>  Thu, 16 Jan 2003 12:46:34 +0000
+
+regexxer (0.4-2) unstable; urgency=low
+
+  * debian/rules: Use Colin's Build System
+
+ -- Ross Burton <ross@burtonini.com>  Thu, 12 Dec 2002 18:35:04 +0000
+
+regexxer (0.4-1) unstable; urgency=low
+
+  * New upstream release
+  * Increase Standards to 3.5.8
+  * Remove locally installed .desktop file, as upstream have
+    incorporated it.
+
+ -- Ross Burton <ross@burtonini.com>  Wed, 20 Nov 2002 12:52:26 +0000
+
+regexxer (0.3-1) unstable; urgency=low
+
+  * Initial Release.
+
+ -- Ross Burton <ross@burtonini.com>  Mon, 11 Nov 2002 14:35:27 +0000
+

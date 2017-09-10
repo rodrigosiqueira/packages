@@ -1,0 +1,12 @@
+Description: add the Keywords field to menu file
+Author: Joao Eriberto Mota Filho <eriberto@debian.org>
+Last-Update: 2014-08-18
+Index: regexxer-0.10/ui/regexxer.desktop.in
+===================================================================
+--- regexxer-0.10.orig/ui/regexxer.desktop.in
++++ regexxer-0.10/ui/regexxer.desktop.in
+@@ -7,3 +7,4 @@ Exec=regexxer
+ Icon=regexxer
+ StartupNotify=true
+ Categories=GTK;GNOME;Development;
++Keywords=GUI;regex;regexp;regular expressions;

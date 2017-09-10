@@ -1,0 +1,15 @@
+Description: Add missing header. Without this header regexxer FTBFS.
+Author: Mònica Ramírez Arceda <monica@debian.org>
+Last-Update: 2016-02-26
+Index: regexxer-0.10/src/fileshared.h
+===================================================================
+--- regexxer-0.10.orig/src/fileshared.h
++++ regexxer-0.10/src/fileshared.h
+@@ -23,6 +23,7 @@
+ 
+ #include "sharedptr.h"
+ 
++#include <glibmm/regex.h>
+ #include <gtkmm/textbuffer.h>
+ #include <functional>
+ #include <utility>
