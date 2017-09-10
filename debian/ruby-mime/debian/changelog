@@ -1,3 +1,14 @@
+ruby-mime (0.4.4-1) unstable; urgency=medium
+
+  * New upstream release
+  * Change maintainer (Closes: #822205)
+  * Bumped Standards-Version to 4.0.0
+  * Bumped debian/compat to 10
+  * Depend on debhelper >= 10
+  * Added package test with autopkgtests tool
+
+ -- Rodrigo Siqueira <siqueira@ime.usp.br>  Sun, 10 Sep 2017 17:47:14 -0300
+
 ruby-mime (0.4.3-3) unstable; urgency=medium
 
   * QA upload.

@@ -1,17 +1,19 @@
 Source: ruby-mime
 Section: ruby
 Priority: optional
-Maintainer: Debian QA Group <packages@qa.debian.org>
-Build-Depends: debhelper (>= 9),
+Maintainer: Rodrigo Siqueira <siqueira@ime.usp.br>
+Build-Depends: debhelper (>= 10),
                gem2deb
-Standards-Version: 3.9.8
+Standards-Version: 4.0.0
 Homepage: http://ecentryx.com/gems/mime
 Vcs-Git: https://anonscm.debian.org/git/pkg-ruby-extras/ruby-mime.git
 Vcs-Browser: https://anonscm.debian.org/cgit/pkg-ruby-extras/ruby-mime.git
 XS-Ruby-Versions: all
+Testsuite: autopkgtest-pkg-ruby
 
 Package: ruby-mime
 Architecture: all
+Multi-Arch: foreign
 Depends: ruby | ruby-interpreter,
          ${misc:Depends}
 Description: MIME library for Ruby
