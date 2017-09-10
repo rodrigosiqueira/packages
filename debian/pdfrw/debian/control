@@ -45,6 +45,7 @@ Description: PDF file manipulation library (Python 2)
 
 Package: python-pdfrw-doc
 Architecture: all
+Multi-Arch: foreign
 Depends:
  ${misc:Depends},
 Section: doc
