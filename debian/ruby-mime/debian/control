@@ -1,7 +1,7 @@
 Source: ruby-mime
 Section: ruby
 Priority: optional
-Maintainer: Rodrigo Siqueira <siqueira@ime.usp.br>
+Maintainer: Debian Ruby Extras Maintainers <pkg-ruby-extras-maintainers@lists.alioth.debian.org>
 Build-Depends: debhelper (>= 10),
                gem2deb
 Standards-Version: 4.0.0
