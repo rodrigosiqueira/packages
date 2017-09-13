@@ -1,0 +1,42 @@
+#!/usr/bin/make -f
+
+# Uncomment this to turn on verbose mode.
+#export DH_VERBOSE=1
+
+%:
+	dh $@ --parallel --with python2
+
+override_dh_auto_configure:
+	libtoolize --copy --force
+	autoreconf -fi
+	intltoolize
+	dh_auto_configure -- --with-python --with-cairo --with-hardbooks
+
+override_dh_auto_build:
+	# docbook-xsl source for referenced pngs
+	ln -s /usr/share/xml/docbook/stylesheet/docbook-xsl doc/html
+	dh_auto_build
+
+override_dh_auto_install:
+	dh_auto_install --no-parallel
+	$(MAKE) -C doc install-html DESTDIR=$(CURDIR)/debian/dia-common
+	# remove links in doc dir: en, fr, pl, eu, de
+	rm debian/tmp/usr/share/doc/dia/html/en/en
+	rm debian/tmp/usr/share/doc/dia/html/fr/fr
+	rm debian/tmp/usr/share/doc/dia/html/eu/eu
+	rm debian/tmp/usr/share/doc/dia/html/pl/pl
+	rm debian/tmp/usr/share/doc/dia/html/de/de
+
+override_dh_auto_clean:
+	dh_auto_clean
+	-find . -name 'Makefile.in' | xargs rm -f
+
+override_dh_compress:
+	dh_compress -X.dia -X.pdf
+
+override_dh_installcatalogs:
+	dh_installcatalogs
+	# Workaround as long as dh_installxmlcatalogs is not integrated in dh (#575770)
+	dh_installxmlcatalogs
+	# Workaround for #611418 leaving /etc/xml around
+	rm -rf debian/dia-common/etc

@@ -1,0 +1,78 @@
+Format: http://www.debian.org/doc/packaging-manuals/copyright-format/1.0/
+Upstream-Name: dia
+Source: https://wiki.gnome.org/Apps/Dia/Download
+
+Files: *
+Copyright: 1998-2000 Alexander Larsson
+ 1999-2001 James Henstridge
+ 1984-2002 Free Software Foundation, Inc.
+ 1995-1997 Peter Mattis, Spencer Kimball and Josh MacDonald
+ 1997 Juliusz Chroboczek
+ 1999 Tim Janik
+ 1999-2002 Lars R. Clausen
+ 1999-2000 Helix Code, Inc.
+ 2000-2002 Hans Breuer
+ 2000-2002 Cyrille Chepelov
+ 2000-2002 Steffen Macke
+ 2000 Henk Jan Priester
+ 2000 Jacek Pliszka
+ 2000 Stefan Seefeld
+ 2001 Chris Sperandio
+ 2001 Hubert Figuiere
+ 2001 Jose A Ortega Ruiz
+ 2002 Alejandro Sierra <asierra@servidor.unam.mx>
+ 2002 M.C. Nelson
+ 2003 Vadim Berezniker
+License: GPL-2
+
+Files: doc/*
+Copyright: 1998-2000 Alexander Larsson
+ 1999-2001 James Henstridge
+ 1984-2002 Free Software Foundation, Inc.
+ 1995-1997 Peter Mattis, Spencer Kimball and Josh MacDonald
+ 1997 Juliusz Chroboczek
+ 1999 Tim Janik
+ 1999-2002 Lars R. Clausen
+ 1999-2000 Helix Code, Inc.
+ 2000-2002 Hans Breuer
+ 2000-2002 Cyrille Chepelov
+ 2000-2002 Steffen Macke
+ 2000 Henk Jan Priester
+ 2000 Jacek Pliszka
+ 2000 Stefan Seefeld
+ 2001 Chris Sperandio
+ 2001 Hubert Figuiere
+ 2001 Jose A Ortega Ruiz
+ 2002 Alejandro Sierra <asierra@servidor.unam.mx>
+ 2002 M.C. Nelson
+ 2003 Vadim Berezniker
+License: GFDL-NIV-1.1+
+
+Files: debian/*
+Copyright: 1998-2003 Fredrik Hallenberg <hallon@debian.org>
+ 2003 Akira TAGOH <tagoh@debian.org>
+ 2004-2011 Roland Stigge <stigge@antcom.de>
+ 2016 W. Martin Borgert <debacle@debian.org>
+License: GPL-2
+
+License: GPL-2
+ You can redistribute this software and/or modify it under the terms of
+ the GNU General Public License as published by the Free Software
+ Foundation; version 2 dated June, 1991.
+ .
+ This program is distributed in the hope that it will be useful, but
+ WITHOUT ANY WARRANTY; without even the implied warranty of
+ MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
+ General Public License for more details.
+ .
+ On Debian systems, the complete text of the GNU General Public License
+ can be found in /usr/share/common-licenses/GPL-2 file.
+
+License: GFDL-NIV-1.1+
+ Permission is granted to copy, distribute and/or modify this document
+ under the terms of the GNU Free Documentation License, Version 1.1 or
+ any later version published by the Free Software Foundation; with no
+ Invariant Sections, no Front-Cover Texts, and no Back-Cover Texts.
+ .
+ On Debian systems, the complete text of the GNU Free Documentation
+ License version 1.1 can be found in "/usr/share/common-licenses/GFDL".

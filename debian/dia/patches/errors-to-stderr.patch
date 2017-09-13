@@ -1,0 +1,542 @@
+Description: Direct messages and errors to stdout
+ This patch directs messages and errors to stdout to enable
+ piping calls of dia, e.g. "dia -e /dev/stdout ... | ..."
+ by preventing other messages on stdout
+Author: Roland Stigge <stigge@antcom.de>
+Bug-Debian: http://bugs.debian.org/328904
+Bug: http://bugzilla.gnome.org/show_bug.cgi?id=113909
+
+--- dia-0.97.3.orig/lib/geometry.c
++++ dia-0.97.3/lib/geometry.c
+@@ -702,9 +702,9 @@ calculate_object_edge(Point *objmid, Point *end, DiaObject *obj)
+ #ifdef TRACE_DIST
+   if (i == MAXITER) {
+     for (i = 0; i < MAXITER; i++) {
+-      printf("%d: %f, %f: %f\n", i, trace[i].x, trace[i].y, disttrace[i]);
++      fprintf(stderr, "%d: %f, %f: %f\n", i, trace[i].x, trace[i].y, disttrace[i]);
+     }
+-    printf("i = %d, dist = %f\n", i, dist);
++    fprintf(stderr, "i = %d, dist = %f\n", i, dist);
+   }
+ #endif
+ 
+--- dia-0.97.3.orig/lib/arrows.c
++++ dia-0.97.3/lib/arrows.c
+@@ -2059,7 +2059,7 @@ arrow_type_from_name(const gchar *name)
+       return arrow_types[i].enum_value;
+     }
+   }
+-  printf("Unknown arrow type %s\n", name);
++  fprintf(stderr, "Unknown arrow type %s\n", name);
+   return 0;
+ }
+ 
+@@ -2078,7 +2078,7 @@ arrow_index_from_type(ArrowType atype)
+       return i;
+     }
+   }
+-  printf("Can't find arrow index for type %d\n", atype);
++  fprintf(stderr, "Can't find arrow index for type %d\n", atype);
+   return 0;
+ }
+ 
+--- dia-0.97.3.orig/lib/dia_svg.c
++++ dia-0.97.3/lib/dia_svg.c
+@@ -1080,7 +1080,7 @@ dia_svg_parse_path(GArray *points, const gchar *path_str, gchar **unparsed,
+   path_chomp(path);
+   while (path[0] != '\0') {
+ #ifdef DEBUG_CUSTOM
+-    g_print("Path: %s\n", path);
++    g_printerr("Path: %s\n", path);
+ #endif
+     /* check for a new command */
+     switch (path[0]) {
+--- dia-0.97.3.orig/lib/dialib.c
++++ dia-0.97.3/lib/dialib.c
+@@ -74,7 +74,7 @@ myXmlErrorReporting (void *ctx, const char* msg, ...)
+ 
+   va_start(args, msg);
+   string = g_strdup_vprintf (msg, args);
+-  g_print ("%s", string ? string : "xml error (null)?");
++  g_print("%s", string ? string : "xml error (null)?");
+   va_end(args);
+ 
+   g_free(string);
+--- dia-0.97.3.orig/lib/debug.c
++++ dia-0.97.3/lib/debug.c
+@@ -37,7 +37,7 @@ dia_assert_true(gboolean val, const gchar *format, ...)
+   va_list args;
+   if (!val) {
+     va_start(args, format);
+-    g_vprintf(format, args);
++    g_vfprintf(stderr, format, args);
+     va_end(args);
+   }
+   return val;
+--- dia-0.97.3.orig/lib/textline.c
++++ dia-0.97.3/lib/textline.c
+@@ -336,7 +336,7 @@ text_line_adjust_layout_line(TextLine *line, PangoLayoutLine *layoutline,
+   runs = line->layout_offsets->runs;
+ 
+   if (g_slist_length(runs) != g_slist_length(layoutruns)) {
+-    printf("Runs length error: %d != %d\n",
++    fprintf(stderr, "Runs length error: %d != %d\n",
+ 	   g_slist_length(line->layout_offsets->runs),
+ 	   g_slist_length(layoutline->runs));
+   }
+@@ -356,7 +356,7 @@ text_line_adjust_layout_line(TextLine *line, PangoLayoutLine *layoutline,
+ 	(int)(glyphs->glyphs[i].geometry.y_offset * scale / 20.0);
+     }
+     if (glyphs->num_glyphs != layoutglyphs->num_glyphs) {
+-      printf("Glyph length error: %d != %d\n", 
++      fprintf(stderr, "Glyph length error: %d != %d\n", 
+ 	     glyphs->num_glyphs, layoutglyphs->num_glyphs);
+     }
+   }
+--- dia-0.97.3.orig/plug-ins/python/pydia-error.c
++++ dia-0.97.3/plug-ins/python/pydia-error.c
+@@ -127,7 +127,7 @@ PyDiaError_Write(PyDiaError *self, PyObj
+   if (self->str)
+     g_string_append (self->str, s);
+ 
+-  g_print ("%s", s);
++  g_printerr("%s", s);
+ 
+   Py_INCREF(Py_None);
+   return Py_None;
+--- dia-0.97.3.orig/plug-ins/postscript/win32print.c
++++ dia-0.97.3/plug-ins/postscript/win32print.c
+@@ -52,7 +52,7 @@ PrintError (const char* s, DWORD err)
+                    MAKELANGID(LANG_NEUTRAL, SUBLANG_DEFAULT), 
+                    (char*)&lpBuffer,
+                    0,NULL);
+-    g_print ("%s : %s", s, lpBuffer);
++    g_printerr ("%s : %s", s, lpBuffer);
+ 		LocalFree (lpBuffer);
+   }
+ }
+@@ -86,7 +86,7 @@ win32_printer_open (char* sName)
+                     &hPrinter,
+                     NULL))
+   {
+-    g_print ("Failed to open printer : %s\n", sName);
++    g_printerr ("Failed to open printer : %s\n", sName);
+     return NULL;
+   }
+ 
+--- dia-0.97.3.orig/plug-ins/dxf/dxf-import.c
++++ dia-0.97.3/plug-ins/dxf/dxf-import.c
+@@ -541,7 +541,7 @@ read_entity_polyline_dxf(FILE *filedxf, DxfData *data, DiagramData *dia)
+    
+     if( points == 0 )
+     {
+-        printf( "No vertexes defined\n" );
++        fprintf(stderr,  "No vertexes defined\n" );
+         return( NULL );
+     }
+    
+@@ -1315,7 +1315,7 @@ import_dxf(const gchar *filename, DiagramData *dia, DiaContext *ctx, void* user_
+                 } else if(strcmp(data->value, "EOF") == 0) {
+ 		  /* handled below */
+ 		} else {
+-		  g_print ("DXF 0:%s not handled\n", data->value);
++		  g_printerr ("DXF 0:%s not handled\n", data->value);
+ 		}
+             } else if(data->code == 2) {
+                 if(strcmp(data->value, "ENTITIES") == 0) {
+--- dia-0.97.3.orig/plug-ins/xfig/xfig-import.c
++++ dia-0.97.3/plug-ins/xfig/xfig-import.c
+@@ -330,11 +330,11 @@ fig_fix_text(gchar *text) {
+ 	converted = g_convert(text, strlen(text), "UTF-8", "ISO-8859-1",
+ 			      NULL, NULL, &err);
+ 	if (err != NULL) {
+-	    printf("Error converting %s: %s\n", text, err->message);
++	    fprintf(stderr, "Error converting %s: %s\n", text, err->message);
+ 	    return text;
+ 	}
+ 	if (!g_utf8_validate(converted, -1, NULL)) {
+-	    printf("Fails to validate %s\n", converted);
++	    fprintf(stderr, "Fails to validate %s\n", converted);
+ 	    return text;
+ 	}
+ 	if (text != converted) g_free(text);
+--- dia-0.97.3.orig/tests/test-objects.c
++++ dia-0.97.3/tests/test-objects.c
+@@ -88,7 +88,7 @@ _test_creation (gconstpointer user_data)
+       else if (strcmp (prop->descr->type, PROP_TYPE_STATIC) == 0)
+ 	++num_used; /* also not to be set */
+       else
+-	g_print ("Not set '%s'\n", prop->descr->name);
++	g_printerr ("Not set '%s'\n", prop->descr->name);
+     }
+     g_assert_cmpint (num_used, ==, num_described);
+ 
+@@ -315,7 +315,7 @@ _test_change (gconstpointer user_data)
+       /* maybe we should do something interesting first? */
+       _object_change_free(change);
+     } else {
+-      g_print ("'%s' - no undo?\n", o->type->name);
++      g_printerr ("'%s' - no undo?\n", o->type->name);
+     }
+   }
+   /* finally */
+@@ -469,7 +469,7 @@ _test_connectionpoint_consistency (gconstpointer user_data)
+         ++start_end;
+     }
+     if (start_end < 2 && o->num_connections > 0)
+-      g_print ("'%s' with no directions\n", type->name);
++      g_printerr ("'%s' with no directions\n", type->name);
+     return;
+   }
+ 
+@@ -509,7 +509,7 @@ _test_connectionpoint_consistency (gconstpointer user_data)
+           || strcmp (type->name, "Civil - Final-Settling Basin") == 0
+           || strcmp (type->name, "Small Extension Node") == 0 /* MSE */
+          )
+-        g_print ("'%s' main-cp misplaced!\n", type->name);
++        g_printerr ("'%s' main-cp misplaced!\n", type->name);
+       else
+         g_assert (o->ops->distance_from (o, &cp->pos) == 0 && "within");
+       continue;
+@@ -580,7 +580,7 @@ _test_connectionpoint_consistency (gconstpointer user_data)
+     /* generate exception list - after all it is legal to have CPs out of bounds */
+     if (   o->ops->distance_from (o, &cp->pos) >= 0.01
+         && distance_rectangle_point (&o->bounding_box, &cp->pos) >= 0.01) {
+-      g_print ("        || strcmp (type->name, \"%s\") == 0\n", type->name);
++      g_printerr ("        || strcmp (type->name, \"%s\") == 0\n", type->name);
+       break;
+     }
+ #endif
+@@ -688,8 +688,8 @@ _test_draw (gconstpointer user_data)
+ 	  ov = MAX(ov, fabs (obb->right - pbb->right));
+ 	  ov = MAX(ov, fabs (obb->bottom - pbb->bottom));
+ 	  if (ov >= epsilon)
+-	    g_print ("\t  else if (strcmp (type->name, \"%s\") == 0)\n"
+-		     "\t    epsilon = %.2g;\n", type->name, ov + 0.01);
++	    g_printerr ("\t  else if (strcmp (type->name, \"%s\") == 0)\n"
++		        "\t    epsilon = %.2g;\n", type->name, ov + 0.01);
+ #else
+ 	  /* drawing _outside_ of objects's bounding box */
+ 	  if (strcmp (type->name, "T-Junction") == 0)
+@@ -1099,7 +1099,7 @@ main (int argc, char** argv)
+   object_registry_foreach (_ot_item, "/Dia/Objects");
+ 
+   ret = g_test_run ();
+-  g_print ("%d objects.\n", num_objects);
++  g_printerr ("%d objects.\n", num_objects);
+ 
+   return ret;
+ }
+--- dia-0.97.3.orig/app/interface.c
++++ dia-0.97.3/app/interface.c
+@@ -373,7 +373,7 @@ canvas_configure_event (GtkWidget         *widget,
+ 
+   /* Only do this when size is really changing */
+   if (width != cevent->width || height != cevent->height) {
+-    g_print ("Canvas size change...\n");
++    g_printerr ("Canvas size change...\n");
+     ddisplay_resize_canvas (ddisp, cevent->width, cevent->height);
+     ddisplay_update_scrollbars(ddisp);
+     /* on resize stop further propagation - does not help */
+--- dia-0.97.3.orig/app/diagram.c
++++ dia-0.97.3/app/diagram.c
+@@ -1194,7 +1194,7 @@ void diagram_unparent_children_selected(Diagram *dia)
+       (change->apply)(change, dia);
+     }
+     if (obj->children != NULL)
+-      printf("Obj still has %d children\n",
++      fprintf(stderr, "Obj still has %d children\n",
+ 	     g_list_length(obj->children));
+   }
+   if (any_unparented) {
+--- dia-0.97.3.orig/app/undo.c
++++ dia-0.97.3/app/undo.c
+@@ -29,7 +29,7 @@
+ #include "parent.h"
+ 
+ #if 0
+-#define DEBUG_PRINTF(args) printf args
++#define DEBUG_PRINTF(args) { char *tmps = g_strdup_printf args ; fprintf(stderr, tmps); g_free(tmps); }
+ #else
+ #define DEBUG_PRINTF(args)
+ #endif
+--- dia-0.97.3.orig/app/modify_tool.c
++++ dia-0.97.3/app/modify_tool.c
+@@ -111,7 +111,7 @@ gdk_event_to_dia_ModifierKeys(guint event_state)
+ 
+   if (last_state != event_state) {
+     last_state = event_state;
+-    g_print ("%s%s%s,M%s%s%s%s%s,B%s%s%s%s%s,%s%s%s\n",
++    g_printerr ("%s%s%s,M%s%s%s%s%s,B%s%s%s%s%s,%s%s%s\n",
+ 	     event_state & GDK_SHIFT_MASK ? "Sh" : "  ",
+ 	     event_state & GDK_LOCK_MASK ? "Lo" : "  ",
+ 	     event_state & GDK_CONTROL_MASK ? "Co" : "  ",
+--- dia-0.97.3.orig/app/load_save.c
++++ dia-0.97.3/app/load_save.c
+@@ -1174,7 +1174,7 @@ diagram_cleanup_autosave(Diagram *dia)
+   savefile = dia->autosavefilename;
+   if (savefile == NULL) return;
+ #ifdef TRACES
+-  g_print("Cleaning up autosave %s for %s\n", 
++  g_printerr("Cleaning up autosave %s for %s\n",
+           savefile, dia->filename ? dia->filename : "<no name>");
+ #endif
+   if (g_stat(savefile, &statbuf) == 0) { /* Success */
+--- dia-0.97.3.orig/app/display.c
++++ dia-0.97.3/app/display.c
+@@ -620,7 +620,7 @@ ddisplay_render_pixmap(DDisplay *ddisp, Rectangle *update)
+ #endif
+   
+   if (ddisp->renderer==NULL) {
+-    printf("ERROR! Renderer was NULL!!\n");
++    fprintf(stderr, "ERROR! Renderer was NULL!!\n");
+     return;
+   }
+ 
+@@ -654,7 +654,7 @@ ddisplay_render_pixmap(DDisplay *ddisp, Rectangle *update)
+   data_render(ddisp->diagram->data, ddisp->renderer, update,
+ 	      ddisplay_obj_render, (gpointer) ddisp);
+ #ifdef TRACES
+-  g_print ("data_render(%g%%) took %g seconds\n", ddisp->zoom_factor * 5.0, g_timer_elapsed (timer, NULL));
++  g_printerr ("data_render(%g%%) took %g seconds\n", ddisp->zoom_factor * 5.0, g_timer_elapsed (timer, NULL));
+   g_timer_destroy (timer);
+ #endif
+   /* Draw handles for all selected objects */
+--- dia-0.97.3.orig/app/app_procs.c
++++ dia-0.97.3/app/app_procs.c
+@@ -206,7 +206,7 @@ show_layers_parse_numbers(DiagramData *diagdata, gboolean *visible_layers, gint
+ 
+   if ( high <= low ) {
+     /* This is not an errror */
+-    g_print(_("Warning: invalid layer range %lu - %lu\n"), low, high-1 );
++    g_printerr(_("Warning: invalid layer range %lu - %lu\n"), low, high-1 );
+     return;
+   }
+   if (high > n_layers)
+@@ -218,7 +218,7 @@ show_layers_parse_numbers(DiagramData *diagdata, gboolean *visible_layers, gint
+       Layer *lay = (Layer *)g_ptr_array_index(diagdata->layers, i);
+ 
+       if (visible_layers[i] == TRUE)
+-	g_print(_("Warning: Layer %lu (%s) selected more than once.\n"), i, lay->name);
++	g_printerr(_("Warning: Layer %lu (%s) selected more than once.\n"), i, lay->name);
+       visible_layers[i] = TRUE;
+     }
+ }
+@@ -244,7 +244,7 @@ show_layers_parse_word(DiagramData *diagdata, gboolean *visible_layers, gint n_l
+ 	      && ((p[len] == 0) || (p[len] == ','))){
+ 	    found = TRUE;
+ 	    if (visible_layers[k] == TRUE)
+-	      g_print(_("Warning: Layer %d (%s) selected more than once.\n"), k, lay->name);
++	      g_printerr(_("Warning: Layer %d (%s) selected more than once.\n"), k, lay->name);
+ 	    visible_layers[k] = TRUE;
+ 	  }
+ 	}
+@@ -253,7 +253,7 @@ show_layers_parse_word(DiagramData *diagdata, gboolean *visible_layers, gint n_l
+   }
+ 
+   if (found == FALSE)
+-    g_print(_("Warning: There is no layer named %s.\n"), str);
++    g_printerr(_("Warning: There is no layer named %s.\n"), str);
+ }
+ 
+ static void
+@@ -381,7 +381,7 @@ do_convert(const char *infname,
+   }
+   else
+     ef->export_func(diagdata, ctx, outfname, infname, ef->user_data);
+-  /* if (!quiet) */ fprintf(stdout,
++  /* if (!quiet) */ fprintf(stderr,
+                       _("%s --> %s\n"),
+                         infname,outfname);
+   g_object_unref(diagdata);
+@@ -500,7 +500,7 @@ dump_dependencies(void)
+     if ((len = readlink (PREFIX "/lib/libpango-1.0.so", linkedname, 1023)) > 0) {
+       /* man 2 readlink : does not append a  NUL  character */
+       linkedname[len] = '\0';
+-      g_print ("%s/%s\n", PREFIX, linkedname);
++      g_printerr ("%s/%s\n", PREFIX, linkedname);
+     }
+   }
+ #endif
+@@ -758,10 +758,10 @@ app_init (int argc, char **argv)
+ 
+     if (!g_option_context_parse (context, &argc, &argv, &error)) {
+       if (error) { /* IMO !error here is a bug upstream, triggered e.g. with --gdk-debug=updates */
+-	g_print ("%s", error->message);
++	g_printerr ("%s", error->message);
+ 	g_error_free (error);
+       } else {
+-	g_print (_("Invalid option?"));
++	g_printerr (_("Invalid option?"));
+       }
+ 
+       g_option_context_free(context);
+@@ -784,7 +784,7 @@ app_init (int argc, char **argv)
+ 	  filename = g_filename_to_utf8 (filenames[i], -1, NULL, NULL, NULL);
+ 
+ 	if (!filename) {
+-	  g_print (_("Filename conversion failed: %s\n"), filenames[i]);
++	  g_printerr (_("Filename conversion failed: %s\n"), filenames[i]);
+ 	  continue;
+ 	}
+ 
+@@ -797,7 +797,7 @@ app_init (int argc, char **argv)
+ 	if (g_file_test (testpath, G_FILE_TEST_IS_REGULAR))
+ 	  files = g_slist_append(files, filename);
+ 	else {
+-	  g_print (_("Missing input: %s\n"), filename);
++	  g_printerr (_("Missing input: %s\n"), filename);
+ 	  g_free (filename);
+ 	}
+ 	if (filename != testpath)
+--- dia-0.97.3.orig/app/layer_dialog.c
++++ dia-0.97.3/app/layer_dialog.c
+@@ -1451,7 +1451,7 @@ layer_visibility_change_revert(struct LayerVisibilityChange *change,
+   }
+ 
+   if (vis != NULL || i < layers->len) {
+-    printf("Internal error: visibility undo has %d visibilities, but %d layers\n",
++    fprintf(stderr, "Internal error: visibility undo has %d visibilities, but %d layers\n",
+ 	   g_list_length(change->original_visibility), layers->len);
+   }
+ 
+--- dia-0.97.3.orig/objects/standard/arc.c
++++ dia-0.97.3/objects/standard/arc.c
+@@ -366,9 +366,9 @@ arc_move_handle(Arc *arc, Handle *handle,
+   }
+ 
+   if (handle->id == HANDLE_MIDDLE) {
+-          TRACE(printf("curve_dist: %.2f \n",arc->curve_distance));
++          TRACE(fprintf(stderr, "curve_dist: %.2f \n",arc->curve_distance));
+           arc->curve_distance = arc_compute_curve_distance(arc, &arc->connection.endpoints[0], &arc->connection.endpoints[1], to);
+-          TRACE(printf("curve_dist: %.2f \n",arc->curve_distance));
++          TRACE(fprintf(stderr, "curve_dist: %.2f \n",arc->curve_distance));
+   } else if (handle->id == HANDLE_CENTER) {
+           /* We can move the handle only on the line through center and middle
+ 	   * Intersecting chord theorem says a*a=b*c
+@@ -394,11 +394,11 @@ arc_move_handle(Arc *arc, Handle *handle,
+ 	  arc->curve_distance = (arc->curve_distance > 0) ? cd : -cd;
+   } else {
+         Point best;
+-        TRACE(printf("Modifiers: %d \n",modifiers));
++        TRACE(fprintf(stderr, "Modifiers: %d \n",modifiers));
+         if (modifiers & MODIFIER_SHIFT)
+         /* if(arc->end_arrow.type == ARROW_NONE)*/
+         {
+-          TRACE(printf("SHIFT USED, to at %.2f %.2f  ",to->x,to->y));
++          TRACE(fprintf(stderr, "SHIFT USED, to at %.2f %.2f  ",to->x,to->y));
+           if (arc_find_radial(arc, to, &best)){
+             /* needs to move two handles at the same time 
+              * compute pos of middle handle */
+@@ -414,10 +414,10 @@ arc_move_handle(Arc *arc, Handle *handle,
+             connection_adjust_for_autogap(&arc->connection);
+             /* recompute curve distance equiv. move middle handle */
+             arc->curve_distance = arc_compute_curve_distance(arc, &arc->connection.endpoints[0], &arc->connection.endpoints[1], &midpoint);
+-            TRACE(printf("curve_dist: %.2f \n",arc->curve_distance));
++            TRACE(fprintf(stderr, "curve_dist: %.2f \n",arc->curve_distance));
+           }
+           else {
+-            TRACE(printf("NO best\n"));
++            TRACE(fprintf(stderr, "NO best\n"));
+           }
+        } else {
+           connection_move_handle(&arc->connection, handle->id, to, cp, reason, modifiers);
+@@ -466,21 +466,21 @@ arc_compute_midpoint(Arc *arc, const Point * ep0, const Point * ep1 , Point * mi
+                     return 0;
+             }
+             if (angle < -1 * M_PI){
+-                    TRACE(printf("angle: %.2f ",angle));
++                    TRACE(fprintf(stderr, "angle: %.2f ",angle));
+                     angle += 2*M_PI;
+-                    TRACE(printf("angle: %.2f ",angle));
++                    TRACE(fprintf(stderr, "angle: %.2f ",angle));
+             }
+             if (angle > 1 * M_PI){
+-                    TRACE(printf("angle: %.2f ",angle));
++                    TRACE(fprintf(stderr, "angle: %.2f ",angle));
+                     angle -= 2*M_PI;
+-                    TRACE(printf("angle: %.2f ",angle));
++                    TRACE(fprintf(stderr, "angle: %.2f ",angle));
+             }
+ 
+             midpos = arc->middle_handle.pos;
+             /*rotate middle handle by half the angle */
+-            TRACE(printf("\nmidpos before: %.2f %.2f \n",midpos.x, midpos.y));
++            TRACE(fprintf(stderr, "\nmidpos before: %.2f %.2f \n",midpos.x, midpos.y));
+             rotate_point_around_point(&midpos, &arc->center, angle/2); 
+-            TRACE(printf("\nmidpos after : %.2f %.2f \n",midpos.x, midpos.y));
++            TRACE(fprintf(stderr, "\nmidpos after : %.2f %.2f \n",midpos.x, midpos.y));
+             *midpoint = midpos;
+             return 1;
+ }
+@@ -615,7 +615,7 @@ arc_draw(Arc *arc, DiaRenderer *renderer)
+   
+   /* Special case when almost line: */
+   if (arc_is_line (arc)) {
+-          TRACE(printf("drawing like a line\n")); 
++          TRACE(fprintf(stderr, "drawing like a line\n"));
+     renderer_ops->draw_line_with_arrows(renderer,
+ 					 &gaptmp[0], &gaptmp[1],
+ 					 arc->line_width,
+--- dia-0.97.3.orig/objects/chronogram/chronoline_event.c
++++ dia-0.97.3/objects/chronogram/chronoline_event.c
+@@ -75,7 +75,7 @@ static void dump_parsed_clelist(CLEventList *clel)
+   int i = 0;
+   const char *s = NULL;
+ 
+-  printf("ChronoLine Event List dump follows:\n");
++  fprintf(stderr, "ChronoLine Event List dump follows:\n");
+   while (clel) {
+     CLEvent *evt = (CLEvent *)(clel->data);
+     switch (evt->type) {
+@@ -86,11 +86,11 @@ static void dump_parsed_clelist(CLEventList *clel)
+     default:
+       g_assert_not_reached();
+     }
+-    printf("%3d  t=%7.3f %s\n",i++,evt->time,s);
++    fprintf(stderr, "%3d  t=%7.3f %s\n",i++,evt->time,s);
+     
+     clel = g_slist_next(clel);
+   }
+-  printf("ChronoLine Event List dump finished.\n");
++  fprintf(stderr, "ChronoLine Event List dump finished.\n");
+ }
+ 
+ #endif
+--- dia-0.97.3.orig/objects/custom/shape_typeinfo.c
++++ dia-0.97.3/objects/custom/shape_typeinfo.c
+@@ -159,9 +159,9 @@ _error (void *ctx,
+   if (READ_DONE == context->state)
+     return; /* we are ready, not interested in further complains */
+   va_start(args, msg);
+-  g_print ("Error: %s\n", context->si->filename);
+-  g_vprintf (msg, args);
+-  g_print ("\n");
++  g_printerr ("Error: %s\n", context->si->filename);
++  g_vfprintf(stderr, msg, args);
++  g_printerr ("\n");
+   va_end(args);
+ }
+ 
+@@ -178,9 +178,9 @@ _warning (void *ctx,
+   if (READ_DONE == context->state)
+     return; /* we are ready, not interested in further complains */
+   va_start(args, msg);
+-  g_print ("Warning: %s\n", context->si->filename);
+-  g_vprintf (msg, args);
+-  g_print ("\n");
++  g_printerr ("Warning: %s\n", context->si->filename);
++  g_vfprintf(stderr, msg, args);
++  g_printerr ("\n");
+   va_end(args);
+ }
+ 
+@@ -235,7 +235,7 @@ shape_typeinfo_load (ShapeInfo* info)
+     }
+     return TRUE;
+   } else {
+-    g_print ("Preloading shape file '%s' failed.\n"
++    g_printerr ("Preloading shape file '%s' failed.\n"
+              "Please ensure that <name/> and <icon/> are early in the file.\n",
+              info->filename);
+   }

@@ -1,0 +1,80 @@
+Source: dia
+Section: graphics
+Priority: optional
+Maintainer: Debian QA Group <packages@qa.debian.org>
+Standards-Version: 3.9.8
+Build-Depends: autoconf,
+	automake,
+	dblatex,
+	debhelper (>= 9),
+	dh-python,
+	docbook-xml,
+	docbook-xsl,
+	intltool,
+	libart-2.0-dev,
+	libfreetype6-dev,
+	libglib2.0-dev,
+	libgtk2.0-dev,
+	libpango1.0-dev,
+	libpng-dev,
+	libpopt-dev,
+	libtool,
+	libxml-parser-perl,
+	libxml2-dev,
+	libxslt1-dev,
+	python-dev,
+	python-gtk2,
+	texlive-lang-cyrillic,
+	texlive-lang-french,
+	texlive-lang-german,
+	xml-core,
+	xsltproc
+Build-Conflicts: autoconf2.13,
+	dia-shapes
+Vcs-Git: https://anonscm.debian.org/git/collab-maint/dia.git
+Vcs-Browser: https://anonscm.debian.org/cgit/collab-maint/dia.git
+Homepage: https://wiki.gnome.org/Apps/Dia/
+
+Package: dia-common
+Architecture: all
+Depends: ${shlibs:Depends}, ${misc:Depends}, ${python:Depends}, python-gtk2
+Recommends: dia
+Description: Diagram editor (common files)
+ Dia is an editor for diagrams, graphs, charts etc. There is support for UML
+ static structure diagrams (class diagrams), Entity-Relationship diagrams,
+ network diagrams and much more. Diagrams can be exported to postscript and
+ many other formats.
+ .
+ This package contains the architecture independent files.
+
+Package: dia-libs
+Architecture: all
+Depends: dia (>= ${source:Version}), ${misc:Depends}
+Section: oldlibs
+Priority: extra
+Description: transitional dummy package
+ This transitional package allows one to migrate from dia-libs to dia.
+ .
+ It can be safely removed after the upgrade.
+
+Package: dia
+Architecture: any
+Depends: ${shlibs:Depends}, ${misc:Depends}, dia-common (=${source:Version})
+Recommends: gsfonts-x11, dia-shapes
+Breaks: dia-libs (<< 0.97.3+git20160904-1~)
+Replaces: dia-libs (<< 0.97.3+git20160904-1~)
+Description: Diagram editor
+ Dia is an editor for diagrams, graphs, charts etc. There is support for UML
+ static structure diagrams (class diagrams), Entity-Relationship diagrams,
+ network diagrams and much more. Diagrams can be exported to postscript and
+ many other formats.
+
+Package: dia-gnome
+Architecture: all
+Depends: dia (>= ${source:Version}), ${misc:Depends}
+Section: oldlibs
+Priority: extra
+Description: transitional dummy package
+ This transitional package allows one to migrate from dia-gnome to dia.
+ .
+ It can be safely removed after the upgrade.

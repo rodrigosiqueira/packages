@@ -1,0 +1,11 @@
+fix-doc.patch
+fix-helpdir.patch
+fix-psdoc.patch
+fix-manpages.patch
+fix-makefile.patch
+add-thumbnailer.patch
+remove-backup-files.patch
+remove-dtds-from-examples.patch
+errors-to-stderr.patch
+fix-cast-warnings.patch
+fix-fr-po.patch

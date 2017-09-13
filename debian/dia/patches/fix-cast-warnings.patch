@@ -1,0 +1,27 @@
+Description: Fix cast warnings
+ This patch fixes some casting warnings that come up in the
+ Debian build process.
+Author: Roland Stigge <stigge@antcom.de>
+
+--- dia-0.97.2.orig/app/layer_dialog.c
++++ dia-0.97.2/app/layer_dialog.c
+@@ -1484,7 +1484,7 @@ undo_layer_visibility(Diagram *dia, Laye
+ 
+   for (i = 0; i < layers->len; i++) {
+     Layer *temp_layer = (Layer *) g_ptr_array_index(layers, i);
+-    visibilities = g_list_append(visibilities, (gpointer)temp_layer->visible);
++    visibilities = g_list_append(visibilities, (gpointer)(intptr_t)temp_layer->visible);
+   }
+ 
+   change->original_visibility = visibilities;
+--- dia-0.97.2.orig/app/menus.c
++++ dia-0.97.2/app/menus.c
+@@ -1230,7 +1230,7 @@ menus_set_recent (GtkActionGroup *actions)
+     const gchar* aname = gtk_action_get_name (GTK_ACTION (list->data));
+ 
+     id = gtk_ui_manager_new_merge_id (_ui_manager);
+-    recent_merge_ids = g_slist_prepend (recent_merge_ids, (gpointer) id);
++    recent_merge_ids = g_slist_prepend (recent_merge_ids, (gpointer)(intptr_t) id);
+ 
+     gtk_ui_manager_add_ui (_ui_manager, id, 
+                  recent_path, 
