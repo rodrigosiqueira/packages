@@ -1,3 +1,10 @@
+pdfrw (0.4-1) unstable; urgency=medium
+
+  * New upstream version
+  * Added "Multi-Arch: foreign" to python-pdfrw-doc
+
+ -- Rodrigo Siqueira <siqueira@ime.usp.br>  Thu, 21 Sep 2017 09:55:46 -0300
+
 pdfrw (0.3-1) unstable; urgency=medium
 
   * New maintainer (Closes: #738298)
