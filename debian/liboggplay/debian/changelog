@@ -1,4 +1,11 @@
-liboggplay (0.2.1~git20091227-3) UNRELEASED; urgency=medium
+liboggplay (0.2.1~git20091227-3.1) unstable; urgency=medium
+
+  * Marked liboggplay1 with Multi-Arch: same
+  * Marked liboggplay1-dev with Multi-Arch: same
+
+ -- Rodrigo Siqueira <siqueira@ime.usp.br>  Fri, 22 Sep 2017 10:48:45 -0300
+
+liboggplay (0.2.1~git20091227-3) unstable; urgency=medium
 
   * New maintainer (Closes: #791527)
   * Updated copyright to accomplish the machine-readable requirements

@@ -16,6 +16,7 @@ Testsuite: autopkgtest
 
 Package: liboggplay1
 Architecture: any
+Multi-Arch: same
 Depends: ${shlibs:Depends}, ${misc:Depends}
 Description: Library for playing OGG multimedia
  liboggplay was designed to allow drop-in playback of Xiph.Org media in an
@@ -26,6 +27,7 @@ Description: Library for playing OGG multimedia
 Package: liboggplay1-dev
 Section: libdevel
 Architecture: any
+Multi-Arch: same
 Depends: liboggplay1 (= ${binary:Version}), ${misc:Depends}, liboggz-dev
 Provides: liboggplay-dev
 Conflicts: liboggplay-dev
