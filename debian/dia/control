@@ -1,8 +1,8 @@
 Source: dia
 Section: graphics
 Priority: optional
-Maintainer: Debian QA Group <packages@qa.debian.org>
-Standards-Version: 3.9.8
+Maintainer: Rodrigo Siqueira <siqueira@ime.usp.br>
+Standards-Version: 4.1.1
 Build-Depends: autoconf,
 	automake,
 	dblatex,
@@ -51,7 +51,7 @@ Package: dia-libs
 Architecture: all
 Depends: dia (>= ${source:Version}), ${misc:Depends}
 Section: oldlibs
-Priority: extra
+Priority: optional
 Description: transitional dummy package
  This transitional package allows one to migrate from dia-libs to dia.
  .
@@ -73,7 +73,7 @@ Package: dia-gnome
 Architecture: all
 Depends: dia (>= ${source:Version}), ${misc:Depends}
 Section: oldlibs
-Priority: extra
+Priority: optional
 Description: transitional dummy package
  This transitional package allows one to migrate from dia-gnome to dia.
  .
