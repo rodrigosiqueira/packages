@@ -1,0 +1,13 @@
+sgml-base (1.26+nmu2) unstable; urgency=low
+
+  Starting with this release the SGML super catalog /etc/sgml/catalog will be
+  replaced with a symbolic link to /var/lib/sgml-base/supercatalog. The latter
+  file can be regenerated from the contents of the /etc/sgml directory including
+  all files ending in .cat using the new update-catalog --update-super option.
+  This call will be (dpkg) triggered by packages placing files in /etc/sgml. The
+  transition to this way of handling the super catalog will loose user changes to
+  /etc/sgml/catalog. Further overwriting of user changes will happen until all
+  packages using dh_installcatalogs are built with a fixed version of debhelper.
+  Sorry for the inconvenience.
+
+ -- Helmut Grohne <helmut@subdivi.de>  Mon, 30 Apr 2012 16:37:01 +0200
