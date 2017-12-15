@@ -6,6 +6,8 @@
 export DEB_LDFLAGS_MAINT_APPEND = -Wl,--as-needed
 export DEB_BUILD_MAINT_OPTIONS = hardening=+all
 
+DPKG_EXPORT_BUILDFLAGS = 1
+
 %:
 	dh $@ --parallel --with python2
 

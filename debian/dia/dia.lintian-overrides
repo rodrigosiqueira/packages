@@ -1,0 +1,4 @@
+## Childs is a name in this case
+dia: spelling-error-in-binary usr/bin/dia Childs Children
+## Allows to is right in this situation
+spelling-error-in-binary usr/lib/x86_64-linux-gnu/dia/libpython_plugin.so Allows to Allows one to
