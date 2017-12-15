@@ -9,3 +9,4 @@ remove-dtds-from-examples.patch
 errors-to-stderr.patch
 fix-cast-warnings.patch
 fix-fr-po.patch
+fix-code-messages-typo.patch

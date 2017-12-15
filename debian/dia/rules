@@ -3,6 +3,9 @@
 # Uncomment this to turn on verbose mode.
 #export DH_VERBOSE=1
 
+export DEB_LDFLAGS_MAINT_APPEND = -Wl,--as-needed
+export DEB_BUILD_MAINT_OPTIONS = hardening=+all
+
 %:
 	dh $@ --parallel --with python2
 
@@ -26,6 +29,10 @@ override_dh_auto_install:
 	rm debian/tmp/usr/share/doc/dia/html/eu/eu
 	rm debian/tmp/usr/share/doc/dia/html/pl/pl
 	rm debian/tmp/usr/share/doc/dia/html/de/de
+	rm -rf debian/tmp/usr/share/doc/dia/en/examples/
+	rm -rf debian/tmp/usr/share/doc/dia/eu/examples/
+	rm -rf debian/tmp/usr/share/doc/dia/fr/examples/
+	rm -rf debian/tmp/usr/share/doc/dia/pl/examples/
 
 override_dh_auto_clean:
 	dh_auto_clean
