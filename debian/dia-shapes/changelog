@@ -1,0 +1,67 @@
+dia-shapes (0.6.0-3) unstable; urgency=low
+
+  * QA upload, see #838633.
+  * Patch to add default-height to many shapes (Closes: #678097).
+
+ -- W. Martin Borgert <debacle@debian.org>  Sun, 25 Sep 2016 21:49:25 +0000
+
+dia-shapes (0.6.0-2) unstable; urgency=medium
+
+  * Moved to Git repo.
+  * Fixed some lintians.
+  * Bump standards version, no changes.
+  * Add clean override to allow building twice in a row.
+
+ -- W. Martin Borgert <debacle@debian.org>  Thu, 04 Aug 2016 22:08:53 +0000
+
+dia-shapes (0.6.0-1) unstable; urgency=low
+
+  * New upstream release.
+  * debian/control:
+    - Update list of available shapes in Description.
+    - Use debian mail address in Uploaders field.
+
+ -- Thomas Bechtold <toabctl@debian.org>  Sat, 14 Dec 2013 17:52:54 +0100
+
+dia-shapes (0.5.0-1) unstable; urgency=low
+
+  * New upstream release.
+
+ -- Thomas Bechtold <thomasbechtold@jpberlin.de>  Mon, 24 Jun 2013 15:19:48 +0200
+
+dia-shapes (0.4.0-1) unstable; urgency=low
+
+  * New upstream release.
+  * debian/control: Bump Standards-Version to 3.9.4.
+
+ -- Thomas Bechtold <thomasbechtold@jpberlin.de>  Thu, 23 May 2013 18:53:41 +0200
+
+dia-shapes (0.3.0-1) unstable; urgency=low
+
+  * new upstream release
+
+ -- Thomas Bechtold <thomasbechtold@jpberlin.de>  Sun, 03 Jun 2012 13:01:13 +0200
+
+dia-shapes (0.2.0-1) unstable; urgency=low
+
+  [ Thomas Bechtold ]
+  * new upstream release.
+  * add debian/watch file to track new releases.
+  * debian/control:
+    - bump Standard-Version to 3.9.3 .
+    - add intltool to Build-Depends.
+    - add Vcs-Svn and Vcs-Browser fields.
+  * debian/copyright: add missing License fields
+  * Fix typo (Closes: #656195)
+
+  [ Roland Stigge ]
+  * debian/control: Fixed list indentation
+  * debian/copyright: Fixed Copyright entries
+
+ -- Roland Stigge <stigge@antcom.de>  Thu, 24 May 2012 21:48:22 +0200
+
+dia-shapes (0.1) unstable; urgency=low
+
+  * Initial release. (Closes: #594475)
+
+ -- Thomas Bechtold <thomasbechtold@jpberlin.de>  Sun, 01 Jan 2012 13:48:28 +0100

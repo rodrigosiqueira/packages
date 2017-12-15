@@ -1,0 +1,566 @@
+Description: add default-height to many shapes
+Author: W. Martin Borgert <debacle@debian.org>
+Bug-Debian: https://bugs.debian.org/678097
+Last-Update: 2016-09-15
+---
+This patch header follows DEP-3: http://dep.debian.net/deps/dep3/
+--- a/shapes/Racks/equipment_10u.shape
++++ b/shapes/Racks/equipment_10u.shape
+@@ -8,6 +8,7 @@
+     <point x="2.413" y="2.2225"/>
+   </connections>
+   <aspectratio type="fixed"/>
++  <default-height>8.890cm</default-height>
+   <svg:svg width="4.826" height="4.4450">
+     <svg:rect x="0.0" y="0.0" width="4.826" height="4.4450" style="fill: default" />
+     <svg:line x1="0.15875" y1="0.0" x2="0.15875" y2="4.4450" style="fill: nofill; stroke-width: 0.001" />
+--- a/shapes/Racks/equipment_11u.shape
++++ b/shapes/Racks/equipment_11u.shape
+@@ -8,6 +8,7 @@
+     <point x="2.413" y="2.4447"/>
+   </connections>
+   <aspectratio type="fixed"/>
++  <default-height>9.779cm</default-height>
+   <svg:svg width="4.826" height="4.8895">
+     <svg:rect x="0.0" y="0.0" width="4.826" height="4.8895" style="fill: default" />
+     <svg:line x1="0.15875" y1="0.0" x2="0.15875" y2="4.8895" style="fill: nofill; stroke-width: 0.001" />
+--- a/shapes/Racks/equipment_12u.shape
++++ b/shapes/Racks/equipment_12u.shape
+@@ -8,6 +8,7 @@
+     <point x="2.413" y="2.6670"/>
+   </connections>
+   <aspectratio type="fixed"/>
++  <default-height>10.668cm</default-height>
+   <svg:svg width="4.826" height="5.3340">
+     <svg:rect x="0.0" y="0.0" width="4.826" height="5.3340" style="fill: default" />
+     <svg:line x1="0.15875" y1="0.0" x2="0.15875" y2="5.3340" style="fill: nofill; stroke-width: 0.001" />
+--- a/shapes/Racks/equipment_1u.shape
++++ b/shapes/Racks/equipment_1u.shape
+@@ -8,6 +8,7 @@
+     <point x="2.413" y="0.2223"/>
+   </connections>
+   <aspectratio type="fixed"/>
++  <default-height>0.889cm</default-height>
+   <svg:svg width="4.826" height="0.4445">
+     <svg:rect x="0.0" y="0.0" width="4.826" height="0.4445" style="fill: default" />
+     <svg:line x1="0.15875" y1="0.0" x2="0.15875" y2="0.4445" style="fill: nofill; stroke-width: 0.001" />
+--- a/shapes/Racks/equipment_2u.shape
++++ b/shapes/Racks/equipment_2u.shape
+@@ -8,6 +8,7 @@
+     <point x="2.413" y="0.4445"/>
+   </connections>
+   <aspectratio type="fixed"/>
++  <default-height>1.778cm</default-height>
+   <svg:svg width="4.826" height="0.889">
+     <svg:rect x="0.0" y="0.0" width="4.826" height="0.889" style="fill: default" />
+     <svg:line x1="0.15875" y1="0.0" x2="0.15875" y2="0.889" style="fill: nofill; stroke-width: 0.001" />
+--- a/shapes/Racks/equipment_3u.shape
++++ b/shapes/Racks/equipment_3u.shape
+@@ -8,6 +8,7 @@
+     <point x="2.413" y="0.6667"/>
+   </connections>
+   <aspectratio type="fixed"/>
++  <default-height>2.667cm</default-height>
+   <svg:svg width="4.826" height="1.3335">
+     <svg:rect x="0.0" y="0.0" width="4.826" height="1.3335" style="fill: default" />
+     <svg:line x1="0.15875" y1="0.0" x2="0.15875" y2="1.3335" style="fill: nofill; stroke-width: 0.001" />
+--- a/shapes/Racks/equipment_4u.shape
++++ b/shapes/Racks/equipment_4u.shape
+@@ -8,6 +8,7 @@
+     <point x="2.413" y="0.889"/>
+   </connections>
+   <aspectratio type="fixed"/>
++  <default-height>3.556cm</default-height>
+   <svg:svg width="4.826" height="1.778">
+     <svg:rect x="0.0" y="0.0" width="4.826" height="1.778" style="fill: default" />
+     <svg:line x1="0.15875" y1="0.0" x2="0.15875" y2="1.778" style="fill: nofill; stroke-width: 0.001" />
+--- a/shapes/Racks/equipment_5u.shape
++++ b/shapes/Racks/equipment_5u.shape
+@@ -8,6 +8,7 @@
+     <point x="2.413" y="1.1112"/>
+   </connections>
+   <aspectratio type="fixed"/>
++  <default-height>4.445cm</default-height>
+   <svg:svg width="4.826" height="2.2225">
+     <svg:rect x="0.0" y="0.0" width="4.826" height="2.2225" style="fill: default" />
+     <svg:line x1="0.15875" y1="0.0" x2="0.15875" y2="2.2225" style="fill: nofill; stroke-width: 0.001" />
+--- a/shapes/Racks/equipment_6u.shape
++++ b/shapes/Racks/equipment_6u.shape
+@@ -8,6 +8,7 @@
+     <point x="2.413" y="1.3335"/>
+   </connections>
+   <aspectratio type="fixed"/>
++  <default-height>5.334cm</default-height>
+   <svg:svg width="4.826" height="2.6670">
+     <svg:rect x="0.0" y="0.0" width="4.826" height="2.6670" style="fill: default" />
+     <svg:line x1="0.15875" y1="0.0" x2="0.15875" y2="2.6670" style="fill: nofill; stroke-width: 0.001" />
+--- a/shapes/Racks/equipment_7u.shape
++++ b/shapes/Racks/equipment_7u.shape
+@@ -8,6 +8,7 @@
+     <point x="2.413" y="1.5557"/>
+   </connections>
+   <aspectratio type="fixed"/>
++  <default-height>6.223cm</default-height>
+   <svg:svg width="4.826" height="3.1115">
+     <svg:rect x="0.0" y="0.0" width="4.826" height="3.1115" style="fill: default" />
+     <svg:line x1="0.15875" y1="0.0" x2="0.15875" y2="3.1115" style="fill: nofill; stroke-width: 0.001" />
+--- a/shapes/Racks/equipment_8u.shape
++++ b/shapes/Racks/equipment_8u.shape
+@@ -8,6 +8,7 @@
+     <point x="2.413" y="1.7780"/>
+   </connections>
+   <aspectratio type="fixed"/>
++  <default-height>7.112cm</default-height>
+   <svg:svg width="4.826" height="3.5560">
+     <svg:rect x="0.0" y="0.0" width="4.826" height="3.5560" style="fill: default" />
+     <svg:line x1="0.15875" y1="0.0" x2="0.15875" y2="3.5560" style="fill: nofill; stroke-width: 0.001" />
+--- a/shapes/Racks/equipment_9u.shape
++++ b/shapes/Racks/equipment_9u.shape
+@@ -8,6 +8,7 @@
+     <point x="2.413" y="2.0002"/>
+   </connections>
+   <aspectratio type="fixed"/>
++  <default-height>8.001cm</default-height>
+   <svg:svg width="4.826" height="4.0005">
+     <svg:rect x="0.0" y="0.0" width="4.826" height="4.0005" style="fill: default" />
+     <svg:line x1="0.15875" y1="0.0" x2="0.15875" y2="4.0005" style="fill: nofill; stroke-width: 0.001" />
+--- a/shapes/Racks/power_strip_bs_7.shape
++++ b/shapes/Racks/power_strip_bs_7.shape
+@@ -16,6 +16,7 @@
+     <point x="4.381550" y="0.2223"/>
+   </connections>
+   <aspectratio type="fixed"/>
++  <default-height>0.889cm</default-height>
+   <svg:svg width="6.0" height="20.0">
+     <svg:rect x="0.0" y="0.0" width="4.826" height="0.4445" style="fill: default" />
+     <svg:line x1="0.15875" y1="0.0" x2="0.15875" y2="0.4445" style="fill: nofill; stroke-width: 0.0" />
+--- a/shapes/Racks/power_strip_schuko_8.shape
++++ b/shapes/Racks/power_strip_schuko_8.shape
+@@ -17,6 +17,7 @@
+     <point x="4.381550" y="0.2223"/>
+   </connections>
+   <aspectratio type="fixed"/>
++  <default-height>0.889cm</default-height>
+   <svg:svg width="6.0" height="20.0">
+     <svg:rect x="0.0" y="0.0" width="4.826" height="0.4445" style="fill: default" />
+     <svg:line x1="0.15875" y1="0.0" x2="0.15875" y2="0.4445" style="fill: nofill; stroke-width: 0.0" />
+--- a/shapes/Racks/power_strip_ute_8.shape
++++ b/shapes/Racks/power_strip_ute_8.shape
+@@ -17,6 +17,7 @@
+     <point x="4.381550" y="0.2223"/>
+   </connections>
+   <aspectratio type="fixed"/>
++  <default-height>0.889cm</default-height>
+   <svg:svg width="6.0" height="20.0">
+     <svg:rect x="0.0" y="0.0" width="4.826" height="0.4445" style="fill: default" />
+     <svg:line x1="0.15875" y1="0.0" x2="0.15875" y2="0.4445" style="fill: nofill; stroke-width: 0.0" />
+--- a/shapes/Racks/rack_12u.shape
++++ b/shapes/Racks/rack_12u.shape
+@@ -7,6 +7,7 @@
+     <point x="0.0" y="0.0"/>
+   </connections>
+   <aspectratio type="fixed"/>
++  <default-height>11.737cm</default-height>
+   <svg:svg width="6.0" height="5.89">
+     <svg:rect x="0.0" y="0.0" width="6.0" height="5.89" style="fill: #ffffff" />
+     <svg:rect x="0.587" y="0.28" width="0.15875" height="5.334" style="fill: #d9e6e6; stroke-width: 0.001; stroke: #000000" />
+--- a/shapes/Racks/rack_16u.shape
++++ b/shapes/Racks/rack_16u.shape
+@@ -7,6 +7,7 @@
+     <point x="0.0" y="0.0"/>
+   </connections>
+   <aspectratio type="fixed"/>
++  <default-height>15.283cm</default-height>
+   <svg:svg width="6.0" height="7.67">
+     <svg:rect x="0.0" y="0.0" width="6.0" height="7.67" style="fill: #ffffff" />
+     <svg:rect x="0.587" y="0.28" width="0.15875" height="7.112" style="fill: #d9e6e6; stroke-width: 0.001; stroke: #000000" />
+--- a/shapes/Racks/rack_20u.shape
++++ b/shapes/Racks/rack_20u.shape
+@@ -7,6 +7,7 @@
+     <point x="0.0" y="0.0"/>
+   </connections>
+   <aspectratio type="fixed"/>
++  <default-height>18.879cm</default-height>
+   <svg:svg width="6.0" height="9.45">
+     <svg:rect x="0.0" y="0.0" width="6.0" height="9.45" style="fill: #ffffff" />
+     <svg:rect x="0.587" y="0.28" width="0.15875" height="8.89" style="fill: #d9e6e6; stroke-width: 0.001; stroke: #000000" />
+--- a/shapes/Racks/rack_38u.shape
++++ b/shapes/Racks/rack_38u.shape
+@@ -7,6 +7,7 @@
+     <point x="0.0" y="0.0"/>
+   </connections>
+   <aspectratio type="fixed"/>
++  <default-height>35.960cm</default-height>
+   <svg:svg width="6.0" height="18.0">
+     <svg:rect x="0.0" y="0.0" width="6.0" height="18.0" style="fill: #ffffff" />
+     <svg:rect x="0.587" y="0.449" width="0.15875" height="16.891" style="fill: #d9e6e6; stroke-width: 0.001; stroke: #000000" />
+--- a/shapes/Racks/rack_42u.shape
++++ b/shapes/Racks/rack_42u.shape
+@@ -7,6 +7,7 @@
+     <point x="0.0" y="0.0"/>
+   </connections>
+   <aspectratio type="fixed"/>
++  <default-height>40.005cm</default-height>
+   <svg:svg width="6.0" height="20.0">
+     <svg:rect x="0.0" y="0.0" width="6.0" height="20.0" style="fill: #ffffff" />
+     <svg:rect x="0.587" y="0.66" width="0.15875" height="18.67" style="fill: #d9e6e6; stroke-width: 0.001; stroke: #000000" />
+--- a/shapes/Racks/rack_label_anchors_42u.shape
++++ b/shapes/Racks/rack_label_anchors_42u.shape
+@@ -48,6 +48,7 @@
+     <point x="0.5" y="19.106750"/>
+   </connections>
+   <aspectratio type="fixed"/>
++  <default-height>37.338cm</default-height>
+   <svg:svg width="6.0" height="20.0">
+     <svg:line x1="0.2" y1="0.660000" x2="0.4" y2="0.660000" style="stroke-width: 0.0" />
+     <svg:line x1="0.2" y1="1.104500" x2="0.4" y2="1.104500" style="stroke-width: 0.0" />
+--- a/shapes/central_data_processing/CPD_rack_15.shape
++++ b/shapes/central_data_processing/CPD_rack_15.shape
+@@ -15,6 +15,7 @@
+     <point x="4.75" y="1" main="yes"/>
+   </connections>
+   <aspectratio type="fixed"/>
++  <default-height>16.891cm</default-height>
+   <svg:svg width="7" height="9.5">
+ <!-- Main -->
+     <svg:polygon style="fill: #4d4d4d" points="0,0 0.5,0 0.5,8 6.5,8 6.5,0 7,0 7,9 0,9 "/>
+--- a/shapes/central_data_processing/CPD_rack_32.shape
++++ b/shapes/central_data_processing/CPD_rack_32.shape
+@@ -15,6 +15,7 @@
+     <point x="3.5" y="1" main="yes"/>
+   </connections>
+   <aspectratio type="fixed"/>
++  <default-height>32.004cm</default-height>
+   <svg:svg width="7" height="18">
+ <!-- Main -->
+     <svg:polygon style="fill: #4d4d4d" points="0,0 0.5,0 0.5,16.5 6.5,16.5 6.5,0 7,0 7,17.5 0,17.5 "/>
+--- a/shapes/central_data_processing/CPD_rack_36.shape
++++ b/shapes/central_data_processing/CPD_rack_36.shape
+@@ -15,6 +15,7 @@
+     <point x="3.5" y="1" main="yes"/>
+   </connections>
+   <aspectratio type="fixed"/>
++  <default-height>35.560cm</default-height>
+   <svg:svg width="7" height="20">
+ <!-- Main -->
+     <svg:polygon style="fill: #4d4d4d" points="0,0 0.5,0 0.5,18.5 6.5,18.5 6.5,0 7,0 7,19.5 0,19.5 "/>
+--- a/shapes/central_data_processing/CPD_rack_42.shape
++++ b/shapes/central_data_processing/CPD_rack_42.shape
+@@ -15,6 +15,7 @@
+     <point x="3.5" y="1" main="yes"/>
+   </connections>
+   <aspectratio type="fixed"/>
++  <default-height>40.894cm</default-height>
+   <svg:svg width="7" height="23">
+ <!-- Main -->
+     <svg:polygon style="fill: #4d4d4d" points="0,0 0.5,0 0.5,21.5 6.5,21.5 6.5,0 7,0 7,22.5 0,22.5 "/>
+--- a/shapes/central_data_processing/CPD_rack_44.shape
++++ b/shapes/central_data_processing/CPD_rack_44.shape
+@@ -15,6 +15,7 @@
+     <point x="3.5" y="1" main="yes"/>
+   </connections>
+   <aspectratio type="fixed"/>
++  <default-height>42.672cm</default-height>
+   <svg:svg width="7" height="24">
+ <!-- Main -->
+     <svg:polygon style="fill: #4d4d4d" points="0,0 0.5,0 0.5,22.5 6.5,22.5 6.5,0 7,0 7,23.5 0,23.5 "/>
+--- a/shapes/central_data_processing/CPD_rack_5.shape
++++ b/shapes/central_data_processing/CPD_rack_5.shape
+@@ -15,6 +15,7 @@
+     <point x="1.75" y="1" main="yes"/>
+   </connections>
+   <aspectratio type="fixed"/>
++  <default-height>6.223cm</default-height>
+   <svg:svg width="7" height="3.5">
+ <!-- Main -->
+     <svg:polygon style="fill: #4d4d4d" points="0,0 0.5,0 0.5,3 6.5,3 6.5,0 7,0 7,3.5 0,3.5 "/>
+--- a/shapes/central_data_processing/CPD_rack_7.shape
++++ b/shapes/central_data_processing/CPD_rack_7.shape
+@@ -15,6 +15,7 @@
+     <point x="2.25" y="1" main="yes"/>
+   </connections>
+   <aspectratio type="fixed"/>
++  <default-height>8.001cm</default-height>
+   <svg:svg width="7" height="4.5">
+ <!-- Main -->
+     <svg:polygon style="fill: #4d4d4d" points="0,0 0.5,0 0.5,4 6.5,4 6.5,0 7,0 7,4.5 0,4.5 "/>
+--- a/shapes/central_data_processing/Litter.shape
++++ b/shapes/central_data_processing/Litter.shape
+@@ -13,6 +13,7 @@
+     <point x="6" y="0.5"/>
+   </connections>
+   <aspectratio type="fixed"/>
++  <default-height>0.889cm</default-height>
+   <svg:svg>
+ <!-- Main -->
+     <svg:polygon style="fill: #4d4d4d" points="0,0 6,0 6,0.5 5.8,0.5 5.7,0.3 0.3,0.3 0.2,0.5 0,0.5"/>
+--- a/shapes/central_data_processing/Modem.shape
++++ b/shapes/central_data_processing/Modem.shape
+@@ -14,6 +14,7 @@
+     <point x="2" y="0.5"/>
+   </connections>
+   <aspectratio type="fixed"/>
++  <default-height>2.667cm</default-height>
+   <svg:svg>
+ <!-- Main -->
+     <svg:rect style="fill: #a2acb5" x="0" y="0" width="2" height="0.5"/>
+--- a/shapes/central_data_processing/Organizador_Rack_1U.shape
++++ b/shapes/central_data_processing/Organizador_Rack_1U.shape
+@@ -71,6 +71,7 @@
+     <point x="3" y="0.25" main="yes"/>
+   </connections>
+   <aspectratio type="fixed"/>
++  <default-height>0.889cm</default-height>
+   <svg:svg>
+ <!-- Main -->
+     <svg:rect style="fill: #7b7b7b; stroke-width: 0; stroke: #000000" x="0" y="0" width="6" height="0.5"/>
+--- a/shapes/central_data_processing/Organizador_Rack_2U.shape
++++ b/shapes/central_data_processing/Organizador_Rack_2U.shape
+@@ -71,6 +71,7 @@
+     <point x="3" y="0.5" main="yes"/>
+   </connections>
+   <aspectratio type="fixed"/>
++  <default-height>1.778cm</default-height>
+   <svg:svg>
+ <!-- Main -->
+     <svg:rect style="fill: #7b7b7b; stroke-width: 0; stroke: #000000" x="0" y="0" width="6" height="1"/>
+--- a/shapes/central_data_processing/Organizer_Rack_1U.shape
++++ b/shapes/central_data_processing/Organizer_Rack_1U.shape
+@@ -71,6 +71,7 @@
+     <point x="3" y="0.25" main="yes"/>
+   </connections>
+   <aspectratio type="fixed"/>
++  <default-height>0.889cm</default-height>
+   <svg:svg>
+ <!-- Main -->
+     <svg:rect style="fill: #7b7b7b; stroke-width: 0; stroke: #000000" x="0" y="0" width="6" height="0.5"/>
+--- a/shapes/central_data_processing/Organizer_Rack_2U.shape
++++ b/shapes/central_data_processing/Organizer_Rack_2U.shape
+@@ -71,6 +71,7 @@
+     <point x="3" y="0.5" main="yes"/>
+   </connections>
+   <aspectratio type="fixed"/>
++  <default-height>1.778cm</default-height>
+   <svg:svg>
+ <!-- Main -->
+     <svg:rect style="fill: #7b7b7b; stroke-width: 0; stroke: #000000" x="0" y="0" width="6" height="1"/>
+--- a/shapes/central_data_processing/Path_Painel_24P.shape
++++ b/shapes/central_data_processing/Path_Painel_24P.shape
+@@ -41,6 +41,7 @@
+     <point x="6" y="0.5"/>
+   </connections>
+   <aspectratio type="fixed"/>
++  <default-height>0.889cm</default-height>
+   <svg:svg>
+ <!-- Main -->
+ 
+--- a/shapes/central_data_processing/Router.shape
++++ b/shapes/central_data_processing/Router.shape
+@@ -25,6 +25,7 @@
+     <point x="6" y="0.5"/>
+   </connections>
+   <aspectratio type="fixed"/>
++  <default-height>0.889cm</default-height>
+   <svg:svg>
+ <!-- Main -->
+     <svg:rect style="fill: #8695a2" x="0" y="0" width="6" height="0.5"/>
+--- a/shapes/central_data_processing/Server_Rack_1U.shape
++++ b/shapes/central_data_processing/Server_Rack_1U.shape
+@@ -14,6 +14,7 @@
+     <point x="3" y="0.25" main="yes"/>
+   </connections>
+   <aspectratio type="fixed"/>
++  <default-height>0.889cm</default-height>
+   <svg:svg>
+ <!-- Main -->
+     <svg:rect style="fill: #7b7b7b" x="0" y="0" width="6" height="0.5"/>
+--- a/shapes/central_data_processing/Server_Rack_2U.shape
++++ b/shapes/central_data_processing/Server_Rack_2U.shape
+@@ -14,6 +14,7 @@
+     <point x="3" y="0.5" main="yes"/>
+   </connections>
+   <aspectratio type="fixed"/>
++  <default-height>1.778cm</default-height>
+   <svg:svg>
+ <!-- Main -->
+     <svg:rect style="fill: #7b7b7b" x="0" y="0" width="6" height="1"/>
+--- a/shapes/central_data_processing/Server_Rack_2U_Slow.shape
++++ b/shapes/central_data_processing/Server_Rack_2U_Slow.shape
+@@ -14,6 +14,7 @@
+     <point x="3" y="0.5" main="yes"/>
+   </connections>
+   <aspectratio type="fixed"/>
++  <default-height>1.778cm</default-height>
+   <svg:svg>
+ <!-- Main -->
+     <svg:rect style="fill: #7b7b7b" x="0" y="0" width="6" height="1"/>
+--- a/shapes/central_data_processing/Server_Rack_2U_Very_Slow.shape
++++ b/shapes/central_data_processing/Server_Rack_2U_Very_Slow.shape
+@@ -14,6 +14,7 @@
+     <point x="3" y="0.5" main="yes"/>
+   </connections>
+   <aspectratio type="fixed"/>
++  <default-height>1.778cm</default-height>
+   <svg:svg>
+ <!-- Main -->
+     <svg:rect style="fill: #7b7b7b" x="0" y="0" width="6" height="1"/>
+--- a/shapes/central_data_processing/Server_Rack_3U.shape
++++ b/shapes/central_data_processing/Server_Rack_3U.shape
+@@ -14,6 +14,7 @@
+     <point x="3" y="0.75" main="yes"/>
+   </connections>
+   <aspectratio type="fixed"/>
++  <default-height>2.667cm</default-height>
+   <svg:svg>
+ <!-- Main -->
+     <svg:rect style="fill: #7b7b7b" x="0" y="0" width="6" height="1.5"/>
+--- a/shapes/central_data_processing/Server_Rack_3U_Slow_Density.shape
++++ b/shapes/central_data_processing/Server_Rack_3U_Slow_Density.shape
+@@ -14,6 +14,7 @@
+     <point x="3" y="0.75" main="yes"/>
+   </connections>
+   <aspectratio type="fixed"/>
++  <default-height>2.667cm</default-height>
+   <svg:svg>
+ <!-- Main -->
+     <svg:rect style="fill: #7b7b7b" x="0" y="0" width="6" height="1.5"/>
+--- a/shapes/central_data_processing/Server_Rack_4U.shape
++++ b/shapes/central_data_processing/Server_Rack_4U.shape
+@@ -14,6 +14,7 @@
+     <point x="3" y="1" main="yes"/>
+   </connections>
+   <aspectratio type="fixed"/>
++  <default-height>3.556cm</default-height>
+   <svg:svg>
+ <!-- Main -->
+     <svg:rect style="fill: #7b7b7b" x="0" y="0" width="6" height="2"/>
+--- a/shapes/central_data_processing/Server_Rack_4U_Right_Capacity.shape
++++ b/shapes/central_data_processing/Server_Rack_4U_Right_Capacity.shape
+@@ -14,6 +14,7 @@
+     <point x="3" y="1" main="yes"/>
+   </connections>
+   <aspectratio type="fixed"/>
++  <default-height>3.556cm</default-height>
+   <svg:svg>
+ <!-- Main -->
+     <svg:rect style="fill: #7b7b7b" x="0" y="0" width="6" height="2"/>
+--- a/shapes/central_data_processing/Server_Rack_4U_Slow_Capacity.shape
++++ b/shapes/central_data_processing/Server_Rack_4U_Slow_Capacity.shape
+@@ -14,6 +14,7 @@
+     <point x="3" y="1" main="yes"/>
+   </connections>
+   <aspectratio type="fixed"/>
++  <default-height>3.556cm</default-height>
+   <svg:svg>
+ <!-- Main -->
+     <svg:rect style="fill: #7b7b7b" x="0" y="0" width="6" height="2"/>
+--- a/shapes/central_data_processing/Server_Rack_4U_Very_Right_Capacity.shape
++++ b/shapes/central_data_processing/Server_Rack_4U_Very_Right_Capacity.shape
+@@ -14,6 +14,7 @@
+     <point x="3" y="1" main="yes"/>
+   </connections>
+   <aspectratio type="fixed"/>
++  <default-height>3.556cm</default-height>
+   <svg:svg>
+ <!-- Main -->
+     <svg:rect style="fill: #7b7b7b" x="0" y="0" width="6" height="2"/>
+--- a/shapes/central_data_processing/Server_Rack_5U.shape
++++ b/shapes/central_data_processing/Server_Rack_5U.shape
+@@ -14,6 +14,7 @@
+     <point x="3" y="1.25" main="yes"/>
+   </connections>
+   <aspectratio type="fixed"/>
++  <default-height>4.445cm</default-height>
+   <svg:svg>
+ <!-- Main -->
+     <svg:rect style="fill: #7b7b7b" x="0" y="0" width="6" height="2.5"/>
+--- a/shapes/central_data_processing/Server_Rack_5U_Right_Density.shape
++++ b/shapes/central_data_processing/Server_Rack_5U_Right_Density.shape
+@@ -14,6 +14,7 @@
+     <point x="3" y="1.25" main="yes"/>
+   </connections>
+   <aspectratio type="fixed"/>
++  <default-height>4.445cm</default-height>
+   <svg:svg>
+ <!-- Main -->
+     <svg:rect style="fill: #7b7b7b" x="0" y="0" width="6" height="2.5"/>
+--- a/shapes/central_data_processing/Storage_Rack_3U.shape
++++ b/shapes/central_data_processing/Storage_Rack_3U.shape
+@@ -14,6 +14,7 @@
+     <point x="3" y="0.75" main="yes"/>
+   </connections>
+   <aspectratio type="fixed"/>
++  <default-height>2.667cm</default-height>
+   <svg:svg>
+ <!-- Main -->
+     <svg:rect style="fill: #7b7b7b" x="0" y="0" width="6" height="1.5"/>
+--- a/shapes/central_data_processing/Storage_Rack_3U_SAN.shape
++++ b/shapes/central_data_processing/Storage_Rack_3U_SAN.shape
+@@ -14,6 +14,7 @@
+     <point x="3" y="0.75" main="yes"/>
+   </connections>
+   <aspectratio type="fixed"/>
++  <default-height>2.667cm</default-height>
+   <svg:svg>
+ <!-- Main -->
+     <svg:rect style="fill: #7b7b7b" x="0" y="0" width="6" height="1.5"/>
+--- a/shapes/central_data_processing/Switch_Rack_16P.shape
++++ b/shapes/central_data_processing/Switch_Rack_16P.shape
+@@ -39,6 +39,7 @@
+     <point x="6" y="0.5"/>
+   </connections>
+   <aspectratio type="fixed"/>
++  <default-height>0.889cm</default-height>
+   <svg:svg>
+ <!-- Main -->
+     <svg:rect style="fill: #8695a2" x="0" y="0" width="6" height="0.5"/>
+--- a/shapes/central_data_processing/Switch_Rack_24P.shape
++++ b/shapes/central_data_processing/Switch_Rack_24P.shape
+@@ -45,6 +45,7 @@
+     <point x="6" y="0.5"/>
+   </connections>
+   <aspectratio type="fixed"/>
++  <default-height>0.889cm</default-height>
+   <svg:svg>
+ <!-- Main -->
+     <svg:rect style="fill: #8695a2" x="0" y="0" width="6" height="0.5"/>
+--- a/shapes/central_data_processing/Switch_Rack_48P.shape
++++ b/shapes/central_data_processing/Switch_Rack_48P.shape
+@@ -71,6 +71,7 @@
+     <point x="6" y="0.5"/>
+   </connections>
+   <aspectratio type="fixed"/>
++  <default-height>0.889cm</default-height>
+   <svg:svg>
+ <!-- Main -->
+     <svg:rect style="fill: #8695a2" x="0" y="0" width="6" height="0.5"/>
+--- a/shapes/central_data_processing/Telephone_exchange.shape
++++ b/shapes/central_data_processing/Telephone_exchange.shape
+@@ -28,6 +28,7 @@
+     <point x="6" y="1"/>
+   </connections>
+   <aspectratio type="fixed"/>
++  <default-height>1.778cm</default-height>
+   <svg:svg>
+ <!-- Main -->
+     <svg:rect style="fill: #8695a2" x="0" y="0" width="6" height="1"/>
+--- a/shapes/central_data_processing/Voice_Painel_20P.shape
++++ b/shapes/central_data_processing/Voice_Painel_20P.shape
+@@ -39,6 +39,7 @@
+     <point x="6" y="0.5"/>
+   </connections>
+   <aspectratio type="fixed"/>
++  <default-height>0.889cm</default-height>
+   <svg:svg>
+ <!-- Main -->
+     <svg:rect style="fill: #393535" x="0" y="0" width="6" height="0.5"/>
+--- a/shapes/central_data_processing/Voice_Painel_50P.shape
++++ b/shapes/central_data_processing/Voice_Painel_50P.shape
+@@ -69,6 +69,7 @@
+     <point x="6" y="0.5"/>
+   </connections>
+   <aspectratio type="fixed"/>
++  <default-height>0.889cm</default-height>
+   <svg:svg>
+ <!-- Main -->
+     <svg:rect style="fill: #393535" x="0" y="0" width="6" height="0.5"/>

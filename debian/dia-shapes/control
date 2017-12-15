@@ -1,0 +1,40 @@
+Source: dia-shapes
+Section: graphics
+Priority: optional
+Maintainer: Debian QA Group <packages@qa.debian.org>
+Build-Depends: debhelper (>= 9), intltool (>= 0.35)
+Standards-Version: 3.9.8
+Homepage: http://dia-installer.de/shapes/
+Vcs-Git: git://anonscm.debian.org/collab-maint/dia-shapes.git
+Vcs-Browser: https://anonscm.debian.org/gitweb/?p=collab-maint/dia-shapes.git
+
+Package: dia-shapes
+Architecture: all
+Depends: ${misc:Depends}, dia
+Description: Diagram editor (additional shapes)
+ Dia is an editor for diagrams, graphs, charts etc. There is support for UML
+ static structure diagrams (class diagrams), Entity-Relationship diagrams,
+ network diagrams and much more. Diagrams can be exported to postscript and
+ many other formats.
+ .
+ This package provides additional shapes for Dia. Included shapes are
+  - Automata
+  - AUTOSAR
+  - Building site
+  - Central data processing
+  - CH-1 notation
+  - Chemistry lab
+  - Circuit 2
+  - CMOS
+  - Digital
+  - EPC
+  - Electric 2
+  - Electrical
+  - Electronic
+  - Gradient
+  - Living Systems Theory
+  - Optics
+  - Racks
+  - Renewable Energy
+  - Scenegraph
+  - Value Stream Mapping

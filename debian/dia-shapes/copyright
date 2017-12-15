@@ -1,0 +1,100 @@
+Format: http://www.debian.org/doc/packaging-manuals/copyright-format/1.0/
+Upstream-Name: Dia Shapes
+Upstream-Contact: Dia List <dia-list@gnome.org>
+Source: http://dia-installer.de/shapes/
+Comment:
+ This package was debianized by Thomas Bechtold <thomasbechtold@jpberlin.de>
+ on Sun,  1 Jan 2012 13:38:56 +0100.
+
+Files: *
+Copyright: 2012 Steffen Macke
+License: GPL-2
+
+Files: debian/*
+Copyright: 2012 Thomas Bechtold <thomasbechtold@jpberlin.de>
+License: GPL-2
+
+Files: building-site/*
+Copyright: 2012 Steffen Macke
+License: GPL-2
+
+Files: central-data-processing/*
+Copyright: 2012 Leonardo Oceano Marins
+License: GPL-2
+
+Files: ch-1/*
+Copyright: 2012 Mikhail Ulanov, Sergey Chernouhov
+License: GPL-2
+
+Files: chemistry-labs/*
+Copyright: 2012 Ryan Stewart
+License: GPL-2
+
+Files: circuit2/*
+Copyright: 2012 Terry Sturtevant
+License: GPL-2
+
+Files: cmos/*
+Copyright: 2012 Jason Klaus
+License: GPL-2
+
+Files: digital/*
+Copyright: 2012 Jason Klaus
+License: GPL-2
+
+Files: edpc/*
+Copyright: 2012 Steffen Macke
+License: GPL-2
+
+Files: electric2/*
+Copyright: 2012 Manoj Rawat
+License: GPL-2
+
+Files: electronic/*
+Copyright: 2012 Jarda Benkovsky
+License: GPL-2
+
+Files: gradient/*
+Copyright: 2012 Steffen Macke
+License: GPL-2
+
+Files: lst/*
+Copyright: 2012 Ian Smith
+License: GPL-2
+
+Files: optics/*
+Copyright: 2012 Johann Kellerman 
+License: GPL-2
+
+Files: racks/*
+Copyright: 2012 Jaroslav Benkovsky
+License: GPL-2
+
+Files: renewable-energy/*
+Copyright: 2012 W. Martin Borgert
+License: GPL-2
+
+Files: scenegraph/*
+Copyright: 2012 Alejandro Aguilar Sierra
+License: GPL-2
+
+Files: value-stream-mapping/*
+Copyright: 2012 Steffen Macke
+License: GPL-2
+
+License: GPL-2
+ This program is free software; you can redistribute it and/or modify it under
+ the terms of the GNU General Public License as published by the Free Software
+ Foundation; version 2 of the License, or (at Linus discretion) any later
+ version.
+ .
+ This program is distributed in the hope that it will be useful, but WITHOUT
+ ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS
+ FOR A PARTICULAR PURPOSE. See the GNU General Public License for more details.
+ .
+ You should have received a copy of the GNU General Public License along with
+ this program; if not, write to the Free Software Foundation, Inc., 51 Franklin
+ St, Fifth Floor, Boston, MA 02110-1301 USA
+ .
+ On Debian systems, the complete text of the GNU General Public License v2
+ (GPL) can be found in /usr/share/common-licenses/GPL-2.
