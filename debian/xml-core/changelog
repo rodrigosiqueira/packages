@@ -1,3 +1,11 @@
+xml-core (0.18-1) unstable; urgency=medium
+
+  * New maintainer (Closes: #660687).
+  * debian/control: bumped Standards-Version to 4.1.2.
+  * debian/source/format: update to use quilt.
+
+ -- Rodrigo Siqueira <siqueira@ime.usp.br>  Fri, 15 Dec 2017 21:08:45 -0200
+
 xml-core (0.18) unstable; urgency=medium
 
   * QA upload.
