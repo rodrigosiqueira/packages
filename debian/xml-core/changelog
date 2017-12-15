@@ -1,0 +1,314 @@
+xml-core (0.18) unstable; urgency=medium
+
+  * QA upload.
+  * Set Debian QA Group as maintainer. (see #660687)
+  * debian/control: bumped Standards-Version to 4.0.0.
+  * debian/copyright: updated rights.
+  * Run wrap-and-sort.
+
+ -- Joao Eriberto Mota Filho <eriberto@debian.org>  Mon, 18 Sep 2017 14:52:45 -0300
+
+xml-core (0.17) unstable; urgency=medium
+
+  * Team upload.
+
+  [ Helmut Grohne ]
+  * Mark xml-core Multi-Arch: foreign.  Closes: #843507
+
+  [ Mattia Rizzolo ]
+  * Bump generated dependency on xml-core to >= 0.14 for the sorting
+    option.  Closes: #841425
+  * d/rules: run dh_installxmlcatalogs after dh_installcatalogs,
+    as the xml-core sequencer does.
+
+ -- Mattia Rizzolo <mattia@debian.org>  Mon, 07 Nov 2016 14:53:35 +0000
+
+xml-core (0.16) unstable; urgency=medium
+
+  * Team upload.
+
+  [ Martin Pitt ]
+  * Call dh_perl with -d to avoid depending on perl. update-xmlcatalog only
+    needs modules from perl-base, and dh_installxmlcatalogs only depends on
+    debhelper.  Closes: #840410
+
+  [ Mattia Rizzolo ]
+  * Rewrite debian/copyright using copyright-format 1.0.
+
+ -- Mattia Rizzolo <mattia@debian.org>  Tue, 11 Oct 2016 11:08:35 +0000
+
+xml-core (0.15) unstable; urgency=medium
+
+  * Team upload.
+  * Stop installing lintian overrides manually, let dh_lintian do its job.
+
+ -- Mattia Rizzolo <mattia@debian.org>  Fri, 30 Sep 2016 17:01:22 +0000
+
+xml-core (0.14) unstable; urgency=medium
+
+  * Team upload.
+
+  [ Santiago Vila ]
+  * Drop check for the presence of debhelper >= 9.20120909, it's old enough.
+    Closes: #837745
+
+  [ Joseph Herlant ]
+  * Add an optional sorting switch to sort the catalog entries, used by default
+    while adding data through dh_installxmlcatalogs.  Closes: #626036
+
+  [ Mattia Rizzolo ]
+  * Drop now obsolete field DM-Upload-Allowed.
+  * Migrate the packaging to git.
+  * Use source format 3.0 (native).
+  * Add a xml-core debhelper sequencer.
+    Thanks to Jack Bates <ms419@freezone.co.uk> for the providing it.
+    Closes: #575770
+  * Makefile:
+    + support DESTDIR as passed by dh_auto_install.
+    + add proper clean targets, to be called by dh_auto_clean.
+  * Bump debhelper compat level to 10.
+  * Rewrite debian/rules using the dh sequencer.  Closes: #651832
+  * Bump Standards-Version to 3.9.8, no changes needed.
+
+ -- Mattia Rizzolo <mattia@debian.org>  Fri, 30 Sep 2016 16:57:23 +0000
+
+xml-core (0.13+nmu2) unstable; urgency=low
+
+  * Non-maintainer upload.
+  * Use the "sub" fourth argument to autoscript that is more robust than the
+    sed snippet way (closes: #687109)
+    - I've verified that the control archive files of w3c-sgml-lib_1.2-3 are
+      byte-for-byte identical when built with 0.13+nmu1 and this version
+    - I've verified that w3c-sgml-lib_1.3-1 builds with this version, i.e. this
+      change unblocks Bug#665298
+
+ -- Marcin Owsiany <porridge@debian.org>  Sat, 15 Sep 2012 14:50:27 +0100
+
+xml-core (0.13+nmu1) unstable; urgency=low
+
+  * Non-maintainer upload.
+  * Rebuild against debhelper (>= 9.20120528) to fix postinst that
+    unconditionally overwrites files in /etc (see: #477751, closes: #675483).
+    Thanks to Helmut Grohne for the bug report.
+
+ -- Jakub Wilk <jwilk@debian.org>  Sat, 09 Jun 2012 11:47:37 +0200
+
+xml-core (0.13) unstable; urgency=low
+
+  * debian/control (Standards-Version): Bumped to 3.8.3.
+    (Priority, Section): Fixed binary-control-field-duplicates-source.
+  * debian/xml-core.xmlcatalogs, 
+    schemas/catalog.xml: Register public/system IDs of tr9401.dtd
+    customization layer (closes: #491091).
+
+ -- Daniel Leidert (dale) <daniel.leidert@wgdd.de>  Sun, 25 Oct 2009 23:49:09 +0100
+
+xml-core (0.12) unstable; urgency=low
+
+  * debhelper/dh_installxmlcatalogs: Fixed pod2man errors.
+    (xmlcorever): Increased to 0.12 (#482140).
+  * tools/update-xmlcatalog: Use File::Spec instead of File::Spec::Functions
+    for catfile (#482140). Thanks to Agustin Martin Domingo. Fixed pod2man
+    errors.
+    (add_entry): Be more verbose in case an entity is already registered.
+
+  * Fixed Kurt Roeckx name in the 0.11 changelog entry. Sorry Kurt.
+  * debian/compat: Raised to v5.
+  * debian/control: Vcs fields transition. Added DM-Upload-Allowed.
+    (Vcs-Svn): Fixed location.
+    (Build-Depends): Raised debhelper to v5.
+    (Standards-Version): Raised to 3.7.3.
+    (Description): Fixed reference to directories in /usr/local.
+  * debian/lintian-overrides/xml-core: Added. The empty directories are
+    shipped by intention.
+  * debian/rules (clean): Remove the created manual pages.
+    (binary-indep): Added call to dh_install. Only depend on perl-base
+    (#482140).
+  * debian/xml-core.install: Added to install lintian override.
+
+ -- Daniel Leidert (dale) <daniel.leidert@wgdd.de>  Sun, 26 Oct 2008 15:14:39 +0100
+
+xml-core (0.11) unstable; urgency=low
+
+  [ Daniel Leidert ]
+  * debian/xml-core.postrm: Only try to remove /var/lib/xml-core, if it
+    exists (closes: #358364). Thanks to Kurt Roeckx, who catched this issue.
+
+ -- Daniel Leidert (dale) <daniel.leidert@wgdd.de>  Mon, 16 Apr 2007 19:17:50 +0200
+
+xml-core (0.10) unstable; urgency=low
+
+  [ Daniel Leidert ]
+  * debian/control: Added XS-Vcs-Browser and XS-Vcs-Svn fields.
+    (Uploaders): Added myself.
+    (Build-Depends-Indep): Moved debhelper to Build-Depends, where it belongs.
+    (Standards-Version): Bump to standards version 3.7.2.
+    (Depends): Added versioned dependency to Sarges sed (closes: #248910). I
+    think, this should clear the situation and we are already near to Sarge =
+    oldstable).
+  * debian/copyright: Updated FSF address and package information.
+  * debian/rules (install-stamp, binary-indep): Directly install the files
+    into the package directory.
+  * debian/xml-core.dirs: Added. We better include the directories in the
+    package.
+  * debian/xml-core.install: Removed. Obsoleted by the change in debian/rules.
+  * debian/xml-core.postinst: Removed empty debhelper script.
+  * debian/xml-core.prerm: Likewise.
+  * debian/xml-core.preinst: The /etc/xml and /var/lib/xml-core directories
+    are shipped with the package. No need to generate them in the debhelper
+    script.
+  * debhelper/dh_installxmlcatalogs: Fixed typo in dh_installxmlcatalogs
+    manpage (closes: #306719). Thanks to A Costa for the report.
+  * debhelper/dh_installxmlcatalogs: Added a small code snippet to add the
+    /etc/xml directory to avoid failing installations, if /etc/xml is missing
+    (closes: #411770). Thanks to Dmitry Rutsky for the report. The patch is
+    based on the the solution used by dh_installcatalogs.
+  * tools/update-xmlcatalog: Removed dead code in the type-value evaluation
+    (closes: #315759).
+
+ -- Daniel Leidert (dale) <daniel.leidert@wgdd.de>  Sat, 14 Apr 2007 21:51:53 +0200
+
+xml-core (0.09-0.1) unstable; urgency=low
+
+  * Non-maintainer upload.
+  * debian/xml-core.postrm, debian/xml-core.preinst: Use absolute path
+    names for files instead of doing a "cd /foo; mv plim plom; cd -" dance
+    (especially since the dance if fragile, too). Closes: #358364.
+
+ -- Lars Wirzenius <liw@iki.fi>  Thu, 13 Apr 2006 20:25:34 +0000
+
+xml-core (0.09) unstable; urgency=low
+
+  * schemas/catalog: added official FPI for XML catalog DTD
+    (closes: Bug#231816)
+
+ -- Ardo van Rangelrooij <ardo@debian.org>  Sun, 25 Apr 2004 11:09:19 -0500
+
+xml-core (0.08) unstable; urgency=low
+
+  * Moved 'dh_installxmlcatalogs' and 'autoscripts' into 'debhelper' directory
+    - debian/rules: updated accordingly
+  * Moved schemas and associated catalogs into 'schemas' directory
+    - debian/xml-core.sgmlcatalogs; updated accordingly
+    - debian/xml-core.xmlcatalogs; updated accordingly
+  * Moved 'update-xmlcatalog*' and XML catalog templates to 'tools' directory
+  * Added Makefiles to all new subdirectories and put all the common parts
+    in 'MAKE/include'
+  * tools/update-xmlcatalog: absorbed manual page in POD format
+  * debian/control: changed maintainer's email address to the new Debian
+    XML/SGML Group's packages mailing list
+
+ -- Ardo van Rangelrooij <ardo@debian.org>  Wed, 21 Apr 2004 11:09:24 -0500
+
+xml-core (0.07) unstable; urgency=low
+
+  * update-xmlcatalog: changed to be idempotent for XML entity registration
+    (closes: Bug#232502)
+  * debian/README.Debian: fixed various small typos and such
+    (closes: Bug#230845)
+  * debian/control: changed 'Maintainer' to 'Debian XML/SGML Group
+    <debian-xml-sgml-devel@lists.alioth.debian.org>' and added current
+    maintainer as 'Uploaders'
+
+ -- Ardo van Rangelrooij <ardo@debian.org>  Mon, 23 Feb 2004 22:31:10 -0600
+
+xml-core (0.06) unstable; urgency=low
+
+  * update-xmlcatalog.8: updated to match update-xmlcatalog
+  * Added XML infrastructure directories
+    (closes: Bug#228656)
+    - Makefile: created the XML infrastructure directories under
+      /usr/share/xml and under /usr/share/local/xml
+    - debian/rules: updated to use 'dh_usrlocal'
+    - debian/xml-core.{post,pre}*: removed obsolete code
+  * Added dh_installxmlcatalogs and associated autoscripts
+    - Makefile: updated to generate dh_installxmlcatalogs(1)
+    - debian/control: added build-dependency on 'perl'
+    - Makefile: updated to install dh_installxmlcatalogs and associated files
+    - debian/control: added 'Suggests' for 'debhelper (>= 4.1)'
+    - debian/README.Debian: updated to mention debhelper support
+  * Converted to use dh_installxmlcatalogs
+    - debian/xml-core.xmlcatalogs: added
+    - debian/rules: updated to use dh_installxmlcatalogs
+    - debian/xml-core.{post,pre}*: removed obsolete code
+  * Added registration of XML catalog schema in SGML catalog system
+    (closes: Bug#229259)
+    - debian/xml-core.links: added
+    - debian/rules: updated to use dh_link
+    - catalog: added
+    - debian/xml-core.sgmlcatalogs: added
+    - debian/rules: updated to use dh_installcatalogs
+  * Provided proper examples
+    (closes: Bug#227130)
+    - examples/foo.xmlcatalogs: added
+    - examples/foo.p*: updated
+  * debian/control: rewrote short and long description
+
+ -- Ardo van Rangelrooij <ardo@debian.org>  Sun,  1 Feb 2004 13:06:52 -0600
+
+xml-core (0.05) unstable; urgency=low
+
+  * update-xmlcatalog: changed catalog path generation for root catalog to
+    add "file://" protocol just as is done for package catalogs
+
+ -- Ardo van Rangelrooij <ardo@debian.org>  Sat, 10 Jan 2004 16:45:24 -0600
+
+xml-core (0.04) unstable; urgency=low
+
+  * catalog.xml: reverted back to original version
+  * catalog.header: changed prolog to support bootstrapping XML catalog system
+    (now really closing bug #223041)
+  * debian/control: upgraded to Debian Policy 3.6.1 (no changes)
+
+ -- Ardo van Rangelrooij <ardo@debian.org>  Thu, 25 Dec 2003 10:10:26 -0600
+
+xml-core (0.03) unstable; urgency=low
+
+  * catalog.xml: changed prolog to support bootstrapping the XML catalog system
+    (closes: Bug#223041)
+  * Added debian/README.Debian
+  * update-xmlcatalog.8: added a link to the README.Debian
+  * update-xmlcatalog.8: added a note about update-xmlcatalog(8) being the
+    de-facto standard tool to maintain the XML catalog system on a Debian
+    system
+  * update-xmlcatalog.8: added a note about the incompatibility between
+    update-xmlcatalog(8) and xmlcatalog(1) (from the libxml2-utils package)
+    (closes: Bug#207470)
+  * update-xmlcatalog.8: various cosmetic updates
+
+ -- Ardo van Rangelrooij <ardo@debian.org>  Sat,  6 Dec 2003 14:03:38 -0600
+
+xml-core (0.02) unstable; urgency=low
+
+  * update-xmlcatalog: improved legacy /etc/xml/catalog handling
+    (closes: Bug#207070)
+    - preinst moves legacy '/etc/xml/catalog' to '/etc/xml/catalog.legacy'
+    - postrm moves legacy '/etc/xml/catalog.legacy' back to '/etc/xml/catalog'
+    - update-xmlcatalog: fixed erroneous catalog data file check
+  * debian/prerm: improved to clean own catalog files more robustly
+    (closes: Bug#207171)
+  * update-xmlcatalog: improved command-line option checking
+  * update-xmlcatalog: added proper support for local XML catalog files
+  * debian/control: removed suggestion of not yet existing 'xml-core-doc'
+  * debian/control: improved long description
+  * README: various small cosmetic updates
+
+ -- Ardo van Rangelrooij <ardo@debian.org>  Mon, 25 Aug 2003 19:55:00 -0500
+
+xml-core (0.01) unstable; urgency=low
+
+  * Initial official release
+
+ -- Ardo van Rangelrooij <ardo@debian.org>  Sat, 16 Aug 2003 12:50:43 -0500
+
+xml-core (0.0.02) experimental; urgency=low
+
+  * First public, highly experimental prelimenary release
+
+ -- Ardo van Rangelrooij <ardo@debian.org>  Sun, 10 Aug 2003 12:16:54 -0500
+
+xml-core (0.0.01) experimental; urgency=low
+
+  * Initial private prelimenary release
+
+ -- Ardo van Rangelrooij <ardo@debian.org>  Sat,  5 Apr 2003 16:26:27 -0600

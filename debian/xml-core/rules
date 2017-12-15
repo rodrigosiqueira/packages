@@ -1,0 +1,12 @@
+#!/usr/bin/make -f
+#export DH_VERBOSE=1
+
+%:
+	dh $@
+
+override_dh_installcatalogs:
+		dh_installcatalogs
+		DH_AUTOSCRIPTDIR=debhelper debhelper/dh_installxmlcatalogs
+
+override_dh_perl:
+	dh_perl -d

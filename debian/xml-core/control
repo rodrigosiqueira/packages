@@ -1,0 +1,37 @@
+Source: xml-core
+Section: text
+Priority: optional
+Maintainer: Debian QA Group <packages@qa.debian.org>
+Build-Depends: debhelper (>= 10)
+Build-Depends-Indep: perl
+Standards-Version: 4.0.0
+Vcs-Git: https://anonscm.debian.org/git/debian-xml-sgml/xml-core.git
+Vcs-Browser: https://anonscm.debian.org/git/debian-xml-sgml/xml-core.git
+
+Package: xml-core
+Architecture: all
+Multi-Arch: foreign
+Depends: sed (>= 4.1.2-8),
+         sgml-base (>= 1.17),
+         ${misc:Depends},
+         ${perl:Depends}
+Suggests: debhelper (>= 9.20120909)
+Description: XML infrastructure and XML catalog file support
+ This package creates the XML infrastructure directories and provides
+ XML catalog file support in compliance with the current Debian XML
+ Policy draft:
+ .
+   * infrastructure directories:
+      - /etc/xml
+      - /usr/share/xml/{declaration,entities,misc,schema}
+      - /usr/local/share/xml/{declaration,entities,misc,schema}
+ .
+   * XML catalog schema: OASIS XML Catalog Committee Specification 1.0
+ .
+   * update-xmlcatalog(8): tool for maintaining the root XML catalog
+     file and the package XML catalog files in the '/etc/xml' directory
+     as well as local XML catalog files.
+ .
+   * dh_installxmlcatalogs(1): debhelper tool for installing local XML
+     catalog files and registering XML entities in package XML catalog
+     files and the root XML catalog file (requires debhelper package)

@@ -1,0 +1,5 @@
+local;schemas/catalog.xml;/usr/share/xml/schema/xml-core/catalog.xml
+root-and-package;system;http://www.oasis-open.org/committees/entity/release/1.0/catalog.dtd;/usr/share/xml/schema/xml-core/catalog.xml
+root-and-package;public;-//OASIS//DTD XML Catalogs V1.0//EN;/usr/share/xml/schema/xml-core/catalog.xml
+root-and-package;system;http://globaltranscorp.org/oasis/catalog/xml/tr9401.dtd;/usr/share/xml/schema/xml-core/catalog.xml
+root-and-package;public;-//GlobalTransCorp//DTD XML Catalogs V1.0-Based Extension V1.0//EN;/usr/share/xml/schema/xml-core/catalog.xml
