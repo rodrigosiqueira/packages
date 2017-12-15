@@ -1,0 +1,70 @@
+sgml-base-doc (1.99.2) unstable; urgency=medium
+
+  * QA upload.
+  * Changed build dependency on sp to opensp.
+
+ -- Neil Roeth <neil@debian.org>  Mon, 05 Sep 2016 20:26:31 -0400
+
+sgml-base-doc (1.99.1) unstable; urgency=low
+
+  * Upload to unstable to fix FTBFS.
+  * debian/control (Standards-Version): Bumped to 3.8.3.
+    (Build-Depends): Increased for dh level 7.
+    (Depends): Fixed debhelper-but-no-misc-depends.
+  * debian/compat: Bumped to 7.
+  * debian/rules: Adjusted for dh level 7.
+
+ -- Daniel Leidert (dale) <daniel.leidert@wgdd.de>  Fri, 22 Jan 2010 01:18:03 +0100
+
+sgml-base-doc (1.99.0) experimental; urgency=low
+
+  * Makefile: Dropped build system. debian/rules and debhelper are enough.
+
+  * debian/compat: Increased compatibility level to 5.
+  * debian/control: Added Vcs*, Homepage and DM-Upload-Allowed fields.
+    (Uploaders): Added myself.
+    (Build-Depends-Indep): Moved debhelper to Build-Depends. Replaced tetex*
+    packages by texlive packages (closes: #562307).
+    (Standards-Version): Bumped to 3.8.2.
+  * debian/rules: Rewritten in parts. Now contains all stuff from the
+    Makefile. Added a check target.
+  * debian/sgml-base-doc.doc-base (Document): Fixed. Thanks to lintian.
+  * debian/sgml-base-doc.README.Debian: Renamed to debian/README.Debian.
+
+ -- Daniel Leidert (dale) <daniel.leidert@wgdd.de>  Sun, 12 Jul 2009 16:21:16 +0200
+
+sgml-base-doc (1.16) unstable; urgency=low
+
+  * debian/control: upgraded to Debian Policy 3.6.1 (no changes)
+  * debian/control: changed 'Maintainer' to 'Debian XML/SGML Group
+    <debian-xml-sgml-pkgs@lists.alioth.debian.org>' and added current
+    maintainer to 'Uploaders'
+
+ -- Ardo van Rangelrooij <ardo@debian.org>  Thu, 22 Apr 2004 07:54:27 -0500
+
+sgml-base-doc (1.15) unstable; urgency=low
+
+  * Removed document sources from binary package and indicated in
+    README.Debian how to get the source package
+  * debian/rules: moved debhelper compatibility level setting to
+    'debian/compat' per latest debhelper best practices
+  * debian/control: changed build dependency on 'debhelper' to '(>= 4.1)'
+  * debian/control: upgraded to Debian Policy 3.6.0 (no changes)
+
+ -- Ardo van Rangelrooij <ardo@debian.org>  Tue, 12 Aug 2003 21:02:30 -0500
+
+sgml-base-doc (1.14) unstable; urgency=low
+
+  * debian/rules: upgraded to debhelper v4
+  * debian/control: changed build dependency on debhelper accordingly
+  * debian/rules: migrated from 'dh_movefiles' to 'dh_install'
+  * debian/rules: split off 'install' target from 'binary-indep' target
+  * debian/copyright: added pointer to license
+
+ -- Ardo van Rangelrooij <ardo@debian.org>  Sat, 10 Aug 2002 13:58:20 -0500
+
+sgml-base-doc (1.13) unstable; urgency=low
+
+  * Initial release as a separate package
+
+ -- Ardo van Rangelrooij <ardo@debian.org>  Sun, 17 Feb 2002 13:34:28 -0600

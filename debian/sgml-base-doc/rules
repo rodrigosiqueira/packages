@@ -1,0 +1,32 @@
+#!/usr/bin/make -f
+#export DH_VERBOSE=1
+
+PACKAGE  = sgml-base-doc
+PKG_DOCS = sgml_layout.html sgml_layout.pdf sgml_layout.txt
+
+
+.SUFFIXES: .html .pdf .sgml .txt
+.sgml.html:
+	debiandoc2html $<
+.sgml.pdf:
+	debiandoc2latexpdf -p letter $^
+.sgml.txt:
+	debiandoc2text $^
+
+
+check: check-stamp
+check-stamp: sgml_layout.sgml
+	dh_testdir
+	onsgmls -wall -E20 -gues $<
+	touch $@
+
+build: $(if $(findstring nocheck,$(DEB_BUILD_OPTIONS)),,check) $(PKG_DOCS)
+
+binary binary-arch binary-indep clean install:
+	dh $@
+
+override_dh_clean:
+	$(RM) -r $(PKG_DOCS) sgml_layout.tpt
+	dh_clean
+
+.PHONY: binary binary-arch binary-indep check clean install
