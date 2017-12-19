@@ -1,0 +1,7 @@
+docbook-defguide source for Debian
+----------------------------------
+
+Building the package requires quite some time depending on the Java runtime
+and the hardware used.
+
+ -- Daniel Leidert <daniel.leidert@wgdd.de>, 2012.

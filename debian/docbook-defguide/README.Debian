@@ -1,0 +1,11 @@
+DocBook: The Definitive Guide for Debian
+----------------------------------------
+
+NOTE: The book starts with html/docbook.html, NOT with html/index.html.
+      See also http://bugs.debian.org/135296.
+
+
+Please feel free to report all issues you find, even if this book can be
+considered to not being actively developed anymore.
+
+ -- Daniel Leidert <daniel.leidert@wgdd.de>, 2012.

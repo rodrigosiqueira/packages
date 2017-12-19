@@ -1,0 +1,201 @@
+docbook-defguide (2.0.17+svn9912-3) unstable; urgency=medium
+
+  * New maintainer (closes: #802364)
+  * debian/control: Bumped Standards-Version to 4.1.2
+  * debian/control: Bumped debhelper to 10
+
+ -- Rodrigo Siqueira <siqueira@ime.usp.br>  Tue, 19 Dec 2017 18:16:48 -0200
+
+docbook-defguide (2.0.17+svn9912-2) unstable; urgency=medium
+
+  * QA upload.
+  * Set maintainer to Debian QA Group. (see #802364)
+  * Stop build-depending on the -gcj versions of packages,
+    gcj is not used during the package build.
+
+ -- Adrian Bunk <bunk@debian.org>  Tue, 18 Jul 2017 10:50:01 +0300
+
+docbook-defguide (2.0.17+svn9912-1) unstable; urgency=medium
+
+  * Latest VCS version fixing a license issue (closes: #708867).
+  * debian/control: Dropped DM-Upload-Allowed field.
+    (Maintainer): Changed to my debian.org address.
+    (Standards-Version): Bumped to 3.9.5.
+    (Vcs-Browser, Vcs-Svn): Fixed vcs-field-not-canonical.
+  * debian/copyright: Update.
+  * debian/get-orig-source.sh: Added script to retrieve source.
+  * debian/watch: Updated.
+
+ -- Daniel Leidert <dleidert@debian.org>  Sun, 02 Mar 2014 02:46:11 +0100
+
+docbook-defguide (2.0.17+svn9047-1) unstable; urgency=low
+
+  * New snapshot from upstream VCS revision 9047.
+  * debian/control (Standards-Version): Bumped to 3.9.3.
+    (Build-Depends-Indep): Use default-jre-headless by default or
+    gcj-jre-headless alternatively.
+  * debian/copyright: Minor update.
+  * debian/docbook-defguide.docs: Adjusted for source layout change.
+  * debian/docbook-defguide.install: Ditto.
+  * debian/rules: Adjust for minor source layout change. Removed
+    get-orig-source target. Use default JRE.
+  * debian/watch: Changed to download via ViewVC interface.
+  * debian/README.Debian: Minor update.
+  * debian/README.source: Ditto.
+  * debian/patches/buildtools.patch: Adjusted.
+    - Patch fixes. Further fix en/Makefile.
+  * debian/patches/misc_fixes.patch: Adjusted.
+    - Path fixes. Change to en/stylesheets/html-titlepage.xml obsoleted.
+
+ -- Daniel Leidert (dale) <daniel.leidert@wgdd.de>  Wed, 20 Jun 2012 00:10:40 +0200
+
+docbook-defguide (2.0.17+svn7549-4) unstable; urgency=low
+
+  * buildtools/saxon.sh (DEFAULT_CLASSPATH): Fix catalog resolver jar name
+    (closes: #642256).
+  * buildtools/Makefile.incl,
+    buildtools/saxon.sh: Moved into debian/patches/buildtools.patch.
+  * debian/compat: Increased dh compatibility level.
+  * debian/control (Build-Depends): Removed dpatch. Increased dh version.
+    Fixed debhelper-but-no-misc-depends.
+    (Standards-Version): Bumped to 3.9.2.
+  * debian/docbook-defguide.dirs: Added.
+  * debian/docbook-defguide.docs: Ditto.
+  * debian/docbook-defguide.install: Ditto.
+  * debian/rules: Rewritten for dh 7.
+  * debian/source.lintian-overrides: Dropped.
+  * debian/source/format: Added for version 3.0 (quilt).
+  * debian/README.Debian: Moved a comment to debian/README.source.
+  * debian/README.source: Added with a note from debian/README.Debian.
+  * debian/patches/01_misc_fixes.dpatch: Transformed to quilt and renamed to
+    debian/patches/misc_fixes.patch.
+  * debian/patches/00list: Renamed to debian/patches/series and adjusted.
+
+ -- Daniel Leidert (dale) <daniel.leidert@wgdd.de>  Wed, 23 Nov 2011 18:52:38 +0100
+
+docbook-defguide (2.0.17+svn7549-3) unstable; urgency=low
+
+  * debian/control (Build-Depends-Indep): java-gcj-compat is not available
+    anymore on alpha, arm, hppa and hurd-i386.
+  * debian/docbook-defguide.doc-base (Section): Fixed accordingly to version
+    0.8.10 of the doc-base manual.
+  * debian/rules (install): Fixed bashism.
+  * debian/source.lintian-overrides: Added to override
+    patch-system-but-direct-changes-in-diff warning, because file creation is
+    intended.
+
+ -- Daniel Leidert (dale) <daniel.leidert@wgdd.de>  Thu, 01 May 2008 03:55:09 +0200
+
+docbook-defguide (2.0.17+svn7549-2) unstable; urgency=low
+
+  * debian/control: Added Vcs fields. Added DM-Upload-Allowed for DM status.
+    (Build-Depends-Indep): Build-depend on the recently introduced -gcj
+    packages with native code to speed up the build process (closes: #459043).
+  * debian/watch: Slightly improved to ignore the SVN version part.
+
+ -- Daniel Leidert (dale) <daniel.leidert@wgdd.de>  Tue, 05 Feb 2008 02:20:50 +0100
+
+docbook-defguide (2.0.17+svn7549-1) unstable; urgency=low
+
+  * New upstream release 2.0.17 (finally closes: #257715).
+    - Creates missing pages (closes: #208031).
+    - Fixes several broken links (closes: #248364, #280740).
+    - Drops printing glyphs via external URIs (closes: #173710).
+    - Norman Walsh relicensed the TDG as of version 2.0.17 without the
+      back-cover text clause (closes: #280485). Many thanks to you, Norm!
+
+  * buildtools/Makefile.incl: Added my own small and custom build system to
+    not rely on upstreams one. This should also reduce the size of necessary
+    changes to the build system.
+  * buildtools/saxon.sh: Ditto.
+
+  * debian/compat: Update to newer compatibility level 5.
+  * debian/control: Added Homepage field.
+    (Maintainer): New maintainer (closes: #295579).
+    (Standards-Version): Updated to latest 3.7.3.
+    (Build-Depends, Build-Depends-Indep): Updated/adjusted.
+    (Description): Updated.
+  * debian/copyright: Updated. Added information about newly added source
+    files (xml2po/entities/docbook-xml/sgml-data).
+  * debian/docbook-defguide.doc-base (Abstract): Updated.
+    (Section): Fixed to apply to latest menu spec.
+  * debian/rules: Added get-orig-source target to retreive the source via SVN.
+    Added dpatch infrastructure. Removed obsolete stuff and fixed the build
+    system (cleanup).
+    (install): Added  .htaccess file - provide docbook.html as directory index
+    (closes: #135296).
+  * debian/watch: Added (crude, but it should work).
+  * debian/README.Debian: Updated.
+  * debian/patches/01_misc_fixes.dpatch: Added. Fixes to make the package
+    build (we are not inside the projects SVN).
+  * debian/patches/00list: Added.
+
+ -- Daniel Leidert (dale) <daniel.leidert@wgdd.de>  Sun, 16 Dec 2007 14:25:22 +0100
+
+docbook-defguide (2.0.8-2) unstable; urgency=low
+
+  * QA Group upload orphaning this package
+  * debian/copyright: Updated the address of the FSF
+  * debian/docbook-defguide.doc-base: removed bogus sentence (closes: #217408)
+
+ -- Andrew Pollock <apollock@debian.org>  Wed,  1 Mar 2006 11:17:59 -0800
+
+docbook-defguide (2.0.8-1.1) unstable; urgency=high
+
+  * NMU.
+  * High-urgency upload for sarge-targetted RC bugfix
+  * Add the complete FDL license text to debian/copyright
+    (closes: #280807).
+  * Add %use-id-as-filename% and %html-ext%=".html" dssl directives to
+    defguide.dsl to get the nice filenames.html available in the 
+    previous version of the package; thanks to Paul Brossier for the fix.
+
+ -- Steve Langasek <vorlon@debian.org>  Fri,  3 Dec 2004 18:31:00 -0800
+
+docbook-defguide (2.0.8-1) unstable; urgency=low
+
+  * Fixed generation of xrefs to elements (Closes: #187963).
+
+ -- Yann Dirson <dirson@debian.org>  Mon,  7 Apr 2003 21:06:47 +0200
+
+docbook-defguide (2.0.8) unstable; urgency=low
+
+  * New upstream release.
+  * Requires docbook-ebnf 1.1CR1.
+  * Add build-dep on docbook-ebnf.
+  * Added "-O -D`pwd`" to docbook-2-html invocation.
+  * Override (parse-starttag-pi) from dblib.dsl with a stub, since
+    (parse-pi-attribute) makes far too many assumptions to be fixed
+    rapidly.
+  * All the above closes: #165300.  Thanks to Roland Mas and Ray Dassen
+    for their work on this package.
+  * Override %callout-graphics-path% and %callout-graphics-extension% to
+    find callout graphics (Closes: #178929).
+  * Override %admon-graphics% and %admon-graphics-path% to get graphics
+    for admonitions.
+  * Prevent docbook-defguide/html/changelog.html from being compressed,
+    since that's part of the book.
+
+ -- Yann Dirson <dirson@debian.org>  Thu,  3 Apr 2003 12:16:41 +0200
+
+docbook-defguide (2.0.3-2) unstable; urgency=low
+
+  * Use Build-depends-indep instead of Build-depends.
+  * Run tidy(1) on generated HTML.
+  * Install figures.
+  * Made the stylesheet display in the ToC the glyphs matching the
+    "revision" attribute from refentries.
+  * Fixed doc-base section.
+  * Install docs into subdir named html/, not book-html/.
+
+ -- Yann Dirson <dirson@debian.org>  Sat, 18 May 2002 18:47:55 +0200
+
+docbook-defguide (2.0.3-1) unstable; urgency=low
+
+  * Initial release - indeed a brand new package to replace former
+    docbook-book (Closes: #144109).
+  * Format using an ad-hoc customization layer above the DocBook modular
+    stylesheets.  Only creates cross-refs to element reference-pages for
+    now.
+
+ -- Yann Dirson <dirson@debian.org>  Fri, 17 May 2002 01:17:36 +0200

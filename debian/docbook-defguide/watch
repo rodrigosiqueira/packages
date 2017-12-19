@@ -1,0 +1,15 @@
+# See uscan(1) for format
+#
+# NOTE: You need to call the get-orig-source target in debian/rules.
+# NOTE: uupdate will *NOT* work, because we need to get the source from SVN.
+
+version=3
+opts=\
+uversionmangle=s#^#2.0.17+svn#,\
+filenamemangle=s#.*/code/(\d+)/$#docbook-defguide-dummy-r$1# \
+ http://sourceforge.net/p/docbook/code/HEAD/log/?path=/trunk/defguide \
+ /p/docbook/code/(\d+)/$ \
+ debian /bin/sh debian/get-orig-source.sh
+
+#opts=dversionmangle=s/\+svn.*$//g \
+#  http://docbook.org/tdg/ en/tdg-en-html-([\d\.]+).zip

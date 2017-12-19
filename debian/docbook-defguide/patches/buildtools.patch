@@ -1,0 +1,80 @@
+Description: Debians own simplified buildsystem
+Author: Daniel Leidert (dale) <daniel.leidert@wgdd.de>
+Bug-Debian: http://bugs.debian.org/642256
+Origin: Debian
+Forwarded: not-needed
+Last-Update: 2011-11-23
+
+--- /dev/null
++++ b/buildtools/saxon.sh
+@@ -0,0 +1,42 @@
++#!/bin/sh
++#
++# Written for the Debian distribution by Daniel Leidert, 2007.
++# Released under GPL v2.
++#
++# This is a small and custom script so we don't need upstreams build
++# environment. Further this shall help to decrease the number of changes we
++# need to make to upstreams build process.
++
++set -e
++
++JAVA=${JAVA:-java}
++
++DEFAULT_CLASSPATH="/usr/share/java/saxon.jar:/usr/share/java/docbook-xsl-saxon.jar:/usr/share/java/xml-resolver.jar:/usr/share/java/xercesImpl.jar:/etc/xml/resolver/"
++
++CLASSPATH=${CLASSPATH:-$DEFAULT_CLASSPATH}
++
++MY_XML=$1
++shift
++MY_XSL=$1
++shift
++MY_OUT=$1
++shift
++
++MY_OPT=$*
++
++$JAVA -cp $CLASSPATH -Xms512M -Xmx1024M \
++      -Djavax.xml.parsers.DocumentBuilderFactory=org.apache.xerces.jaxp.DocumentBuilderFactoryImpl \
++      -Djavax.xml.parsers.SAXParserFactory=org.apache.xerces.jaxp.SAXParserFactoryImpl \
++      com.icl.saxon.StyleSheet \
++      -x org.apache.xml.resolver.tools.ResolvingXMLReader \
++      -y org.apache.xml.resolver.tools.ResolvingXMLReader \
++      -r org.apache.xml.resolver.tools.CatalogResolver \
++      -u \
++      -o $MY_OUT $MY_XML $MY_XSL $MY_OPT \
++      use.extensions=1 \
++      graphicsize.extension=0 \
++      admon.graphics.path=figures/admon/ \
++      callout.graphics.path=figures/callouts/ \
++      chunker.output.indent=yes
++
++exit 0
+--- /dev/null
++++ b/buildtools/Makefile.incl
+@@ -0,0 +1,8 @@
++# Written for the Debian distribution by Daniel Leidert, 2007.
++# Released under GPL v2.
++#
++# This is a small and custom Makefile.incl so we don't need upstreams build
++# environment. Further this shall help to decrease the number of changes we
++# need to make to upstreams build process.
++
++XSLT = JAVA="$(JAVA)" CLASSPATH="$(CLASSPATH)" /bin/sh ../buildtools/saxon.sh
+--- a/en/Makefile
++++ b/en/Makefile
+@@ -1,4 +1,4 @@
+-include ../../buildtools/Makefile.incl
++include ../buildtools/Makefile.incl
+ 
+ SSTITLEPG=stylesheets/html-titlepage.xsl
+ SSCHUNK=stylesheets/chunk.xsl
+@@ -79,5 +79,6 @@
+ 	grep -v "<?xml" /tmp/fm-docbook-tdg | freshmeat-submit $(FMGO)
+ 
+ WhatsNew:
+-	svn update
+-	/usr/local/svn2cl/svn2cl.sh --group-by-day --output=$@
++	#svn update
++	#/usr/local/svn2cl/svn2cl.sh --group-by-day --output=$@
++	touch $@

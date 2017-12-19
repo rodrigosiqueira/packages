@@ -1,0 +1,147 @@
+Description: Use the generic resources, not local copies shipped with the source:
+ * en/schema/tdg.dtd: The TDG should be DocBook XML v4.5. Also
+   use the Public ID for DocBook EBNF.
+ * ru/stylesheets/identity.xsl: Ditto. Do not use a System ID
+   that points to the local copy.
+ .
+ * en/stylesheets/htmlhelp.xsl: Use the online location for the
+   current docbook-xsl distribution. The references directory only
+   exists in SVN and not in our tarball.
+ * ru/stylesheets/htmlhelp.xsl: Ditto.
+ * stylesheets/defchunk.xsl: Ditto.
+ * stylesheets/defguide.xsl: Ditto.
+ * en/Makefile: Ditto.
+ .
+ * en/stylesheets/chunk.xsl: Fixed pi-template names.
+ * ru/stylesheets/chunk.xsl: Ditto.
+ * stylesheets/defchunk.xsl: Ditto.
+ .
+ * en/stylesheets/html-titlepage.xml: Removed wrong namespace.
+Author: Daniel Leidert <daniel.leidert@wgdd.de>
+Origin: Debian
+Forwarded: not-needed
+Last-Update: 2012-06-19
+
+--- a/en/Makefile
++++ b/en/Makefile
+@@ -52,7 +52,7 @@
+ 	$(XSLT) $(SOURCE) $(SSCHUNK) /dev/null base.dir=$(BASEDIR) html.ext=$(HTMLEXT) rootid=index
+ 
+ stylesheets/html-titlepage.xsl: stylesheets/html-titlepage.xml
+-	$(XSLT) $< ../../xsl/template/titlepage.xsl $@
++	$(XSLT) $< http://docbook.sourceforge.net/release/xsl/current/template/titlepage.xsl $@
+ 
+ fochunks:
+ 	$(XSLT) $(SOURCE) $(SSFO) partI.fo rootid=docbook-intro $(STYLEOPT)
+--- a/en/schema/tdg.dtd
++++ b/en/schema/tdg.dtd
+@@ -1,5 +1,6 @@
+-<!ENTITY % docbook PUBLIC "-//OASIS//DTD DocBook XML V4.4//EN"
++<!ENTITY % docbook PUBLIC "-//OASIS//DTD DocBook XML V4.5//EN"
+                    "docbookx.dtd">
+-<!ENTITY % dbebnf SYSTEM "dbebnf.dtd">
++<!ENTITY % dbebnf PUBLIC "-//OASIS//DTD DocBook EBNF Module V1.2CR1//EN"
++                   "dbebnf.dtd">
+ 
+ %dbebnf;
+--- a/en/stylesheets/chunk.xsl
++++ b/en/stylesheets/chunk.xsl
+@@ -111,10 +111,10 @@
+   <!-- returns the filename of a chunk -->
+   <xsl:variable name="ischunk"><xsl:call-template name="chunk"/></xsl:variable>
+   <xsl:variable name="filename">
+-    <xsl:call-template name="dbhtml-filename"/>
++    <xsl:call-template name="pi.dbhtml_filename"/>
+   </xsl:variable>
+   <xsl:variable name="dir">
+-    <xsl:call-template name="dbhtml-dir"/>
++    <xsl:call-template name="pi.dbhtml_dir"/>
+   </xsl:variable>
+ 
+   <xsl:choose>
+--- a/en/stylesheets/htmlhelp.xsl
++++ b/en/stylesheets/htmlhelp.xsl
+@@ -11,7 +11,7 @@
+      ******************************************************************** -->
+ 
+ <xsl:import href="chunk.xsl"/>
+-<xsl:import href="../../../xsl/htmlhelp/htmlhelp-common.xsl"/>
++<xsl:import href="http://docbook.sourceforge.net/release/xsl/current/htmlhelp/htmlhelp-common.xsl"/>
+ <xsl:include href="manifest.xsl"/>
+ 
+ <xsl:param name="use.extensions" select="1"/>
+--- a/ru/stylesheets/chunk.xsl
++++ b/ru/stylesheets/chunk.xsl
+@@ -111,10 +111,10 @@
+   <!-- returns the filename of a chunk -->
+   <xsl:variable name="ischunk"><xsl:call-template name="chunk"/></xsl:variable>
+   <xsl:variable name="filename">
+-    <xsl:call-template name="dbhtml-filename"/>
++    <xsl:call-template name="pi.dbhtml_filename"/>
+   </xsl:variable>
+   <xsl:variable name="dir">
+-    <xsl:call-template name="dbhtml-dir"/>
++    <xsl:call-template name="pi.dbhtml_dir"/>
+   </xsl:variable>
+ 
+   <xsl:choose>
+--- a/ru/stylesheets/htmlhelp.xsl
++++ b/ru/stylesheets/htmlhelp.xsl
+@@ -11,8 +11,8 @@
+      ******************************************************************** -->
+ 
+ <xsl:import href="chunk.xsl"/>
+-<xsl:import href="../../../xsl/htmlhelp/htmlhelp-common.xsl"/>
+-<xsl:include href="../../../xsl/html/manifest.xsl"/>
++<xsl:import href="http://docbook.sourceforge.net/release/xsl/current/htmlhelp/htmlhelp-common.xsl"/>
++<xsl:include href="http://docbook.sourceforge.net/release/xsl/current/html/manifest.xsl"/>
+ 
+ <xsl:param name="use.extensions" select="1"/>
+ <xsl:param name="base.dir" select="'htmlhelp/'"/>
+--- a/ru/stylesheets/identity.xsl
++++ b/ru/stylesheets/identity.xsl
+@@ -5,7 +5,8 @@
+                 version="1.0">
+ 
+   <xsl:output method="xml" indent="no"
+-              doctype-system="../../docbook/ebnf/dbebnf.dtd"/>
++              doctype-public="-//OASIS//DTD DocBook EBNF Module V1.2CR1//EN"
++              doctype-system="http://www.oasis-open.org/docbook/xml/ebnf/1.2CR1/dbebnf.dtd"/>
+ 
+   <xsl:preserve-space elements="*"/>
+ 
+--- a/stylesheets/defchunk.xsl
++++ b/stylesheets/defchunk.xsl
+@@ -12,7 +12,7 @@
+      to avoid chunking. -->
+ 
+ <xsl:import href="defguide.xsl"/>
+-<xsl:include href="../../xsl/html/chunker.xsl"/>
++<xsl:include href="http://docbook.sourceforge.net/release/xsl/current/html/chunker.xsl"/>
+ 
+ <xsl:output method="html"
+             encoding="ISO-8859-1"
+@@ -118,10 +118,10 @@
+   <!-- returns the filename of a chunk -->
+   <xsl:variable name="ischunk"><xsl:call-template name="chunk"/></xsl:variable>
+   <xsl:variable name="filename">
+-    <xsl:call-template name="dbhtml-filename"/>
++    <xsl:call-template name="pi.dbhtml_filename"/>
+   </xsl:variable>
+   <xsl:variable name="dir">
+-    <xsl:call-template name="dbhtml-dir"/>
++    <xsl:call-template name="pi.dbhtml_dir"/>
+   </xsl:variable>
+ 
+   <xsl:choose>
+--- a/stylesheets/defguide.xsl
++++ b/stylesheets/defguide.xsl
+@@ -5,7 +5,7 @@
+                 exclude-result-prefixes="scvs xcvs"
+                 version="1.0">
+ 
+-<xsl:import href="../../xsl/html/autoidx.xsl"/>
++<xsl:import href="http://docbook.sourceforge.net/release/xsl/current/html/autoidx.xsl"/>
+ <xsl:include href="html-titlepage.xsl"/>
+ 
+ <xsl:param name="output.media" select="'online'"/>

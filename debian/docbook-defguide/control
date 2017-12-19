@@ -1,0 +1,35 @@
+Source: docbook-defguide
+Section: doc
+Priority: optional
+Maintainer: Rodrigo Siqueira <siqueira@ime.usp.br>
+Build-Depends: debhelper (>= 10)
+Build-Depends-Indep: default-jre-headless,
+                     docbook-ebnf (>> 1.2~cr1),
+                     docbook-xml (>= 4.5),
+                     docbook-xsl,
+                     docbook-xsl-saxon,
+                     libsaxon-java (>> 1:6.5),
+                     libxerces2-java,
+                     libxml-commons-resolver1.1-java,
+                     xml-core,
+                     xsltproc
+Standards-Version: 4.1.2
+Homepage: http://docbook.org/tdg/
+Vcs-Browser: http://anonscm.debian.org/viewvc/debian-xml-sgml/packages/docbook-defguide/trunk/
+Vcs-Svn: svn://anonscm.debian.org/debian-xml-sgml/packages/docbook-defguide/trunk/
+
+Package: docbook-defguide
+Architecture: all
+Depends: ${misc:Depends}
+Suggests: docbook, docbook-xml
+Replaces: docbook-book
+Provides: docbook-book
+Conflicts: docbook-book
+Description: DocBook: The Definitive Guide - HTML version
+ The official reference manual for the DocBook 4.x SGML and XML DTD,
+ by Norman Walsh, Leonard Muellner, and Bob Stayton.  This version is
+ an evolution of the book of the same name published by O'Reilly
+ (which documented DocBook 3.1).
+ .
+ This is a work in progress, which attempts to fully document DocBook
+ 4.5, but may be inconsistent in some places.

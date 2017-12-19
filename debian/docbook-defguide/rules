@@ -1,0 +1,29 @@
+#!/usr/bin/make -f
+
+JAVA    = /usr/lib/jvm/default-java/bin/java
+BASEDIR = html/
+PACKAGE = docbook-defguide
+
+%:
+	dh $@ --parallel
+
+override_dh_auto_configure:
+override_dh_auto_install:
+override_dh_auto_build:
+	$(MAKE) -C en tdg.xml all JAVA=$(JAVA) BASEDIR=$(BASEDIR)
+
+override_dh_installdirs:
+	dh_installdirs
+	echo "# <URL:http://bugs.debian.org/135296>" > \
+	    debian/$(PACKAGE)/usr/share/doc/$(PACKAGE)/html/.htaccess
+	echo "DirectoryIndex docbook.html" >> \
+	    debian/$(PACKAGE)/usr/share/doc/$(PACKAGE)/html/.htaccess
+
+override_dh_compress:
+	dh_compress -i -Xusr/share/doc/docbook-defguide/html
+
+override_dh_clean:
+	$(MAKE) -C en clean
+	(cd en && $(RM) $(BASEDIR)/*.html stylesheets/html-titlepage.xsl bookinfo.xml)
+	dh_clean
+
