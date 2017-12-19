@@ -1,0 +1,173 @@
+docbook-ebnf (1.2~cr1-7) unstable; urgency=medium
+
+  * New maintainer (closes: #802366)
+  * debian/control: Bumped Standards-Version to 4.1.2
+  * debian/control: Bumped debhelper to 10
+ 
+
+ -- Rodrigo Siqueira <siqueira@ime.usp.br>  Tue, 19 Dec 2017 19:41:26 -0200
+
+docbook-ebnf (1.2~cr1-6) unstable; urgency=medium
+
+  * QA upload.
+  * Set Maintainer to Debian QA Group.  (See: #802366)
+  * Switch to debhelper compat level 9.  (Closes: #817433)
+  * Switch to source format 3.0 (quilt).
+  * Make the built reproducible, thanks to Chris Lamb.  (Closes: #825764)
+
+ -- Andreas Beckmann <anbe@debian.org>  Sat, 17 Dec 2016 23:09:50 +0100
+
+docbook-ebnf (1.2~cr1-5.1) unstable; urgency=low
+
+  * Non-maintainer upload.
+  * Rebuild against debhelper (>= 9.20120528) to fix postinst that
+    unconditionally overwrites files in /etc (see: #477751, closes: #675476).
+    Thanks to Helmut Grohne for the bug report.
+
+ -- Jakub Wilk <jwilk@debian.org>  Sat, 09 Jun 2012 11:47:22 +0200
+
+docbook-ebnf (1.2~cr1-5) unstable; urgency=low
+
+  * debian/docbook-ebnf.xmlcatalogs.in: Added. Rewrite System IDs too.
+  * debian/rules (debian/docbook-ebnf.xmlcatalogs): Fixed to add the contents
+    of the .in file. Further register the system IDs.
+    (debian/contrib/catalog.xml): Likewise.
+  * debian/rules: Vcs field transition.
+    (Standards-Version): Updated to latest standards version 3.7.3. No other
+    changes necessary.
+
+ -- Daniel Leidert (dale) <daniel.leidert@wgdd.de>  Sat, 15 Dec 2007 21:10:51 +0100
+
+docbook-ebnf (1.2~cr1-4) unstable; urgency=low
+
+  * debian/control: Homepage field transition.
+    (Description): Improved wording.
+  * debian/watch: Added a working one.
+
+ -- Daniel Leidert (dale) <daniel.leidert@wgdd.de>  Wed, 26 Sep 2007 22:04:49 +0200
+
+docbook-ebnf (1.2~cr1-3) unstable; urgency=low
+
+  * debian/control (Maintainer, Uploaders): Set the Debian XML/SGML team as
+    maintainer.
+  * debian/rules: Removed bashisms (closes: #422116). Thanks to Sebastian
+    Dröge for the report.
+
+ -- Daniel Leidert (dale) <daniel.leidert@wgdd.de>  Thu, 03 May 2007 19:55:27 +0200
+
+docbook-ebnf (1.2~cr1-2) unstable; urgency=low
+
+  * Upload to unstable.
+
+  [ Daniel Leidert ]
+  * debian/rules (clean): Added the removal of the created packaging files.
+    (get-orig-source): Make the target compatible with the "Best Packaging
+    Practices" reference.
+
+ -- Daniel Leidert (dale) <daniel.leidert@wgdd.de>  Sat, 14 Apr 2007 19:53:05 +0200
+
+docbook-ebnf (1.2~cr1-1) experimental; urgency=low
+
+  * New maintainer (closes: #295580).
+  * This is not really a new upstream version, just an update of the packaging
+    files along with a bug-fix. It further lets me create a new .orig.tar.gz
+    tarbll based on the new rules in the get-orig-source target, so the
+    tarball creation is more transparent.
+
+  [ Daniel Leidert ]
+  * debian/compat: Increased debhelper compatibility level to v4.
+  * debian/contrib/catalog.*: Added. They are templates to create the real
+    SGML and XML catalogs via debian/rules.
+  * debian/control: Added XS-Vcs-Browser and XS-Vcs-Svn fields.
+    (Maintainer): I'm the new maintainer.
+    (Uploaders): Added the Debian XML/SGML group.
+    (Build-Depends-Indep): Moved debhelper to Build-Depends and adjusted
+    version dependency (see debian/compat).
+    (Standards-Version): Bump to latest standards version.
+    (Description): Fixed package reference and added Homepage field.
+  * debian/copyright: Updated. Added copyright information found in DTDs.
+  * debian/docbook-ebnf.dirs: Added. Removed the related part in debian/rules.
+  * debian/docbook-ebnf.links: Ditto.
+  * debian/docbook-ebnf.sgmlcatalogs: Removed. It's created by debian/rules
+    automatically.
+  * debian/docbook-ebnf.xmlcatalogs: Ditto. But the created file does not
+    longer miss to register the entries in the root catalog (closes: #299692).
+  * debian/rules: Cleaned the file a lot. Moved stuff to be done via debhelper
+    scripts out of debian/rules into debhelper template files. Added rules to
+    automatically walk through the source(s) and create catalogs and related
+    debhelper templates. Added get-orig-source target to document the way, the
+    upstream tarball is created.
+  * debian/watch: Removed (useless, because it doesn't work).
+
+ -- Daniel Leidert (dale) <daniel.leidert@wgdd.de>  Sat, 10 Mar 2007 17:19:41 +0100
+
+docbook-ebnf (1.0+really1.2cr1-2) unstable; urgency=low
+
+  * QA Group upload orphaning this package
+
+ -- Andrew Pollock <apollock@debian.org>  Thu,  2 Mar 2006 22:13:00 -0800
+
+docbook-ebnf (1.0+really1.2cr1-1) unstable; urgency=low
+
+  * New upstream release candidate.
+  * Fixed debian/watch to catch pre-releases.  Still misses that 1.2CR1 >>
+    1.2b1 but well, that's life.
+
+ -- Yann Dirson <dirson@debian.org>  Fri, 24 Sep 2004 23:53:51 +0200
+
+docbook-ebnf (1.0+really1.2b1-4) unstable; urgency=low
+
+  * Workaround the lack of good solution to migrate a directory to a
+    compat symlink, by removing the /usr/share/sgml/docbook/custom/ebnf
+    directory in preinst (Closes: #255770).
+
+ -- Yann Dirson <dirson@debian.org>  Sat,  7 Aug 2004 00:27:18 +0200
+
+docbook-ebnf (1.0+really1.2b1-3) unstable; urgency=low
+
+  * Suggest docbook-defguide instead of obsoloete docbook-book (Closes: #255679).
+
+ -- Yann Dirson <dirson@debian.org>  Tue, 22 Jun 2004 14:33:03 +0200
+
+docbook-ebnf (1.0+really1.2b1-2) unstable; urgency=low
+
+  * Added missing build-dep on xml-core (Closes: #255604).
+
+ -- Yann Dirson <dirson@debian.org>  Tue, 22 Jun 2004 10:04:04 +0200
+
+docbook-ebnf (1.0+really1.2b1-1) unstable; urgency=low
+
+  * New upstream pre-release, for use with docbook 4.3.
+  * Depend on docbook-xml 4.3 so that the latest DTD is guaranted to work.
+  * Install into /usr/share/xml/ instead of /usr/share/sgml/, with a
+    compat symlink.  
+  * Renamed sgml catalog to "catalog".
+  * Declare the xml catalog using dh_installxmlcatalogs - hopefully I will
+    have done things OK with this.  Added ${misc:Depends} to Depends.
+
+ -- Yann Dirson <dirson@debian.org>  Sun, 20 Jun 2004 22:47:28 +0200
+
+docbook-ebnf (1.0+really1.1cr1-2) unstable; urgency=low
+
+  * Use relative paths in SGML catalog.
+  * Switch to dh_installcatalogs.
+  * Provide an XML catalog (Closes: #176970), but don't declare it since
+    there does not seem to be a standard way for this, and the
+    update-xmlcatalog is not clear, and even docbook-xml does not declare
+    its own ones.
+  * Switch to debian/compat.
+
+ -- Yann Dirson <dirson@debian.org>  Wed, 29 Oct 2003 23:19:05 +0100
+
+docbook-ebnf (1.0+really1.1cr1-1) unstable; urgency=low
+
+  * New upstream pre-release.
+  * Changed source-package layout to accomodate multiple releases.
+
+ -- Yann Dirson <dirson@debian.org>  Fri, 20 Sep 2002 18:23:18 +0200
+
+docbook-ebnf (1.0-1) unstable; urgency=low
+
+  * Initial Release (Closes: #145013).
+
+ -- Yann Dirson <dirson@debian.org>  Mon, 29 Apr 2002 23:29:47 +0200

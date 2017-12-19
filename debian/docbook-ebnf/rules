@@ -1,0 +1,138 @@
+#!/usr/bin/make -f
+# Sample debian/rules that uses debhelper.
+# GNU copyright 1997 to 1999 by Joey Hess.
+# Copyright 2002 by Yann Dirson.
+
+PACKAGE := docbook-ebnf
+
+debian/contrib/catalog: debian/contrib/catalog.start debian/contrib/catalog.end
+	set -ex ; \
+	touch $@ ; \
+	cat $@.start >> $@ ; \
+	for dbebnf in $(sort $(wildcard ebnf-*)) ; do \
+		dbebnfver=`echo $${dbebnf} | sed -e 's/ebnf-//g'` ; \
+		[ -f $${dbebnf}/dbebnf.dtd ] && \
+		    echo "PUBLIC \"-//OASIS//DTD DocBook EBNF Module V$${dbebnfver}//EN\"" >> $@ && \
+		    echo "       \"$${dbebnfver}/dbebnf.dtd\"" >> $@ ; \
+	done ; \
+	cat $@.end >> $@
+
+debian/contrib/catalog.xml: debian/contrib/catalog.xml.start debian/contrib/catalog.xml.end
+	set -ex ; \
+	touch $@ ; \
+	cat $@.start >> $@ ; \
+	for dbebnf in $(sort $(wildcard ebnf-*)) ; do \
+		dbebnfver=`echo $${dbebnf} | sed -e 's/ebnf-//g'` ; \
+		[ -f $${dbebnf}/dbebnf.dtd ] && \
+		    echo "<public publicId=\"-//OASIS//DTD DocBook EBNF Module V$${dbebnfver}//EN\"" >> $@ && \
+		    echo "        uri=\"$${dbebnfver}/dbebnf.dtd\"/>" >> $@ ; \
+		    echo "<system systemId=\"http://www.oasis-open.org/docbook/xml/ebnf/$${dbebnfver}/dbebnf.dtd\"" >> $@ && \
+		    echo "        uri=\"$${dbebnfver}/dbebnf.dtd\"/>" >> $@ ; \
+		    echo "<system systemId=\"http://docbook.org/xml/ebnf/$${dbebnfver}/dbebnf.dtd\"" >> $@ && \
+		    echo "        uri=\"$${dbebnfver}/dbebnf.dtd\"/>" >> $@ ; \
+	done ; \
+	cat $@.end >> $@
+
+.PHONY: catalogs
+catalogs: debian/docbook-ebnf.sgmlcatalogs debian/docbook-ebnf.xmlcatalogs
+
+debian/docbook-ebnf.install:
+	set -ex ; \
+	touch $@ ; \
+	for dbebnf in $(sort $(wildcard ebnf-*)) ; do \
+		dbebnfver=`echo $${dbebnf} | sed -e 's/ebnf-//g'` ; \
+		[ -f $${dbebnf}/dbebnf.dtd ] && \
+		    echo "$${dbebnf}/dbebnf.dtd usr/share/xml/docbook/custom/ebnf/$${dbebnfver}" >> $@ ; \
+		[ -f $${dbebnf}/testebnf.xml ] && \
+		    echo "$${dbebnf}/testebnf.xml usr/share/doc/docbook-ebnf/examples/$${dbebnfver}" >> $@ ; \
+	done
+
+debian/docbook-ebnf.sgmlcatalogs: debian/contrib/catalog
+	set -ex ; \
+	touch $@ ; \
+	echo "$< /usr/share/sgml/docbook/custom/ebnf/catalog" >> $@
+
+debian/docbook-ebnf.xmlcatalogs: debian/contrib/catalog.xml
+	set -ex ; \
+	touch $@ ; \
+	cat $@.in >> $@ ; \
+	echo "local;$<;/usr/share/xml/docbook/custom/ebnf/catalog.xml" >> $@ ; \
+	for dbebnf in $(sort $(wildcard ebnf-*)) ; do \
+		dbebnfver=`echo $${dbebnf} | sed -e 's/ebnf-//g'` ; \
+		[ -f $${dbebnf}/dbebnf.dtd ] && \
+		    echo -n "package;system;" >> $@ && \
+		    echo -n "http://www.oasis-open.org/docbook/xml/ebnf/$${dbebnfver}/dbebnf.dtd;" >> $@ && \
+		    echo /usr/share/xml/docbook/custom/ebnf/catalog.xml >> $@ ; \
+		    echo -n "package;system;" >> $@ && \
+		    echo -n "http://docbook.org/xml/ebnf/$${dbebnfver}/dbebnf.dtd;" >> $@ && \
+		    echo /usr/share/xml/docbook/custom/ebnf/catalog.xml >> $@ ; \
+		    echo -n "package;public;" >> $@ && \
+		    echo -n "-//OASIS//DTD DocBook EBNF Module V$${dbebnfver}//EN;" >> $@ && \
+		    echo /usr/share/xml/docbook/custom/ebnf/catalog.xml >> $@ ; \
+	done
+
+
+build-stamp: catalogs debian/docbook-ebnf.install
+	dh_testdir
+	touch build-stamp
+
+build: build-stamp
+build-arch:
+build-indep: build
+
+clean:
+	dh_testdir
+	rm -f build-stamp
+	rm -f debian/contrib/catalog \
+	      debian/contrib/catalog.xml \
+	      debian/docbook-ebnf.install \
+	      debian/docbook-ebnf.sgmlcatalogs \
+	      debian/docbook-ebnf.xmlcatalogs
+	dh_clean
+
+install:
+	dh_testdir
+	dh_testroot
+	dh_prep
+	dh_installdirs
+
+binary-indep: build
+	dh_testdir
+	dh_testroot
+	dh_installchangelogs
+	dh_installdocs
+	dh_install
+	dh_link
+	dh_installcatalogs
+	dh_installxmlcatalogs
+	dh_compress
+	dh_fixperms
+	dh_installdeb
+	dh_gencontrol
+	dh_md5sums
+	dh_builddeb
+
+binary-arch: build
+
+binary: binary-indep binary-arch
+
+.PHONY: clean binary-indep binary-arch binary install
+
+# This following code is used to create the .orig.tar.gz tarball.
+# Use it to prepare it for a new release.
+
+version=$(shell dpkg-parsechangelog | sed -n -e 's/^Version: \(.*\)-[^-]*/\1/p')
+
+.PHONY: get-orig-source
+get-orig-source:
+	set -ex ; \
+	TMPDIR=`mktemp -d docbook-ebnf-$(version).orig` ; \
+	for dbebnf in 1.0 1.1CR1 1.2b1 1.2CR1 ; do \
+		mkdir -p "$$TMPDIR"/ebnf-$${dbebnf} ; \
+		wget -P "$$TMPDIR"/ebnf-$${dbebnf} \
+		    http://www.oasis-open.org/docbook/xml/ebnf/$${dbebnf}/dbebnf.dtd \
+		    http://www.oasis-open.org/docbook/xml/ebnf/$${dbebnf}/testebnf.xml ; \
+	done; \
+	GZIP=-9 tar -czf $(CURDIR)/docbook-ebnf_${version}.orig.tar.gz "$$TMPDIR" ; \
+	rm -rf "$$TMPDIR"
+

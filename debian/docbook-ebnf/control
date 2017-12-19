@@ -1,0 +1,22 @@
+Source: docbook-ebnf
+Section: text
+Priority: optional
+Maintainer: Rodrigo Siqueira <siqueira@ime.usp.br>
+Build-Depends: debhelper (>= 10)
+Build-Depends-Indep: xml-core
+Standards-Version: 4.1.2
+Homepage: http://www.oasis-open.org/docbook/xml/ebnf/
+Vcs-Browser: http://svn.debian.org/wsvn/debian-xml-sgml/packages/docbook-ebnf/trunk/
+Vcs-Svn: svn://svn.debian.org/svn/debian-xml-sgml/packages/docbook-ebnf/
+
+Package: docbook-ebnf
+Architecture: all
+Depends: docbook-xml (>= 4.3), ${misc:Depends}
+Suggests: docbook-defguide
+Description: EBNF module for the XML version of the DocBook DTD
+ DocBook is a general-purpose and modular SGML and XML Document-Type
+ Definition. This is a module that adds elements for the markup of
+ EBNF grammar rules to DocBook.
+ .
+ It is fully documented in "DocBook - The Definitive Guide", available
+ in the docbook-defguide package.
