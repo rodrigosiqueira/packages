@@ -1,0 +1,6 @@
+638570_lang_russian.patch
+681116_multiarch_manpage_template.patch
+765567_non-recursive_string_subst.patch
+831831_docbook-xsl-mandir.patch
+fix_privacy_breach_generic_docbook_xsl
+fix_privacy_breach_generic_docbook_xsl_ns

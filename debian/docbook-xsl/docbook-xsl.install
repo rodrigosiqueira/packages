@@ -1,0 +1,21 @@
+docbook-xsl/VERSION*        usr/share/xml/docbook/stylesheet/docbook-xsl/
+
+docbook-xsl/assembly        usr/share/xml/docbook/stylesheet/docbook-xsl/
+docbook-xsl/common          usr/share/xml/docbook/stylesheet/docbook-xsl/
+docbook-xsl/eclipse         usr/share/xml/docbook/stylesheet/docbook-xsl/
+docbook-xsl/epub/*.xsl      usr/share/xml/docbook/stylesheet/docbook-xsl/epub/
+docbook-xsl/epub3/*.*       usr/share/xml/docbook/stylesheet/docbook-xsl/epub3/
+docbook-xsl/fo              usr/share/xml/docbook/stylesheet/docbook-xsl/
+docbook-xsl/highlighting    usr/share/xml/docbook/stylesheet/docbook-xsl/
+docbook-xsl/html            usr/share/xml/docbook/stylesheet/docbook-xsl/
+docbook-xsl/htmlhelp        usr/share/xml/docbook/stylesheet/docbook-xsl/
+docbook-xsl/images          usr/share/xml/docbook/stylesheet/docbook-xsl/
+docbook-xsl/javahelp        usr/share/xml/docbook/stylesheet/docbook-xsl/
+docbook-xsl/lib             usr/share/xml/docbook/stylesheet/docbook-xsl/
+docbook-xsl/manpages        usr/share/xml/docbook/stylesheet/docbook-xsl/
+docbook-xsl/profiling       usr/share/xml/docbook/stylesheet/docbook-xsl/
+docbook-xsl/roundtrip       usr/share/xml/docbook/stylesheet/docbook-xsl/
+docbook-xsl/slides          usr/share/xml/docbook/stylesheet/docbook-xsl/
+docbook-xsl/template        usr/share/xml/docbook/stylesheet/docbook-xsl/
+docbook-xsl/website         usr/share/xml/docbook/stylesheet/docbook-xsl/
+docbook-xsl/xhtml*          usr/share/xml/docbook/stylesheet/docbook-xsl/

@@ -1,0 +1,157 @@
+docbook-xsl for Debian
+----------------------
+
+ (1) General
+ (2) Extensions
+ (3) Catalog Support
+ (4) Getting Help
+ (5) Debian Hacks
+ (6) Reporting bugs
+
+
+(1) General 
+===========
+
+These stylesheets are now registered in the XML catalog system.
+(See also the RELEASE-NOTES.html in this directory.)
+
+You'll need an XSLT processor to use these stylesheets. The following
+processors are known to work with these stylesheets:
+
+- xsltproc (xsltproc, libxslt1.1)
+- Saxon (libsaxon-java)
+- Xalan (xalan, libxalan110) and Xalan 2 (libxalan2-java)
+- XT (libxt-java) - may not work anymore (upstream maintainers are dropping
+  support)
+
+All of the above are part of Debian.
+
+- Many other XSLT processors may work as well, I simply haven't tested them.
+  If you know one missing above, just let me know.
+
+Instructions for using these stylesheets with some of these XSLT
+processors can be found in the documentation included in docbook-xsl-doc* and
+in the packages mentioned above. See also "DocBook XSL: The Complete Guide" by
+Bob Stayton; an online html version is available
+at http://www.sagehill.net/docbookxsl.
+
+
+(2) Extensions
+==============
+
+The extensions shipped with the source (xalan and saxon), missing the source,
+are not shipped with this package nor with the package source. Instead use the
+Debian packages for Xalan and Saxon.
+
+See also http://bugs.debian.org/cgi-bin/bugreport.cgi?bug=331661.
+
+
+(3) Catalog Support
+===================
+
+These stylesheets are now registered in the XML catalog system, and can be
+called via the base canonical URI in combination with one of the pathnames
+below. For example, for "chunked" HTML, output:
+
+  http://docbook.sourceforge.net/release/xsl/x.y.z/html/chunk.xsl
+  http://docbook.sourceforge.net/release/xsl/current/html/chunk.xsl
+
+(replace x, y and z with the version number of any docbook-xsl release).
+Or use a "real" local system base path in combination with one of the
+pathnames. For example, for "chunked" HTML, output:
+
+  /usr/share/xml/docbook/stylesheet/docbook-xsl/html/chunk.xsl
+
+Read more in /usr/share/doc/docbook-xsl/README.
+
+Catalog support:
+
+libxslt1.1/xsltproc: Provides catalog support for both OASIS catalog
+		   types: tr9401 and XML catalogs.
+
+xml-commons-resolver: Provides support for both SGML (aka tr9401) and XML
+                      catalogs. Can be used with saxon, xalan2 and xt. See the
+                      docs with that package for the details.
+
+
+(4) Getting Help
+================
+
+A good starting point is Bob Stayton's book "DocBook XSL: The Complete Guide",
+available online at
+
+  http://www.sagehill.net/docbookxsl/
+
+For parameter reference read the documents shipped with the docbook-xsl-doc*
+packages.
+
+  file:///usr/share/doc/docbook-xsl/reference.html/index.html
+
+If you still have problems or questions concerning these stylesheets, post a
+message to the docbook-apps mailing list. Response time is surprisingly short.
+For more information, visit the list archives at
+
+  http://lists.oasis-open.org/archives/docbook-apps/
+
+or the Wiki page at
+
+  http://wiki.docbook.org/topic/DocBookAppsMailingList
+
+
+(5) Debian Hacks
+================
+
+IMPORTANT NOTE: Never bother upstream if you have issues with the following
+                Debian hacks. Instead send your reports ONLY to the Debian
+		BTS (http://bugs.debian.org/docbook-xsl).
+
+(a) In Debian bugs #173093 and #382505 it has been requested, that the default
+    value for the paper.type parameter is set accordingly to the system wide
+    setting in /etc/papersize.
+
+    NOTE: The patch has been dropped, because /etc/papersize is a
+          configuration file and might not be present at the users system
+          (#511005). A new solution to the original request is not available
+          atm (but several frontends like xmlto support libpaper already).
+    
+    http://bugs.debian.org/173093
+    http://bugs.debian.org/382505
+    http://bugs.debian.org/511005
+
+
+(6) Reporting bugs
+==================
+
+NOTE FOR BUG REPORTS:
+
+  If you think, that your bug report is not specifically
+  related to the Debian package, and if you have an sf.net
+  account, you may directly report your problem to the
+  upstream bug tracker at
+  
+      http://sourceforge.net/tracker/?group_id=21935&atid=373747
+
+  and leave me[1] a pointer to your report.
+  
+NOTE FOR WISHLIST REPORTS:
+
+  Please note, that every (non-Debian specific)
+  feature request is normally discussed with upstream. So you are well
+  advised to report and discuss such requests via the upstream feature
+  tracker at
+
+      http://sourceforge.net/tracker/?group_id=21935&atid=373750
+
+  or the docbook-apps mailing list
+
+      http://wiki.docbook.org/topic/DocBookAppsMailingList
+
+  and leave me[1] a pointer to your report/discussion.
+
+[1] Send a short note to the Debian BTS including a link or the number of your
+    bug report (in the upstream tracker) and I will monitor and care about it.
+    Most bug-fixes need to go into the upstream code and therefor you help
+    me/Debian and you help upstream if you are so kind to report your issue to
+    both parties. Check the upstream ChangeLog and you'll see it works.
+
+ -- Daniel Leidert <daniel.leidert@wgdd.de>, Updated in March 2009

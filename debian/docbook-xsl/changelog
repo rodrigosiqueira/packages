@@ -1,0 +1,1152 @@
+docbook-xsl (1.79.1+dfsg-3) unstable; urgency=medium
+
+  * New maintainer (closes: #802370)
+  * debian/control: Bumped Standards-Version to 4.1.2
+  * debian/control: Bumped debhelper to 10
+  * debian/patches: Added patch to fix privacy breach in docbook-xsl 
+  * debian/patches: Added patch to fix privacy breach in docbook-xsl-ns
+
+ -- Rodrigo Siqueira <siqueira@ime.usp.br>  Tue, 19 Dec 2017 17:32:57 -0200
+
+docbook-xsl (1.79.1+dfsg-2) unstable; urgency=medium
+
+  * QA upload.
+  * Orphan package, see #802370.
+  * Import package history into git and distribute it on collab-maint.
+    Set Vcs-Git and Vcs-Browser accordingly.
+  * debian/patches/831831_docbook-xsl-mandir.patch
+    - Fix bad so link in man pages. (Closes: #831831)
+
+ -- Michael Biebl <biebl@debian.org>  Wed, 07 Sep 2016 01:41:50 +0200
+
+docbook-xsl (1.79.1+dfsg-1) unstable; urgency=low
+
+  * QA upload.
+  * New upstream release
+    - drop spanish and fix typo patches: upstream
+  * Bump std-version to 3.9.6, no changes required.
+  * Bump compat level and debhelper to 9.
+  * Remove VCS fields.
+
+ -- Gianfranco Costamagna <locutusofborg@debian.org>  Mon, 25 Jan 2016 15:17:09 +0100
+
+docbook-xsl (1.78.1+dfsg-1.1) unstable; urgency=medium
+
+  * Non-maintainer upload.
+  * debian/patches/765567_non-recursive_string_subst.patch: Added.
+    - Avoid recursion in string.subst (closes: #765567).
+
+ -- John Paul Adrian Glaubitz <glaubitz@physik.fu-berlin.de>  Sat, 02 Jan 2016 20:46:55 +0100
+
+docbook-xsl (1.78.1+dfsg-1) unstable; urgency=low
+
+  * New upstream release (closes: #696929).
+    - Fixes fo:* element sequences in FO output (closes: #605198).
+    - Removed passivetex extensions code (closes: #207601, #650786).
+    - XHTML conversion scripts have been fixed (closes: #654338).
+    - Handle book/info elements of DB5 correctly (closes:  #666068).
+    - Fixed orientation of footnotes in blockquote (closes: #684381).
+    - Fixed manual page output (closes: #695742).
+  * debian/control: Added Multi-Arch: foreign. Dropped DM-Upload-Allowed.
+    (Uploaders): Fixed my address.
+    (Standards-Version): Bumped to 3.9.4.
+  * debian/docbook-xsl.install, debian/docbook-xsl-ns.install: Added new and
+    missing (VERSION.xsl) files.
+  * debian/get-orig-source.sh: Minor fixes after upstream changed to bzip.
+  * debian/rules: Install README files to documentation.
+  * debian/watch: Check for bzip2 archives too (closes: #703514).
+  * debian/patches/611924_html_same_ids_for_quote.patch: Dropped.
+  * debian/patches/605696_fix_section_name_for_lexgrog.patch: Ditto.
+  * debian/patches/577807_lang_spanish.patch: Added.
+    - Fix spanish template generated text (closes: #577807).
+  * debian/patches/638570_lang_russian.patch: Added.
+    - Fix two translations (closes: #638570).
+  * debian/patches/681116_multiarch_manpage_template.patch: Added.
+    - Offer a way to omit build-time outpout to manpages (closes: #681116).
+  * debian/patches/698962_fix_typo.patch: Added.
+    - Fix a few typos (closes: #698962).
+  * debian/patches/series: Adjusted.
+
+ -- Daniel Leidert <dleidert@debian.org>  Sun, 26 May 2013 20:26:30 +0200
+
+docbook-xsl (1.76.1+dfsg-1) unstable; urgency=low
+
+  * New upstream release.
+    - Fixed bug when context was lost (closes: #602537).
+  * Copied some files from docbook-xsl-ns.
+
+  * debian/control: Added docbook-xsl-ns.
+    (Vcs-Browser, Vcs-Svn): Adjusted for unstable.
+    (Build-Depends): Dropped dpatch in favour of source format 3.0 (quilt).
+    Added docbook5-xml for docbook-xsl-ns. Increased debhelper version for
+    dh_bugfiles.
+    (Standards-Version): Bumped to 3.9.2.
+    (Homepage): Fixed not-longer-existing URL.
+    (Description): Mention XSL-FO (closes: #604004, #623977).
+    (Recommends): Downgrade docbook-xsl-doc* packages to Suggests (closes:
+    #610726, #623976).
+  * debian/copyright: Adjusted and added parts of docbook-xsl-ns.
+  * debian/docbook-xsl.docs: Adjusted source paths.
+  * debian/docbook-xsl.examples: Ditto.
+  * debian/docbook-xsl.install: Ditto.
+  * debian/docbook-xsl.xmlcatalogs: Ditto.
+  * debian/docbook-xsl-ns.copyright: Copied and removed.
+  * debian/docbook-xsl-ns.docs: Copied and adjusted source paths.
+  * debian/docbook-xsl-ns.examples: Ditto.
+  * debian/docbook-xsl-ns.install: Ditto.
+  * debian/docbook-xsl-ns.xmlcatalogs: Ditto.
+  * debian/docbook-xsl-ns.README.Debian: Copied.
+  * debian/get-orig-source.sh: Create one source package for docbook-xsl and
+    docbook-xsl-ns.
+  * debian/presubj: Renamed to debian/docbook-xsl.bug-presubj.
+  * debian/rules: Dropped dpatch and useless get-orig-source target.
+    (override_dh_auto_test): Run the check-xml target.
+    (check-xml): Added the --nonet switch to avoid internet access. Added
+    check of DocBook 5 example (copied from docbook-xsl-ns).
+    (override_dh_installchangelogs): Adjusted source paths.
+    (.PHONY): Added the check-xml target.
+  * debian/watch: Added line for docbook-xsl-ns.
+  * debian/README.Debian: Renamed to debian/docbook-xsl.README.Debian.
+  * debian/README.source: Adjusted after dropping dpatch and after merging
+    docbook-xsl and docbook-xsl-ns. Added information about multiple upstream
+    tarballs.
+  * debian/bugs/docbook-xsl-ns/presubj: Copied and renamed to
+    debian/docbook-xsl-ns.bug-presubj. Typo fix.
+  * debian/examples/foo.1.example_manpage.xml: Renamed to
+    debian/examples/docbook-xsl/foo.1.example_manpage.xml.
+  * debian/examples/docbook-xsl-ns/foo.1.example_manpage.xml: Copied.
+  * debian/source/format: Changed to 3.0 (quilt).
+  * debian/patches/605696_fix_section_name_for_lexgrog.patch: Added.
+    - */common/es.xml: Fix Spanish translation for RefName to make it being
+      recognized by lexgrog (closes: #605696).
+  * debian/patches/611924_html_same_ids_for_quote.patch: Added.
+    - */*html/inline.xsl (quote): Don't call the anchor
+      template to not duplicate IDs (closes: #611924).
+  * debian/patches/620556_fo_segmentedlist_with_segtitles.patch: Added.
+    - */fo/lists.xsl (segmentedlist): Create the number of columns needed in
+      table mode (closes: #620556).
+  * debian/patches/00list: Renamed to debian/patches/series and adjusted.
+  * debian/patches/00options,
+    debian/patches/00template: Dropped.
+
+ -- Daniel Leidert (dale) <daniel.leidert@wgdd.de>  Thu, 17 Nov 2011 14:04:56 +0100
+
+docbook-xsl (1.76.0~RC1+dfsg-1) experimental; urgency=low
+
+  * First release candidate of the upcoming 1.76.0 release based on r8900.
+    - Apostroph fix applied at all places (closes: #507673).
+    - Refer to local image path (closes: #561590).
+    - Handles simpara in footnote for manpages correctly (closes: #580305).
+    - Improved French translation (closes: #594649).
+
+  * debian/compat: Increased to 7.
+  * debian/control (Vcs-Browser, Vcs-Svn): Adjusted for experimental.
+    (Build-Depends): Increased dh version to >7.
+    (Standards-Version): Bumped to 3.9.1.
+    (Suggests): Added libxslthl-java (closes: #576831).
+  * debian/rules: Rewritten for dh 7.
+  * debian/get-orig-source.sh: Also remove newly released webhelp directory.
+  * debian/README.source: Added note about webhelp.
+  * debian/patches/561590_param_local_draft_image.dpatch: Dropped (r8810).
+  * debian/patches/562227_xhtml_fix_saxon_ns_leakage.dpatch: Ditto (r8808).
+  * debian/patches/8530_manpages_lists_indentation_fix.dpatch: Ditto.
+  * debian/patches/8539_554441_xhtml11_fix_ulink_param_target.dpatch: Ditto.
+  * debian/patches/8563_562816_german_translation_fix.dpatch: Ditto.
+  * debian/patches/portable_apostrophe_fix.dpatch: Ditto (r8841).
+  * debian/patches/00list: Adjusted.
+
+ -- Daniel Leidert (dale) <daniel.leidert@wgdd.de>  Tue, 31 Aug 2010 22:52:27 +0200
+
+docbook-xsl (1.75.2+dfsg-5) unstable; urgency=low
+
+  * debian/patches/514030_debianize_dbtoepub.dpatch: Dropped. This patch leads
+    to inclusion of the docbook-xsl stylesheets and misses to match the
+    elements in a DB5 document (closes: #567859).
+  * debian/patches/00list: Adjusted.
+
+ -- Daniel Leidert (dale) <daniel.leidert@wgdd.de>  Sun, 31 Jan 2010 22:44:03 +0100
+
+docbook-xsl (1.75.2+dfsg-4) unstable; urgency=low
+
+  * debian/patches/8539_554441_xhtml11_fix_ulink_param_target.dpatch: Added.
+    - xhtml-1_1/param.xsl: Empty ulink.target to not create target attribute
+      in anchor element (closes: #554441).
+  * debian/patches/561590_param_local_draft_image.dpatch: Added.
+    - */param.xsl: Use a local path for the draft image (closes: #561590).
+  * debian/patches/562227_xhtml_fix_saxon_ns_leakage.dpatch: Added.
+    - xhtml/html.xsl, xhtml-1_1/html.xsl: Fix leakage of xmlns:saxon namespace
+      in XHTML output (closes: #562227).
+  * debian/patches/8563_562816_german_translation_fix.dpatch: Added.
+    - common/de.xml: Fix an incorrect German translation (closes: #562816).
+  * debian/patches/00list: Adjusted.
+
+ -- Daniel Leidert (dale) <daniel.leidert@wgdd.de>  Fri, 22 Jan 2010 16:24:15 +0100
+
+docbook-xsl (1.75.2+dfsg-3) unstable; urgency=low
+
+  * debian/patches/514030_debianize_dbtoepub.dpatch: Adjusted.
+    - Removed patchset according to scripts. This is stuff for dbtoepub.
+  * debian/patches/8530_manpages_lists_indentation_fix.dpatch: Added.
+    - manpages/lists.xsl: Fix two indentation issues (closes: #519438,
+      #527309).
+  * debian/patches/portable_apostrophe_fix.dpatch: Added.
+    - manpages/docbook.xsl, manpages/other.xsl: Add some code to portably
+      represent a straight apostrophe (closes: #507673).
+  * debian/patches/00list: Adjusted.
+
+ -- Daniel Leidert (dale) <daniel.leidert@wgdd.de>  Wed, 04 Nov 2009 01:15:13 +0100
+
+docbook-xsl (1.75.2+dfsg-2) unstable; urgency=low
+
+  * debian/control (Description): Unify short description for docbook-xsl-ns.
+    (Standards-Version): Bumped to 3.8.3.
+    (Recommends): Dropped dbtoepub related dependencies.
+    (Suggests): Added dbtoepub.
+  * debian/copyright: Paths adjusted (s/nwalsh/docbook-xsl).
+  * debian/dbtoepub.1: Dropped.
+  * debian/docbook-xsl.install: Don't install files shipped with dbtoepub.
+  * debian/rules: Minor cleaning. Added rule to validate XML.
+    (binary-indep): Dropped dbtoepub stuff.
+
+ -- Daniel Leidert (dale) <daniel.leidert@wgdd.de>  Mon, 31 Aug 2009 23:53:37 +0200
+
+docbook-xsl (1.75.2+dfsg-1) unstable; urgency=low
+
+  * New upstream release 1.75.2.
+    - Fixed rendering of copyright in manual pages (closes: #534853).
+    - Fixed rendering of ulink with leading spaces (closes: #519442).
+    - Improved Japanese translations (closes: #517078, #537603).
+    - Fixed Polish alphabet (closes: #534052).
+    - Removed dead link in README (closes: #530942).
+
+  * debian/control (Standards-Version): Bumped to 3.8.2.
+  * debian/README.Debian: Fixed typo (closes: #534849).
+  * debian/patches/514030_debianize_dbtoepub.dpatch: Adjusted.
+
+ -- Daniel Leidert (dale) <daniel.leidert@wgdd.de>  Thu, 23 Jul 2009 15:19:05 +0200
+
+docbook-xsl (1.75.1+dfsg-1) unstable; urgency=low
+
+  * New upstream release 1.75.1.
+
+  * debian/patches/528004_apply_simpara_content.dpatch: Dropped (applied
+    upstream).
+  * debian/patches/528132_fix_epub_container.dpatch: Ditto.
+  * debian/patches/00list: Adjusted.
+
+ -- Daniel Leidert (dale) <daniel.leidert@wgdd.de>  Sat, 30 May 2009 22:21:40 +0200
+
+docbook-xsl (1.75.0+dfsg-4) unstable; urgency=low
+
+  * debian/patches/528132_fix_epub_container.dpatch: Added.
+    - epub/docbook.xsl: Remove odfc namespace prefix to fix container.xml
+      (closes: #528132).
+  * debian/patches/00list: Adjusted.
+
+ -- Daniel Leidert (dale) <daniel.leidert@wgdd.de>  Mon, 11 May 2009 13:19:04 +0200
+
+docbook-xsl (1.75.0+dfsg-3) unstable; urgency=low
+
+  * debian/patches/528004_apply_simpara_content.dpatch: Added.
+    - (x)html(-1_1)/lists.html (listitem/simpara): Apply contents of the
+      simpara elements (closes: #528004).
+  * debian/patches/00list: Adjusted.
+
+ -- Daniel Leidert (dale) <daniel.leidert@wgdd.de>  Sun, 10 May 2009 13:46:10 +0200
+
+docbook-xsl (1.75.0+dfsg-2) unstable; urgency=low
+
+  * debian/control (Depends, Recommends): Move dbtoepub related packages from
+    Depends to Recommends (closes: #525808).
+
+ -- Daniel Leidert (dale) <daniel.leidert@wgdd.de>  Sun, 10 May 2009 05:16:50 +0200
+
+docbook-xsl (1.75.0+dfsg-1) unstable; urgency=low
+
+  * New upstream release 1.75.0.
+
+  * debian/dbtoepub.1: Updated.
+
+ -- Daniel Leidert (dale) <daniel.leidert@wgdd.de>  Sat, 09 May 2009 14:33:57 +0200
+
+docbook-xsl (1.74.3+dfsg-1) unstable; urgency=low
+
+  * New upstream release 1.74.3 (closes: #514030).
+    - Ships new and fixed localizations (closes: #492608).
+    - Fixed missing brackets for paramdef in HTML output (closes: #500456).
+
+  * Source split into the docbook-xsl and docbook-xsl-doc (because
+    docbook-xsl-ns needs the same documentation files).
+
+  * debian/control: Removed docbook-xsl-doc* binary package fields.
+    (Standards-Version): Bumped to 3.8.1.
+    (Recommends): Adjusted for doc-packages without .dfsg version part.
+    (Vcs-Browser): Fixed.
+    (Depends): Added ruby, xsltproc and zip for dbtoepub.
+    (Suggests): Added docbook-xsl-saxon for extensions. Removed xsltproc which
+    is now a runtime dependency.
+  * debian/dbtoepub.1: Added for dbtoepub inclusion.
+  * debian/docbook-xsl.dirs: Removed trailing slash.
+  * debian/docbook-xsl.install: Include new epub stylesheets and dbtoepub.
+    Install everything into /usr/share/xml/docbook/stylesheet/docbook-xsl/.
+  * debian/docbook-xsl.links: Adjusted. Added compatibility symlink. Added
+    docbook-xsl symlink in /usr/share/sgml/docbook/stylesheet/xsl/.
+  * debian/docbook-xsl.postinst: /usr/share/xml/docbook/stylesheet/nwalsh/
+    becomes a symlink - so remove the directory.
+  * debian/docbook-xsl.xmlcatalogs: Likewise.
+  * debian/docbook-xsl-doc*: Removed docbook-xsl-doc* related debhelper files.
+  * debian/get-orig-source.sh: Added script to replace get-orig-source target
+    in debian/rules.
+  * debian/rules (binary-indep): Removed doc-packages related debhelper calls.
+    Further exclude .gitignore files. Install the manual page. Fix
+    permissions.
+    (get-orig-source): Use the new script.
+  * debian/watch: Fixed after changing to dfsg-version without period. Added
+    script support.
+  * debian/README.Debian: Note the removal of patch
+    02_use_global_papersize_conf and its reasons (#173093, #382505, #511005).
+    Further update for the new stylesheet and documentation locations.
+  * debian/README.source: Added to comply to our policy. Further document
+    repackaging.
+  * debian/examples/foo.1.example_manpage.xml: Fixed encoding declaration.
+  * debian/patches/7*.dpatch,
+    debian/patches/8*.dpatch: Removed (applied upstream).
+  * debian/patches/02_use_global_papersize_conf.dpatch: Removed (closes:
+    #495644). /etc/papersize may not be present on the users system as it is a
+    configuration file (closes: #511005).
+  * debian/patches/514030_debianize_dbtoepub.dpatch: Added.
+    - The dbtoepub script needs a few minor changes for a "real" installation
+      - not lying around in the stylesheet path.
+  * debian/patches/00list: Adjusted.
+
+ -- Daniel Leidert (dale) <daniel.leidert@wgdd.de>  Sat, 25 Apr 2009 14:52:35 +0200
+
+docbook-xsl (1.73.2.dfsg.1-5) unstable; urgency=low
+
+  * debian/presubj: Fixed a small typo.
+  * debian/patches/02_use_global_papersize_conf.dpatch: Fixed a small typo
+    (closes: #495644).
+  * debian/patches/8162_fo_gentext_for_pubdate.dpatch: Added.
+    - gentext should map to pubdate instead of published (closes: #505790).
+ 
+ -- Daniel Leidert (dale) <daniel.leidert@wgdd.de>  Sun, 16 Nov 2008 15:28:16 +0100
+
+docbook-xsl (1.73.2.dfsg.1-4) unstable; urgency=low
+
+  * debian/docbook-xsl-doc-html.doc-base (Section): Fixed accordingly to
+    version 0.8.10 of the doc-base manual.
+  * debian/docbook-xsl-doc-pdf.doc-base (Section): Ditto.
+  * debian/docbook-xsl-doc-text.doc-base (Section): Ditto.
+  * debian/patches/7668_locale_update_and_fix_norwegian_bokmal.dpatch: Small
+    fix (adds startquote).
+  * debian/patches/7681_fo_fix_colsep_in_entrytbl.dpatch: Added.
+    - Fixed to make colsep in entrytbl working.
+  * debian/patches/7698_html_fix_rowsep_in_entrytbl.dpatch: Added.
+    - Fixed to make rowsep apply to the last row of thead in entrytbl.
+  * debian/patches/7731_man_prepend_dots_with_zero_width_char.dpatch: Added.
+    - Fixed a regression in the handling of dots. Prepend them with a zero
+      width character.
+  * debian/patches/7740_man_replace_spaces_in_refname_with_underscores.dpatch:
+    Added.
+    - Replace any spaces in the refname(s) with underscores for man-page name
+      to be compliant with lexgrog and other tools not able to handle spaces
+      in filenames.
+  * debian/patches/7806_man_fix_non_breaking_space_output.dpatch: Added.
+    - Fixed a regression in the conversion of non-breaking spaces (closes:
+      #473244).
+  * debian/patches/7901_fo_fix_inline_or_block_template.dpatch: Added.
+    - Fixed non-working inline.or.block template for indexterm wrappers.
+  * debian/patches/7939_html_add_exslt_ns_for_pi.dpatch: Added.
+    - Add exslt namespace to (x)html/docbook.xsl. Otherwise there seems to be
+      a problem using the profiled version of the stylesheet.
+  * debian/patches/00list: Adjusted.
+
+ -- Daniel Leidert (dale) <daniel.leidert@wgdd.de>  Sun, 30 Mar 2008 20:36:37 +0200
+
+docbook-xsl (1.73.2.dfsg.1-3) unstable; urgency=low
+
+  * debian/presubj: Shorten the general note about bug-reporting (put it into
+    README.Debian; closes: #445901). Added a pointer for issues with Debian
+    hacks.
+  * debian/control: Vcs fields transition. Added DM-Upload-Allowed.
+    (Vcs-Svn): Fixed location.
+    (Standards-Version): Raised to 3.7.3.
+  * debian/copyright: Fixed typo. Thanks to lintian.
+  * debian/docbook-xsl-doc-html.copyright: Ditto.
+  * debian/docbook-xsl-doc-pdf.copyright: Ditto.
+  * debian/docbook-xsl-doc-text.copyright: Ditto.
+  * debian/rules (binary-indep): Fixed a possible bashism (LP: #173145).
+  * debian/README.Debian: Added new sections to document Debian-only hacks and
+    bug reporting (see #447958).
+  * debian/patches/02_use_global_papersize_conf.dpatch: Adjusted.
+    - fo/docbook.xsl (root.messages): Outsource the information into
+      README.Debian and just print a pointer (closes: #447958).
+  * debian/patches/7528_common_fix_too_many_nested_elements.dpatch: Added.
+    - common/titles.xsl (xref[no.anchor.mode]): Added test to workaround "too
+      many nested apply-templates".
+  * debian/patches/7564_fo_fix_typo.dpatch: Added.
+    - fo/refentry.xsl (format.refentry.subheading): Fixed element typo.
+  * debian/patches/7623_man_support_for_processing_structfield.dpatch: Added.
+    - manpages/inline.xsl (replaceable|varname): Added support for
+      structfield, which appeared in <em> tags in ROFF output.
+  * debian/patches/7629_man_fix_escaped_dots_in_filenames.dpatch: Added.
+    - manpages/other.xsl (write.stubs): Fixed escaped dots in resulting
+      file-names (closes: #449582). Thanks to LI Daobing for the resport.
+  * debian/patches/7656_html_component_title_in_info_elements.dpatch: Added.
+    - html/component.xsl (chapter/title, appendix/title): Fix bug where
+      component titles inside info elements were not handled properly.
+  * debian/patches/7674_man_fix_unescaped_dash_in_whatis_entry.dpatch: Added.
+    - manpages/refentry.xsl (refnamediv): Fixed the unescaped dash between
+      refname and refpurpose content in the whatis entry (closes: #465820).
+  * debian/patches/7668_locale_update_and_fix_norwegian_bokmal.dpatch: Added.
+    - The `no' language code is obsoleted in favour of `nb'. Further update
+      the translation (closes: #464708). Thanks to Hans F. Nordhaug for the
+      report and the patch.
+  * debian/patches/00list: Adjusted accordingly.
+
+ -- Daniel Leidert (dale) <daniel.leidert@wgdd.de>  Sun, 17 Feb 2008 02:04:49 +0100
+
+docbook-xsl (1.73.2.dfsg.1-2) unstable; urgency=low
+
+  * debian/control: Homepage field transition. Added XS-Vcs-Browser and
+    XS-Vcs-Svn fields.
+  * debian/watch: Changed to use the QA redirectory after the directory is
+    back on heanet.dl.sf.net.
+  * debian/patches/7436_html_fo_fix_empty_index_entries.dpatch: Added.
+    - fo/autoidx.xsl (reference): Removed the [&scope;] predicate from the
+      target variable, that caused missing index backlinks when @zone and
+      @type were used on indexterms with index.on.type=1. Fixes SF.net bug
+      1680836.
+    - (x)html/autoidx.xsl (reference): Ditto.
+  * debian/patches/7440_fo_normalize_space.dpatch: Added.
+    - fo/inline.xsl (glossterm): Use normalize-space() in glossterm
+      comparisons.
+  * debian/patches/7441_html_fix_legalnotice_filename_creation.dpatch: Added.
+    - (x)html/chunk-common.xsl, (x)html/titlepage.xsl: Fix the filename
+      creation for legalnotice and revhistory output (fixes broken links).
+      Fixes SF.net bug 1790495.
+  * debian/patches/00list: Adjusted.
+
+ -- Daniel Leidert (dale) <daniel.leidert@wgdd.de>  Wed, 26 Sep 2007 22:34:59 +0200
+
+docbook-xsl (1.73.2.dfsg.1-1) unstable; urgency=low
+
+  * New upstream release 1.73.2.
+    - Stable bug-fix release for the 1.73 series.
+
+  [ Daniel Leidert ]
+  * debian/copyright: Updated copyright information.
+  * debian/rules (binary-indep): Removed permissions fix as this has been
+    fixed upstream.
+  * debian/patches/01_create_debian_catalog.dpatch: Removed. The customization
+    is not necessary, so we can use the upstream catalog.
+  * debian/patches/10_fo_fix_footnote_numbering.dpatch: Removed. Applied
+    upstream.
+  * debian/patches/00list: Adjusted.
+
+ -- Daniel Leidert (dale) <daniel.leidert@wgdd.de>  Thu, 30 Aug 2007 21:09:28 +0200
+
+docbook-xsl (1.73.1.dfsg.1-1) unstable; urgency=low
+
+  * New upstream release 1.73.1.
+    - Stable bug-fix release for the 1.73 series.
+
+  [ Daniel Leidert ]
+  * debian/rules (binary-indep): Fix permissions of SVGs and a stylesheet,
+    that do not need to be executable.
+  * debian/patches/01_create_debian_catalog.dpatch: Adjusted.
+  * debian/patches/02_use_global_papersize_conf.dpatch: Adjusted.
+  * debian/patches/10_7129_fix_abstract_title_condition_check.dpatch: Removed.
+    Applied upstream.
+  * debian/patches/11_charmap_imports_fix.dpatch: Ditto.
+  * debian/patches/10_fo_fix_footnote_numbering.dpatch: Added.
+    - A regression was discovered in the footnote numbering fix, that is fixed
+      with this patch.
+  * debian/patches/00list: Adjusted.
+
+ -- Daniel Leidert (dale) <daniel.leidert@wgdd.de>  Tue, 21 Aug 2007 12:54:16 +0200
+
+docbook-xsl (1.73.0.dfsg.1-1) UNRELEASED; urgency=low
+
+  * New upstream release 1.73.0.
+    - Upstream reverted backslash, dot and dash escaping. You can now use e.g.
+      '\fX' again in your templates (closes: #415488).
+
+  [ Daniel Leidert ]
+  * debian/control (Recommends): Removed recommending a web-server (closes:
+    #431096).
+  * debian/docbook-xsl.examples: Removed the Makefiles.
+  * debian/rules (binary-indep): Added more files, that can be ignored.
+  * debian/watch: Added.
+  * debian/examples/foo.1.example_manpage.xml: Removed the <date> tag
+    (automatically produced by docbook-xsl) - thanks to Charles Plessy. Also
+    fixed the <productname> description.
+  * debian/patches/01_create_debian_catalog.dpatch: Updated for this release.
+  * debian/patches/10_man_fix_indentation_issues.dpatch: Removed. Applied
+    upstream.
+  * debian/patches/11_html_xalan_transformerexception_fix.dpatch: Ditto.
+  * debian/patches/12_fo_fix_master_name_in_crop_mark_templ[..].dpatch: Ditto.
+  * debian/patches/13_fo_fix_missing_attribute_set_for_proc[..].dpatch: Ditto.
+  * debian/patches/14_html_fo_fix_sfnet_1652360_empty_link_[..].dpatch: Ditto.
+  * debian/patches/15_common_fix_sfnet_1668629_valign_on_tb[..].dpatch: Ditto.
+  * debian/patches/16_html_fix_outputting_empty_height_attr[..].dpatch: Ditto.
+  * debian/patches/17_fo_fix_number_test_in_termlength_when_NaN.dpatch: Ditto.
+  * debian/patches/18_html_fo_fixed_calllout_typo_in_callou[..].dpatch: Ditto.
+  * debian/patches/19_common_fix_caption_plus_title_in_cals[..].dpatch: Ditto.
+  * debian/patches/20_html_fo_fix_sfnet_1680755_incorrect_k[..].dpatch: Ditto.
+  * debian/patches/21_fix_xlink_namespace_declaration_into_html.dpatch: Ditto.
+  * debian/patches/22_html_fix_sfnet_1644874_missing_space_[..].dpatch: Ditto.
+  * debian/patches/23_eclipse_javahelp_normalize_space_to_s[..].dpatch: Ditto.
+  * debian/patches/24_html_fixed_sfnet_1717196_footnoteref_[..].dpatch: Ditto.
+  * debian/patches/25_xhtml_fix_misalignments.dpatch: Ditto.
+  * debian/patches/26_roundtrip_fix_debian_429219_undefined[..].dpatch: Ditto.
+  * debian/patches/80_common_locale_fixes.dpatch: Ditto.
+  * debian/patches/81_common_xalan_bug_workaround.dpatch: Ditto.
+  * debian/patches/82_fix_doc_typos.dpatch: Ditto.
+  * debian/patches/02_use_global_papersize_conf.dpatch: Added.
+    - The default value for page.type is read from /etc/papersize (closes:
+      #173093, #382505).
+  * debian/patches/10_7129_fix_abstract_title_condition_check.dpatch: Added.
+    - Fixed test for abstract.notitle.enabled to work accordingly to the
+      documentation.
+  * debian/patches/11_charmap_imports_fix.dpatch: Added.
+    - Import the missing stylesheet.
+  * debian/patches/00list: Adjusted.
+ 
+ -- Daniel Leidert (dale) <daniel.leidert@wgdd.de>  Mon, 20 Aug 2007 03:31:00 +0200
+
+docbook-xsl (1.72.0.dfsg.1-2) unstable; urgency=low
+
+  * debian/control (Recommends, Enhances): Replaced obsolete ${Source-Version}
+    variable with ${source:Version}.
+  * debian/rules: Added get-orig-source target to document the creation of the
+    tarball.
+
+  [ Patches ]
+  * debian/patches/14_html_fo_fix_sfnet_1652360_empty_link_[..].dpatch: Added.
+    - fo/xref.xsl (link): Fixed SF.net bug #1652360: empty link with
+      xlink:href.
+    - (x)html/xref.xsl (link): Ditto.
+  * debian/patches/15_common_fix_sfnet_1668629_valign_on_tb[..].dpatch: Added.
+    - common/table.xsl (inherited.table.attribute): Fix SF.net bug #1668629:
+      valign on tbody not inherited.
+  * debian/patches/16_html_fix_outputting_empty_height_attr[..].dpatch: Added.
+    - (x)html/graphics.xsl (process.image.attributes): Fix bug in contentdepth
+      outputting empty height attribute.
+  * debian/patches/17_fo_fix_number_test_in_termlength_when_NaN.dpatch: Added.
+    - common/titles.xsl (variablelist[vl.as.list]): Fix number test in
+      termlength when NaN.
+  * debian/patches/18_html_fo_fixed_calllout_typo_in_callou[..].dpatch: Added.
+    - fo/lists.xsl: Fix 'calllout' typos.
+    - (x)html/lists.xsl: Ditto.
+  * debian/patches/19_common_fix_caption_plus_title_in_cals[..].dpatch: Added.
+    - common/titles.xsl (table[title.markup]): Fix caption plus title in cals
+      table producing double caption.
+  * debian/patches/20_html_fo_fix_sfnet_1680755_incorrect_k[..].dpatch: Added.
+    - fo/inline.xsl (keycombo): Fix SF.net bug #1680755: keycombo joinchar
+      default incorrect.
+    - (x)html/inline.xsl (keycombo): Ditto.
+  * debian/patches/21_fix_xlink_namespace_declaration_into_html.dpatch: Added.
+    - (x)html/xref.xsl (exclude-result-prefixes): Do not output xlink
+      namespace declaration into HTML output.
+  * debian/patches/22_html_fix_sfnet_1644874_missing_space_[..].dpatch: Added.
+    - (x)html/titlepage.xsl (contrib[titlepage.mode]): Fix SF.net bug
+      #1669601: Missing space in othercredit (x)html output.
+  * debian/patches/23_eclipse_javahelp_normalize_space_to_s[..].dpatch: Added.
+    - eclipse/eclipse.xsl: Add normalize-space around titles and index entries
+      to work around whitespace problems.
+    - javahelp/javahelp.xsl: Ditto.
+  * debian/patches/24_html_fixed_sfnet_1717196_footnoteref_[..].dpatch: Added.
+    - (x)html/footnote.xsl (footnoteref): Fixed SF.net bug #1717196:
+      footnoteref not finding the right chunk for the target.
+  * debian/patches/25_xhtml_fix_misalignments.dpatch: Added.
+    - xhtml/lists.xsl (varlistentry[varlist-table], callout): Added <p>
+      element around callouts and terms in variablelist to avoid misalignment
+      of callout/term and listitem in xhtml (non-quirks mode) output.
+    - xhtml/qandaset.xsl (question): Likewise for question and answer labels
+      to avoid misalignment of label and listitem.
+  * debian/patches/26_roundtrip_fix_debian_429219_undefined[..].dpatch: Added.
+    - roundtrip/dbk2wp.xsl (entry[doc:body]): Fixed template name.
+      (doc:handle-linebreaks-aux): Fixed undefined $text (closes: #429219).
+      Thanks to Roland Stigge for the report.
+  * debian/patches/80_common_locale_fixes.dpatch: Changed.
+    - Add updates and fixes for Serbian, Mongolian, Esperanto and Czech
+      translation.
+  * debian/patches/00list: Adjusted accordingly.
+
+ -- Daniel Leidert (dale) <daniel.leidert@wgdd.de>  Sun, 17 Jun 2007 23:33:21 +0200
+
+docbook-xsl (1.72.0.dfsg.1-1) unstable; urgency=low
+
+  * New upstream release 1.72.0.
+    - Upstream added man.output.lang.in.name.enabled parameter to enable
+      output of filenames like $NAME.$LANG.$SECTION (closes: #310895). Thanks
+      to Philippe Batailler for the suggestion of this feature.
+    - Upstream added initial support in manpages output for footnote,
+      annotation and alt instances (closes: #386580). Thanks to Jakub Wilk for
+      the suggestion of this feature.
+    For more read /usr/share/doc/docbook-xsl/changelog.gz.
+
+  [ Daniel Leidert (package) ]
+  * debian/copyright: Removed hint about comment in common localization files,
+    because upstream fixed the comment(s) in these files, so misinterpretation
+    as an unchangeable file should be impossible.
+  * debian/docbook-xsl.dirs: Removed obsolete directory.
+  * debian/docbook-xsl.docs:
+    debian/docbook-xsl.links:
+    debian/README.Debian: Re-added some upstream docs after upstream updated
+    and cleaned them (thanks to Michael(tm) Smith). The content of these files
+    has been removed from README.Debian.
+  * debian/docbook-xsl.examples: Added one more Makefile.
+  * debian/docbook-xsl.install: Fixed in respect to wordml -> rountrip
+    renaming.
+  * debian/control:
+    debian/rules: Split docbook-xsl-doc package into a HTML (-html), a PDF
+    (-pdf) and a pure ASCII text (-text) documentation package (the two latter
+    were added initially).
+  * debian/docbook-xsl-doc.doc-base:
+    debian/docbook-xsl-doc.docs:
+    debian/docbook-xsl-doc.links: Removed for above reason.
+  * debian/docbook-xsl-doc-html.copyright:
+    debian/docbook-xsl-doc-html.doc-base:
+    debian/docbook-xsl-doc-html.docs:
+    debian/docbook-xsl-doc-html.links:
+    debian/docbook-xsl-doc-pdf.copyright:
+    debian/docbook-xsl-doc-pdf.doc-base:
+    debian/docbook-xsl-doc-pdf.docs:
+    debian/docbook-xsl-doc-text.copyright:
+    debian/docbook-xsl-doc-text.doc-base:
+    debian/docbook-xsl-doc-text.docs: Added for above reason.
+  * debian/docbook-xsl.preinst:
+    debian/docbook-xsl.postinst:
+    debian/docbook-xsl.prerm:
+    debian/docbook-xsl.links: Changed the creation of the compatibility
+    symlink. It is not longer created by the postinst script. Instead a newly
+    introduced preinst script removes the existing directory. That makes it
+    possible to install a symlink with the package (content) and this symlink
+    is removed automatically during package removal/purge, so the prerm script
+    becomes obsolete. So it was removed. This IMO enhances the solution for
+    bug #393726.
+  * debian/rules: Cleaned up the file a bit (upstream removed empty files and
+    fixed file permissions).
+
+  [ Daniel Leidert (patches) ]
+  * debian/patches/01_create_debian_catalog.dpatch: Adjusted for this release.
+  * debian/patches/10_man_fix_indentation_issues.dpatch: Added.
+    - manpages/lists.xsl: All listitems should be separated by an empty line.
+      Removes the extra indentation, that can result in a broken indentation
+      level.
+  * debian/patches/11_html_xalan_transformerexception_fix.dpatch: Added.
+    - html/glossary.xsl: Adds curly braces around the $language attribute
+      values to prevent Xalan 2.70 from throwing an exception.
+    - xhtml/glossary.xsl: Ditto.
+  * debian/patches/12_fo_fix_master_name_in_crop_mark_template_call.dpatch:
+    Added.
+    - fo/pagesetup.xsl: Fixed master-name used in axf crop mark template call.
+  * debian/patches/13_fo_fix_missing_attribute_set_for_procedure.dpatch:
+    Added.
+    - fo/lists.xsl: Adds the missing procedure.properties attribute set.
+  * debian/patches/80_common_locale_fixes.dpatch: Adjusted. Removed fixes,
+    that were merged into upstream. Added fixes.
+    - common/it.xml: Improvements and fixes.
+    - common/ja.xml: Ditto.
+    - common/uk.xml: Ditto.
+  * debian/patches/81_common_xalan_bug_workaround.dpatch: Added.
+    - common/pi.xsl: Try to workaround a Xalan quirk.
+  * debian/patches/82_fix_doc_typos.dpatch: Added.
+    - doc/manpages/man.string.subst.map.html: Simple typo fix.
+  * debian/patches/10_manpages_fix_bold_author_markup.dpatch:
+  * debian/patches/11_fo_fix_recursion_depth_bug_for_long_programlistings.dpatch:
+  * debian/patches/12_fo_axf_attribute_before_fotex.dpatch:
+  * debian/patches/13_fo_typo_fixes.dpatch:
+  * debian/patches/14_fo_empty_rows_fix.dpatch:
+  * debian/patches/15_html_fixed_namespace_declarations.dpatch:
+  * debian/patches/16_slides_fix_foil_numbers_for_foilgroups.dpatch:
+  * debian/patches/17_fo_html_add_space_between_orgname_and_orgdiv.dpatch:
+  * debian/patches/18_common_fix_olink_database_access_for_saxon_and_db5.dpatch:
+  * debian/patches/19_manpages_fix_output_formatting_bugs.dpatch:
+  * debian/patches/20_html_handle_xalan_quirk.dpatch:
+  * debian/patches/21_common_copyof_instead_valueof.dpatch:
+  * debian/patches/22_common_fix_extra_white_space_introduced_by_olink.dpatch:
+  * debian/patches/23_common_fo_html_use_number_function_for_comparison.dpatch:
+  * debian/patches/24_html_fix_sgmltag_class_attribute.dpatch:
+  * debian/patches/25_manpages_typo_fixes.dpatch:
+  * debian/patches/26_fo_html_fix_no_space_between_package_and_classname.dpatch:
+  * debian/patches/27_fo_html_fix_citation_linking_to_biblioentry.dpatch:
+  * debian/patches/28_template_added_xalan_workaround.dpatch: Removed. Fixes
+    were merged into upstream.
+  * debian/patches/90_fix_readme_contents.dpatch: Removed. Upstream
+    reorganized READMEs and README content. Thanks to Michael(tm) Smith for
+    this Debian-friendly work.
+  * debian/patches/00list: Adjusted accordingly.
+
+ -- Daniel Leidert (dale) <daniel.leidert@wgdd.de>  Sat, 24 Feb 2007 00:41:57 +0100
+
+docbook-xsl (1.71.0.dfsg.1-2) unstable; urgency=medium
+
+  * Acknowledge NMU (closes: #393726, #393808). Thanks to Loic Minier.
+  * debian/patches/11_fo_fix_recursion_depth_bug_for_long_programlistings.dpatch:
+    Added.
+    - fo/verbatim.xsl: Adds two-stage recursion for hyphenate.verbatim to fix
+      recursion depth bug for long programlistings. Revision 6280.
+  * debian/patches/12_fo_axf_attribute_before_fotex.dpatch: Added.
+    - fo/component.xsl: Create axf attribute before adding fotex element.
+      Revision 6293.
+  * debian/patches/13_fo_typo_fixes.dpatch: Added.
+    - fo/inline.xsl: Fix typo bug (xlink.href should be xlink:href). Revision
+      6312.
+  * debian/patches/14_fo_empty_rows_fix.dpatch: Added.
+    - fo/table.xsl: Empty rows aren't allowed. Revision 6337.
+  * debian/patches/15_html_fixed_namespace_declarations.dpatch: Added.
+    - html/autoidx-kimber.xsl, html/autoidx-kosek.xsl, html/callout.xsl,
+      html/chunker.xsl, html/graphics.xsl, html/oldchunker.xsl,
+      html/table.xsl, html/verbatim.xsl, xhtml/autoidx-kimber.xsl,
+      xhtml/autoidx-kosek.xsl, xhtml/callout.xsl, xhtml/chunker.xsl,
+      xhtml/graphics.xsl, xhtml/oldchunker.xsl, xhtml/table.xsl,
+      xhtml/verbatim.xsl: Made changes in namespace declarations to prevent
+      xmllint's canonicalizer from treating them as relative namespace URIs.
+      Revision 6306.
+  * debian/patches/16_slides_fix_foil_numbers_for_foilgroups.dpatch: Added.
+    - slides/html/slides-common.xsl, slides/xhtml/slides-common.xsl: Foil
+      number is show only on foils not on foilgroups which are not counted at
+      all. Revision 6281.
+  * debian/patches/17_fo_html_add_space_between_orgname_and_orgdiv.dpatch:
+    Added.
+    - fo/titlepage.xsl, html/titlepage.xsl, xhtml/titlepage.xsl: Fixed bug
+      1566358 (sf.net bug tracker) to add space between orgname and orgdiv.
+      Revision 6347.
+  * debian/patches/18_common_fix_olink_database_access_for_saxon_and_db5.dpatch:
+    Added.
+    - common/olink.xsl: Fixed olink database access for Saxon and DB5.
+      Revision 6348.
+  * debian/patches/19_manpages_fix_output_formatting_bugs.dpatch: Added.
+    - manpages/block.xsl: Make sure there's always a newline before .sp macro
+      in output from simpara. Revision 6359.
+    - manpages/synop.xsl: Fix bug: change <text> to <xsl:text>. Revision 6453.
+  * debian/patches/20_html_handle_xalan_quirk.dpatch: Added.
+    - html/db5strip.xsl, xhtml/db5strip.xsl: Handle Xalan quirk as special
+      case. Revision 6397.
+  * debian/patches/21_common_copyof_instead_valueof.dpatch: Added.
+    - common/olink.xsl: Use copy-of instead of value-of for xreftext to
+      preserve markup. Revision 6412.
+  * debian/patches/22_common_fix_extra_white_space_introduced_by_olink.dpatch:
+    Added.
+    - common/targets.xsl: Fix bug 1596737 (sf.net bug tracker) extra white
+      space introduced by olink. Now output indent="no" for target data.
+      Revision 6413.
+  * debian/patches/23_common_fo_html_use_number_function_for_comparison.dpatch:
+    Added.
+    - common/table.xsl, fo/table.xsl, html/table.xsl, xhtml/table.xsl: Use
+      number() in some comparisons to ensure number data type. Revision 6417.
+  * debian/patches/24_html_fix_sgmltag_class_attribute.dpatch: Added.
+    - html/inline.xsl, xhtml/inline.xsl: Fix class attribute on sgmltag.
+      Revision 6436.
+  * debian/patches/25_manpages_typo_fixes.dpatch: Added.
+    - manpages/utility.xsl: Fixed two element name typos. Revision 6444.
+  * debian/patches/26_fo_html_fix_no_space_between_package_and_classname.dpatch:
+    Added.
+    - fo/synop.xsl, html/synop.xsl, xhtml/synop.xsl: Fixed bug 1603790 (sf.net
+      bug tracker) no space between package and classname. Revision 6446.
+  * debian/patches/27_fo_html_fix_citation_linking_to_biblioentry.dpatch:
+    Added.
+    - fo/inline.xsl, html/inline.xsl, xhtml/inline.xsl: Fix bug 1614469
+      (sf.net bug tracker) for citation linking to biblioentry. Revision 6451.
+  * debian/patches/28_template_added_xalan_workaround.dpatch: Added.
+    - template/titlepage.xsl: Added workaround for Xalan bug: use for-each and
+      copy instead of copy-of. Closes 1604770 (sf.net bug tracker). Revision
+      6452.
+  * debian/patches/80_common_locale_fixes.dpatch: Added.
+    - common/am.xml, common/bn.xml, common/gu.xml, common/kn.xml,
+      common/pa.xml, common/pt_br.xml, common/sr.xml, common/sv.xml,
+      common/ta.xml, common/vi.xml, common/xh.xml, common/zh_tw.xml: Added
+      HTMLHelp langcodes to several files. Revision 6290.
+    - common/pt.xml: Fixed bug 1583790 (sf.net bug tracker) glossary entry
+    character. Revision 6384.
+  * debian/patches/00list: Adjusted.
+
+ -- Daniel Leidert (dale) <daniel.leidert@wgdd.de>  Fri, 29 Dec 2006 04:57:23 +0100
+
+docbook-xsl (1.71.0.dfsg.1-1.1) unstable; urgency=low
+
+  * Non-maintainer upload.
+  * Remove compatibility symlink in
+    /usr/share/sgml/docbook/stylesheet/xsl/nwalsh and its parent directories
+    on removal; closes: #393726.
+
+ -- Loic Minier <lool@dooz.org>  Tue, 17 Oct 2006 22:26:46 +0200
+
+docbook-xsl (1.71.0.dfsg.1-1) unstable; urgency=low
+
+  * New maintainer. See
+    http://lists.alioth.debian.org/pipermail/debian-xml-sgml-devel/2006-August/000687.html.
+  * Acknowledge NMU (closes: #172996, #175681, #175734, #184673, #186836,
+    #199517, #225192, #232192, #236960, #238517, #270155, #276136, #276471,
+    #304011, #310245, #322686, #330129, #334874, #360029, #367694, #382576).
+  * New upstream release 1.71.0.
+    - Fixed handling of verbatims (address, screen, etc.) within listitem
+      instances in varlistentry and glossentry (closes: #385940). Thanks to
+      Jakub Wilk for the report.
+    - Added normalization in several places in *info output that lacked it
+      (closes: #383874). Thanks to Andreas Hoenen for the report.
+  * After further testing the following bugs are not longer reproducible:
+    - Linebreaks are preserved in <screen> environments (closes: #375503).
+    - The escape sign (the backslash) is now correctly escaped in the groff
+      source, so it appears correctly in manpage output (closes: #160235).
+    - <emphasis role="strong"> is now understood and handled as bold element
+      by the stylesheets (closes: #332474).
+    - an element following CDATA[\newline\tab]+ does not longer result in
+      manpage output, missing at least one space between the CDATA and the
+      elements content (closes: #345750).
+
+  [ Daniel Leidert ]
+  * debian/changelog: Added the missing '#' sign to bug-numbers in the
+    changelog entry of 1.70.1.dfsg.1-0.1, so the link to the report can be
+    automatically created.
+  * debian/compat: Raised debhelper compatibility level to 5.
+  * debian/control: Fixed Maintainer and Uploaders fields (see
+    http://lists.alioth.debian.org/pipermail/debian-xml-sgml-devel/2006-August/000687.html).
+    Adjusted debhelper build-dependency version. Extended package description
+    for docbook-xsl (also informing about the formats "addeid recently").
+  * debian/copyright: Removed the paragraph about the l10n files in common/
+    (upstream changed this paragraph accordingly). Added copyright, license
+    and warranty information for the files in highlighting.
+  * debian/docbook-xsl.examples: Install the manpage example
+    debian/examples/foo.1.example_manpage.xml too.
+  * debian/docbook-xsl.install: Also install highlighting/*.
+  * debian/docbook-xsl.links: Added links for README in
+    /usr/share/xml/*/nwalsh/* to /usr/share/doc/docbook-xsl.
+  * debian/docbook-xsl.prerm: Removed (empty file).
+  * debian/docbook-xsl-doc.doc-base: Also added reference in text and pdf
+    format.
+  * debian/rules: Also avoid installation of the outdated testtemplate.xml.
+    For the moment also avoid an installation of the reference in pdf and text
+    format (would increase the size of docbook-xsl-doc to the 4x of the
+    current size).
+  * debian/README.Debian: Updated some outdated information I missed
+    earlier. Added references to README.*, where available.
+  * debian/examples/foo.1.example_manpage.xml: Added. This file is a sample
+    manpage written in XML to help manpage writers with an example that shows
+    the full power of the current docbook-xsl package (it was added in
+    relation to bug #383495).
+  * Adjusted patches:
+    - debian/patches/01_create_debian_catalog.dpatch: Adjusted.
+  * Removed patches:
+    - debian/patches/10_html_use_copy_of_parameter_value.dpatch: Removed.
+      Fixed in upstream.
+    - debian/patches/11_html_make_x_html_output_valid.dpatch: Ditto.
+    - debian/patches/12_html_add_sectioninfo_keywordsets_meta.dpatch: Ditto.
+    - debian/patches/13_man_process_every_copyright_element.dpatch: Ditto.
+    - debian/patches/90_common_l10n_updates.dpatch: Ditto.
+  * Added patches:
+    - debian/patches/10_manpages_fix_bold_author_markup.dpatch: Added.
+      - manpages/info.xsl: Fixes the missing formatting in AUTHORS, that was
+        lost with the normalization fix.
+    - debian/patches/90_fix_readme_contents.dpatch: Added.
+      - template/README: Added the installation directoy to avoid confusion
+        when a user reads the link /usr/share/doc/docbook-xsl/README.template.
+      - wordml/README: Similar.
+  * debian/patches/00list: Adjusted accordingly.
+
+ -- Daniel Leidert (dale) <daniel.leidert@wgdd.de>  Mon, 11 Sep 2006 22:47:41 +0200
+
+docbook-xsl (1.70.1.dfsg.1-0.2) unstable; urgency=high
+
+  * NMU
+
+  [ Daniel Leidert ]
+  * debian/control:
+    - Re-added ${misc:Depends} to make dh_installxmlcatalog and the postinst &
+      prerm scripts work properly (closes: #382576).
+
+ -- Daniel Leidert (dale) <daniel.leidert@wgdd.de>  Sun, 13 Aug 2006 21:50:44 +0200
+
+docbook-xsl (1.70.1.dfsg.1-0.1) unstable; urgency=high
+
+  * NMU
+  * New upstream release 1.70.1 (closes: #322686, #367694).
+  * This release contains many fixes. Several bugs reported to the BTS are not
+    longer reproducible:
+    - The <webtoc> tag now produces a TOC when XSL(T) conversion is done on
+      the provided example website.xml (closes: #172996).
+    - Hyphenation of URLs in manpages is now suppressed by default - see also
+      the man.hyphenate.urls parameter reference (closes: #175681).
+    - The <arg> element is formatted bold by default in manpages
+      (closes: #175734).
+    - Using the <refsynopsisdiv> element no longer misses a "SYNOPSIS" section
+      in FO output (closes: #184673).
+    - Generated XHTML contains a DOCTYPE (closes: #186836).
+    - Improved troff translation of the <literallayout> element
+      (closes: #199517).
+    - A work-around for the broken passivetex list-item-body rendering was
+      added by upstream to FO stylesheets (closes: #225192, #232192).
+    - The <email> element is not longer ignored when used as children of the
+      <author>, <editor> or <othercredit> elements (closes: #236960).
+    - Mapping of unicode symbols and special characters is now handled
+      corresponding to groff escape sequences using the "character map" format
+      described in the XSLT 2.0 specification (closes: #238517, #334874).
+    - The handling of <segmentedlist> elements has been improved in many ways,
+      including indentation and styling-options (closes: #270155).
+    - Linking the next chunk in bibliographies no longer fails
+      (closes: #276136).
+    - Information given during manpage generation can be suppressed now, so
+      that the process runs quietly - see also the man.output.quietly and the
+      refentry.meta.get.quietly parameter reference (closes: #304011).
+    - Nesting italic and bold formatted elements in manpages no longer
+      produces a wrongly formatted/broken output (closes: #330129).
+
+  [ Daniel Leidert ]
+  * debian/control:
+    - Changed to standards version 3.7.2 (fixed build-dependecies to fit
+      section 7.6).
+    - Split the package into a package containing the stylesheets
+      (docbook-xsl) and the documentation (docbook-xsl-doc).
+    - Fixed recommended packages for docbook-xsl-doc (closes: #276471).
+    - Fixed 'Homepage' URL (closes: #310245, #360029).
+    - Fixed a typo.
+  * debian/copyright:
+    - Adjusted and completed copyright and license information.
+    - Added a text copy of the Mozilla Public License (MPL) version 1.1.
+  * debian/rules:
+    - Added dpatch stuff.
+    - Removed all empty files (param.html, pi.html) to fix a Lintian/linda
+      warning.
+    - Removed all outdated ChangeLog* files and the *.xweb and param.{ent,xml}
+      files, we don't need.
+  * debian/catalog.xml, docbook-xsl.xmlcatalogs,
+    debian/patches/01_create_debian_catalog.dpatch:
+    - Upstream now ships a catalog, so debian/catalog.xml can be removed and
+      catalog.xml patched instead.
+  * debian/docbook-xsl.docs, debian/docbook-xsl-doc.docs,
+    debian/docbook-xsl.doc-base, debian/docbook-xsl-doc.doc-base,
+    debian/README.Debian:
+    - Package was split, so documentation and doc-base control file go to
+      docbook-xsl-doc package.
+    - Updated README.Debian and added the bits of information TODO, BUGS etc.
+      contain (it's not that much, that shipping these file is necessary).
+  * debian/docbook-xsl.install:
+    - Added slides/, website/ and wordml/ directories.
+  * debian/docbook-xsl.examples:
+    - Added the Makefiles.
+  * debian/patches/10_html_use_copy_of_parameter_value.dpatch: Added.
+    - html/biblio.xsl: Added patch to use xsl:copy-of for
+      biblioentry.item.separator.
+    - xhtml/biblio.xsl: Ditto.
+  * debian/patches/11_html_make_x_html_output_valid.dpatch: Added.
+    - html/biblio.xsl: Fixed an issue when processing a bibliolist element,
+      that leads to invalid HTML output.
+    - xhtml/biblio.xsl: Ditto.
+    - html/qandaset.xsl: Fixed an issue when processing the answer element,
+      containing one or more qandaentry elements. This issue also leads to
+      invalid HTML output.
+    - xhtml/qandaset.xsl: Ditto.
+  * debian/patches/12_html_add_sectioninfo_keywordsets_meta.dpatch: Added.
+    - html/docbook.xsl: Fixed a missing processing instruction for keywordsets
+      inside sectioninfo elements. This issue leads to an incomplete keyword
+      META tag.
+    - xhtml/docbook.xsl: Ditto.
+  * debian/patches/13_man_process_every_copyright_element.dpatch: Added.
+    - manpages/info.xsl: Process every copyright and legalnotice element, not
+      just the first one, so the legal information is correct.
+  * debian/patches/90_common_l10n_updates.dpatch: Added.
+    - common/fr.xml: Updates from SVN.
+    - common/pl.xml: Ditto.
+
+ -- Daniel Leidert (dale) <daniel.leidert@wgdd.de>  Sat, 20 May 2006 15:37:11 +0200
+
+docbook-xsl (1.68.1.dfsg.1-0.2) unstable; urgency=low
+
+  * NMU
+  * Add -p to mkdir call in postinst to avoid falling if the directory does
+    not exist yet. Thanks Julien Louis for the patch. This fix #232428 which
+    was reintroduced by previous upload, but in a better way. 
+
+ -- Bill Allombert <ballombe@debian.org>  Sun,  7 May 2006 15:37:39 +0200
+
+docbook-xsl (1.68.1.dfsg.1-0.1) unstable; urgency=low
+
+  * NMU
+  * new "upstream" tarball: 
+    - Remove the extensions directory that contains the xalan and saxon 
+      JAVA extensions we are missing the source for.
+      (closes: #331661).
+    (Do not forget to remove them from future new upstream versions.)
+  * debian/control: 
+    - Remove reference to these extensions in the description.
+  * debian/docbook-xsl.install debian/docbook-xsl.links
+    debian/docbook-xsl.dirs debian/rules:
+    - do not install the removed extensions.
+
+ -- Bill Allombert <ballombe@debian.org>  Thu,  4 May 2006 19:38:18 +0200
+
+docbook-xsl (1.68.1-0.1) unstable; urgency=low
+
+  * NMU: latest version.
+
+ -- Jaldhar H. Vyas <jaldhar@debian.org>  Sun,  1 May 2005 15:10:58 -0400
+
+docbook-xsl (1.66.1-1) unstable; urgency=low
+
+  * New upstream release
+
+ -- Mark Johnson <mrj@debian.org>  Mon, 11 Oct 2004 15:44:36 -0400
+
+docbook-xsl (1.64.1.0-4.2) unstable; urgency=low
+
+  * NMU with permission of Mark Johnson
+  * make the postinst idempotent by rebuilding with
+    dh_installxmlcatalogs from xml-core 0.07 (closes: #232682)
+
+ -- Jochen Voss <voss@debian.org>  Wed, 25 Feb 2004 14:05:23 +0000
+
+docbook-xsl (1.64.1.0-4.1) unstable; urgency=low
+
+  * NMU with permission of Mark Johnson
+  * make the package build again by adding a xml-core
+    build dependency (closes: #232601)
+  * make the package install again by creating the
+    missing installation directory (closes: #232428)
+  * change Build-Depends into Build-Depends-Indep to make
+    lintian happy
+  * fix the short package description (closes: #232603)
+  * remove obsolete local variables section from changelog
+
+ -- Jochen Voss <voss@debian.org>  Tue, 24 Feb 2004 19:23:44 +0000
+
+docbook-xsl (1.64.1.0-4) unstable; urgency=low
+
+  * Really fixed /usr/share/sgml compatibility symlink. 
+  * (closes: #230454) (closes: #231336)
+  * Added <*system> entries to xml catalogs. (closes: #230562)
+
+ -- Mark Johnson <mrj@debian.org>  Sun,  8 Feb 2004 21:27:50 -0500
+
+docbook-xsl (1.64.1.0-3) unstable; urgency=low
+
+  * Set passivetex.extensions parameter back to default.
+  *  (closes: #230433)
+  * Fixed /usr/share/sgml compatibilty symlink. (closes: #230454)
+
+ -- Mark Johnson <mrj@debian.org>  Fri, 30 Jan 2004 20:03:45 -0500
+
+docbook-xsl (1.64.1.0-2) unstable; urgency=low
+
+  * Removed Recommends: xsltproc | libsaxon-java | libxalan2-java
+  * (closes: #230154)
+
+ -- Mark Johnson <mrj@debian.org>  Wed, 28 Jan 2004 18:21:06 -0500
+
+docbook-xsl (1.64.1.0-1) unstable; urgency=low
+
+  * Set passivetex.extensions parameter to 1. (closes: #224267)
+  * xalan & saxon extension are now installed in /usr/share/java.
+  * Removed blank lines at end of debian/control. closes: #205567 #225377
+  * Added xml catalog support. (closes: #142894)
+  * Changed long description to reflect possible output formats.
+  * (closes: #219035)
+
+ -- Mark Johnson <mrj@debian.org>  Mon, 26 Jan 2004 19:07:24 -0500
+
+docbook-xsl (1.64.1-1) unstable; urgency=low
+
+  * New upstream release. (closes: #224267)
+  * Discontinued config files in /etx/sgml/docbook-xsl: too complex to
+    maintain.
+  * Discontinue installation of upstream ChangeLogs into docs dir.
+
+ -- Mark Johnson <mrj@debian.org>  Wed, 24 Dec 2003 13:50:02 -0500
+
+docbook-xsl (1.62.4.0-1) unstable; urgency=low
+
+  * Replaced empty common/fr.xml with working version
+
+ -- Mark Johnson <mrj@debian.org>  Sat, 15 Nov 2003 15:20:02 -0500
+
+docbook-xsl (1.62.4-1) unstable; urgency=low
+
+  * New upstream release
+
+ -- Mark Johnson <mrj@debian.org>  Sun,  2 Nov 2003 19:28:04 -0500
+
+docbook-xsl (1.60.1-1) unstable; urgency=low
+
+  * New upstream release
+
+ -- Mark Johnson <mrj@debian.org>  Mon, 27 Jan 2003 01:57:59 -0600
+
+docbook-xsl (1.56.1-2) unstable; urgency=low
+
+  * Added omitted manpages directory (closes: bug#166192)
+  * Updated policy version to 3.5.7 
+
+ -- Mark Johnson <mrj@debian.org>  Thu, 24 Oct 2002 13:26:28 -0500
+
+docbook-xsl (1.56.1-1) unstable; urgency=low
+
+  * New upstream release 
+    (closes: bug#165644, bug#144402, bug#162525, bug#161105)
+  
+ -- Mark Johnson <mrj@debian.org>  Wed, 23 Oct 2002 11:49:06 -0500
+
+docbook-xsl (1.54.1-0.1) unstable; urgency=low
+
+  * Non-maintainer upload
+  * New upstream release (closes: bug#139966)
+  * Added contents to the profiling directory (closes: bug#148510)
+
+ -- Susan Kleinmann <sgk@kleinmann.com>  Thu,  5 Sep 2002 21:31:16 -0400
+
+
+docbook-xsl (1.50.0-2) unstable; urgency=low
+
+  * Added symlinks for images in user docs
+
+ -- Mark Johnson <mrj@debian.org>  Thu, 28 Mar 2002 15:19:00 -0500
+
+docbook-xsl (1.50.0-1) unstable; urgency=low
+
+  * New upstream release (closes: bug#130783, bug#131224)
+  * Fixed Description spelling error (closes: #124562)
+  * Config files now in /etc/sgml/docbook-xsl and symlinked 
+  * Updated README.Debian
+  
+ -- Mark Johnson <mrj@debian.org>  Thu, 28 Mar 2002 13:35:22 -0500
+
+docbook-xsl (1.45-1) unstable; urgency=low
+
+  * New upstream release
+
+ -- Mark Johnson <mrj@debian.org>  Tue,  2 Oct 2001 11:38:36 -0400
+
+docbook-xsl (1.44-1) unstable; urgency=low
+
+  * New upstream release. (closes: bug#108066, bug#112482)
+  * Changed package name to conform with upstream and dsssl stylesheets.
+
+ -- Mark Johnson <mrj@debian.org>  Fri, 21 Sep 2001 03:02:58 -0400
+
+docbook-xsl-stylesheets (1.40-1) unstable; urgency=low
+
+  * New upstream release
+
+ -- Mark Johnson <mrj@debian.org>  Mon, 18 Jun 2001 02:16:49 -0400
+
+docbook-xsl-stylesheets (1.39-1) unstable; urgency=low
+
+  * New upstream release. New file layout.
+  * Provides/Conflicts/Replaces doc package. (closes: #98126)
+
+ -- Mark Johnson <mrj@debian.org>  Fri, 15 Jun 2001 16:13:54 -0400
+
+docbook-xsl-stylesheets (1.29-2) unstable; urgency=low
+
+  * Merged docs into package. Moved html files to doc directory. 
+    Closes: bug#94946, bug#88816
+
+ -- Mark Johnson <mrj@debian.org>  Thu, 17 May 2001 07:34:46 -0400
+
+docbook-xsl-stylesheets (1.29-1) unstable; urgency=low
+
+  * Initial Release.
+  * Fixed paths in upstream bin files. Closes: bug#79024
+
+ -- Mark Johnson <mrj@debian.org>  Thu,  1 Mar 2001 22:56:49 -0500

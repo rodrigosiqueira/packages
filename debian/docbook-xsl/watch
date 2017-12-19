@@ -1,0 +1,11 @@
+# See uscan(1) for format
+#
+# NOTE: You need to call the get-orig-source target in debian/rules.
+# NOTE: uupdate will *NOT* work, because upstream splits the packages.
+#
+# Because the usual sf.net watch file syntax fails, use the ftp site.
+
+version=3
+opts=dversionmangle=s/\+dfsg$// \
+ http://sf.net/docbook/docbook-xsl-([\d\.]+)\.tar\.(?:bz2|gz) \
+ debian /bin/sh debian/get-orig-source.sh

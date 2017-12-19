@@ -1,0 +1,25 @@
+Author: Andrew O. Shadoura <bugzilla@tut.by>
+Reviewed-By: Daniel Leidert <dleidert@debian.org>
+Description: Fixes for russion translation.
+Bug-Debian: http://bugs.debian.org/638570
+Forwarded: not-yet
+
+--- a/docbook-xsl/common/ru.xml
++++ b/docbook-xsl/common/ru.xml
+@@ -114,12 +114,12 @@
+ <l:gentext key="Reference" text="Ссылка"/>
+ <l:gentext key="reference" text="Ссылка"/>
+ <l:gentext key="References" text="Ссылки"/>
+-<l:gentext key="RefName" text="Имя"/>
+-<l:gentext key="refname" text="Имя"/>
++<l:gentext key="RefName" text="Название"/>
++<l:gentext key="refname" text="Название"/>
+ <l:gentext key="RefSection" text="Раздел"/>
+ <l:gentext key="refsection" text="Раздел"/>
+-<l:gentext key="RefSynopsisDiv" text="Синопсис"/>
+-<l:gentext key="refsynopsisdiv" text="Синопсис"/>
++<l:gentext key="RefSynopsisDiv" text="Синтаксис"/>
++<l:gentext key="refsynopsisdiv" text="Синтаксис"/>
+ <l:gentext key="RevHistory" text="История переиздания"/>
+ <l:gentext key="revhistory" text="История переиздания"/>
+ <l:gentext key="revision" text="Издание"/>

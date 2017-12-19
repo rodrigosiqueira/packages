@@ -1,0 +1,115 @@
+docbook-xsl (1.76.0~RC1+dfsg-1) experimental; urgency=low
+
+  The webhelp (output) support, added in 1.76.0, will be packaged in a
+  separate package later.
+
+ -- Daniel Leidert (dale) <daniel.leidert@wgdd.de>  Tue, 31 Aug 2010 22:20:51 +0200
+
+docbook-xsl (1.75.2+dfsg-2) unstable; urgency=low
+
+  dbtoepub is now shipped in its own package (#525808).
+
+ -- Daniel Leidert (dale) <daniel.leidert@wgdd.de>  Thu, 23 Jul 2009 15:34:44 +0200
+
+docbook-xsl (1.74.3+dfsg-1) unstable; urgency=low
+
+  IMPORTANT: The stylesheets have been moved from
+  /usr/share/xml/docbook/stylesheet/nwalsh/ to
+  /usr/share/xml/docbook/stylesheet/docbook-xsl/. The old directory is a
+  symlink to the new location for compatibility reasons. Note, that I plan to
+  drop the old location /usr/share/xml/docbook/stylesheet/nwalsh/ in the
+  future. So plese adjust the path in your scripts, XML documents, ... or
+  better: use the WWW resource URI and the catalog system.
+
+  The patch to support reading the default papersize from /etc/papersize
+  (#173093, #382505) has been dropped, because it creates a failure if the
+  configuration file is not present (#511005). So use a frontend, which
+  supports libpaper or set the paper.type parameter in your stylesheet.
+
+  There is now also a new script `dbtoepub' (PoC, alpha state) to create EPUB
+  output from DocBook books and articles. Send your suggestions.
+
+ -- Daniel Leidert (dale) <daniel.leidert@wgdd.de>  Fri, 20 Feb 2009 16:11:00 +0100
+
+docbook-xsl (1.73.2.dfsg.1-2) unstable; urgency=low
+
+  This release fixes the broken legalnotice and revhistory links in (X)HTML
+  output. It further implements a design change made by upstream - you now
+  MUST set the use.id.as.filename to create legalnotice or revhistory
+  filenames from their ID. Otherwise the stylesheets will fall back to use
+  generate-id() and compute a filename from the return value of this XSLT
+  function. In the past, existing IDs were used, even if use.id.as.filename
+  was not set. Alternatively you can also use the dbhtml filename PI to choose
+  a name for your revhistory or legalnotice chunk(s).
+
+ -- Daniel Leidert (dale) <daniel.leidert@wgdd.de>  Wed, 26 Sep 2007 22:34:52 +0200
+
+docbook-xsl (1.73.0.dfsg.1-1) unstable; urgency=low
+
+  In the 1.72.0 release there was a regression regarding the backslash,
+    dot and dash handling, that lead to several "broken" manpages, showing
+    visible man macros. These issues wer almost caused by some non-compliant
+    custom templates. In the following bug reports
+
+    <URL:http://bugs.debian.org/415488> (docbook-xsl)
+    <URL:http://bugs.debian.org/415468> (aptitude)
+    <URL:http://bugs.debian.org/420114> (git-core)
+
+    you can read more about the details and probelms. With the 1.73 release,
+    upstream reverted this change and restored the pre-1.72 behaviour.
+    However, whenever you need to make some text bold or italic in manpages,
+    read the comments in
+    /usr/share/xml/docbook/stylesheet/nwalsh/manpages/utility.xsl about the
+    available bold/italic named templates or ask for assistence to avoid the
+    same issues in the future.
+
+  Footnote handling in the current manpages code pretty much assumes that,
+    if you have a table or list or something in footnote, it's always
+    preceded by some text -- like, <foonote><para>The following list shows foo
+    bar...<itemizedlist> ... </footnote> instead of
+    <footnote><itemizedlist>...</footnote> or <footnote><table>...</footnote>.
+    See the release notes in /usr/share/doc/docbook-xsl/changelog.gz for a
+    more detailed explanation and other important hints.
+
+  Further a special (Debian-only) patch has been implemented to fix the bugs
+
+    <URL:http://bugs.debian.org/173093>
+    <URL:http://bugs.debian.org/382505>
+
+    In these reports it was requested, that the default value of the
+    paper.type parameter is set accordingly to the value in /etc/papersize.
+    This patch is considered to be experimental. Don't bug upstream with
+    issues, if you observe one - only bug me (and the Debian BTS). A further
+    limitation is, that only the values, that are shared between the
+    paper.type parameter values of docbook-xsl and the papersize values are
+    currently supported. Otherwise, the code will fall back to the default
+    'USletter'.
+
+ -- Daniel Leidert (dale) <daniel.leidert@wgdd.de>  Mon, 20 Aug 2007 03:55:18 +0200
+
+docbook-xsl (1.72.0.dfsg.1-1) unstable; urgency=low
+
+  The docbook-xsl-doc package was split into 3 packages:
+
+    - docbook-xsl-doc-html - containing the HTML documentation (shipped with
+                             docbook-xsl-doc in the past)
+    - docbook-xsl-doc-pdf  - containing a PDF version of the documentation
+    - docbook-xsl-doc-text - containing a plain ASCII text version of the
+                             documentation
+
+  All 3 packages conflict with docbook-xsl-doc to ease transition.
+
+ -- Daniel Leidert (dale) <daniel.leidert@wgdd.de>  Sat, 24 Feb 2007 01:12:26 +0100
+
+docbook-xsl (1.73.2.dfsg.1-2) unstable; urgency=low
+
+  This release fixes the broken legalnotice and revhistory links in (X)HTML
+  output. It further implements a design change made by upstream - you now
+  MUST set the use.id.as.filename to create legalnotice or revhistory
+  filenames from their ID. Otherwise the stylesheets will fall back to use
+  generate-id() and compute a filename from the return value of this XSLT
+  function. In the past, existing IDs were used, even if use.id.as.filename
+  was not set. Alternatively you can also use the dbhtml filename PI to choose
+  a name for your revhistory or legalnotice chunk(s).
+
+ -- Daniel Leidert (dale) <daniel.leidert@wgdd.de>  Wed, 26 Sep 2007 22:34:52 +0200

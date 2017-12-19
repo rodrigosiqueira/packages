@@ -1,0 +1,19 @@
+docbook-xsl and docbook-xsl-ns for Debian
+-----------------------------------------
+
+This is the repackaged source of the upstream tarballs of docbook-xsl and
+docbook-xsl-ns. The following changes are done to the upstream tarballs
+(see also the get-orig-source.sh script):
+
+  - call uscan with --no-symlink
+
+  - removal of the extensions/ directories - source is missing
+
+    JFTR: There are separate (source) packages docbook-xsl-saxon and
+    docbook-xsl-xalan which provide the extensions and their source.
+
+  - removal of the webhelp/ directories - source is missing, separate package
+
+    The will be a separate package soon.
+
+ -- Daniel Leidert <daniel.leidert@wgdd.de>, May 2011

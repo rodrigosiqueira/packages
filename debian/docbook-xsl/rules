@@ -1,0 +1,34 @@
+#!/usr/bin/make -f
+#
+# export DH_VERBOSE=1
+
+%:
+	dh $@ --parallel
+
+override_dh_auto_build:
+override_dh_auto_test:
+	xmllint --noout --noent --nonet --valid \
+	        $(CURDIR)/debian/examples/docbook-xsl/foo.1.example_manpage.xml
+	xmllint --noout --noent --nonet \
+                --relaxng http://docbook.org/xml/5.0/rng/docbook.rng \
+	        $(CURDIR)/debian/examples/docbook-xsl-ns/foo.1.example_manpage.xml
+
+override_dh_install:
+	dh_installxmlcatalogs
+	# upstream ships {param,pi,table}.xml as example for DocBook
+	# because we don't need them inside docbook-xsl, we exclude them
+	dh_install -XREADME -Xparam.xml -Xpi.xml -Xtable.xml -XChangeLog* -X.param.* -X.lib.* -X.gitignore
+
+override_dh_installdocs:
+	dh_installdocs
+	for i in docbook-xsl docbook-xsl; do \
+                files=`find $${i} -mindepth 2 -name README`; \
+                for j in $${files}; do \
+                        verz=`echo $${j} | sed -e 's#.*/\([^/]*\)/README#\1#g'`; \
+                        GZIP=-9 gzip -c $${j} > $(CURDIR)/debian/$${i}/usr/share/doc/$${i}/README.$${verz}.gz; \
+                done; \
+        done
+
+override_dh_installchangelogs:	
+	dh_installchangelogs -p docbook-xsl    docbook-xsl/RELEASE-NOTES.txt
+	dh_installchangelogs -p docbook-xsl-ns docbook-xsl-ns/RELEASE-NOTES.txt
