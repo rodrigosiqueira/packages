@@ -1,0 +1,95 @@
+docbook-xsl-saxon (1.00.dfsg.1-8) unstable; urgency=medium
+
+  * New maintainer (closes: #802373)
+  * debian/control: Bumped Standards-Version 4.1.2
+  * debian/control: Bumped debhelper 10
+  * debian/control: Changed extra to optional
+
+ -- Rodrigo Siqueira <siqueira@ime.usp.br>  Tue, 19 Dec 2017 19:31:20 -0200
+
+docbook-xsl-saxon (1.00.dfsg.1-7) unstable; urgency=low
+
+  * QA upload.
+  * GCJ is gone in GCC >= 7, stop building docbook-xsl-saxon-gcj.
+    (Closes: #865119)
+
+ -- Adrian Bunk <bunk@debian.org>  Wed, 05 Jul 2017 17:12:01 +0300
+
+docbook-xsl-saxon (1.00.dfsg.1-6) unstable; urgency=medium
+
+  * QA upload.
+  * Package is orphaned (Bug #802373), set Maintainer to "Debian QA Group".
+  * Split override_jh_installlibs into -arch and -indep and put dh_nativejava
+    only in -arch. Should make dpkg-buildpackage -A to work. Closes: #806018.
+  * Drop obsolete DM-Upload-Allowed field.
+  * Raise debhelper compat level to 9.
+  * Standards-Version: 3.9.8.
+
+ -- Santiago Vila <sanvila@debian.org>  Tue, 02 Aug 2016 21:21:18 +0100
+
+docbook-xsl-saxon (1.00.dfsg.1-5) unstable; urgency=low
+
+  * debian/ant.properties: Removed.
+  * debian/compat: Increased dh compatibility level to 7.
+  * debian/control (Standards-Version): Bumped to 3.9.3.
+    (Build-Depends): Added default-jdk, default-jdk-doc and javahelper.
+    Increased debhelper version. Replaced default-jdk-builddep by
+    gcj-native-helper.
+    (Depends): Added ${misc:Depends} to fix debhelper-but-no-misc-depends.
+    (Conflicts): Turned into Breaks.
+  * debian/copyright: Fixed minor issues.
+  * debian/docbook-xsl-saxon.doc-base: Added to register API documentation.
+  * debian/docbook-xsl-saxon.docs: Removed api directory.
+  * debian/docbook-xsl-saxon.javadoc: Added.
+  * debian/docbook-xsl-saxon.jlibs: Added.
+  * debian/get-orig-source.sh: Added.
+  * debian/rules: Rewritten for dh 7 using javahelper.
+  * debian/watch: Adjusted to use get-orig-source.sh.
+  * debian/README.Debian-source: Renamed to debian/README.source.
+  * debian/patches/debian_build_fixes.patch: Added.
+    - Don't hardcode filenames in clean target.
+  * debian/patches/series: Added.
+  * debian/source/format: Added.
+
+ -- Daniel Leidert (dale) <daniel.leidert@wgdd.de>  Thu, 17 May 2012 23:56:21 +0200
+
+docbook-xsl-saxon (1.00.dfsg.1-4) unstable; urgency=low
+
+  * debian/control (Vcs-Svn): Fixed location.
+    (XS-DM-Upload-Allowed): Removed XS prefix.
+    (Build-Depends): Replaced java-gcj-compat-dev with default-jdk-builddep
+    (closes: #477857).
+  * debian/copyright: Added reference to tdg_examples_permission.eml.
+  * debian/docbook-xsl-saxon.docs: Added copy of the written permission.
+  * debian/rules (JAVA_HOME): Changed to apply to default-jdk-builddep
+    (#477857).
+  * debian/tdg_examples_permission.eml: Added written permission to use
+    examples from Bob Staytons book shipped with the package.
+
+ -- Daniel Leidert (dale) <daniel.leidert@wgdd.de>  Wed, 30 Apr 2008 15:51:58 +0200
+
+docbook-xsl-saxon (1.00.dfsg.1-3) unstable; urgency=medium
+
+  * debian/control (Build-Depends, Build-Depends-Indep): Fixed to avoid FTBFS
+    of the -gcj package. Removing Build-Depends-Indep.
+
+ -- Daniel Leidert (dale) <daniel.leidert@wgdd.de>  Tue, 05 Feb 2008 04:14:41 +0100
+
+docbook-xsl-saxon (1.00.dfsg.1-2) unstable; urgency=low
+
+  * debian/control: Added a new package docbook-xsl-saxon-gcj to provide
+    native code for GCJ/GIJ. Added XS-DM-Upload-Allowed for DM status.
+    (Standards-Version): Updated to 3.7.3 (no other changes).
+  * debian/copyright: Fixed typo reported by lintian.
+  * debian/rules: Use variables provided by CDBS for debhelper script
+    arguments. Make sure, we don't compress any example file. Added necessary
+    targets to get native code for docbook-xsl-saxon-gcj.
+  * debian/examples/Makefile (%.png): Fixed target creation location.
+
+ -- Daniel Leidert (dale) <daniel.leidert@wgdd.de>  Mon, 07 Jan 2008 21:52:27 +0100
+
+docbook-xsl-saxon (1.00.dfsg.1-1) unstable; urgency=low
+
+  * Initial release (closes: #440744).
+
+ -- Daniel Leidert (dale) <daniel.leidert@wgdd.de>  Sat, 13 Oct 2007 02:54:47 +0200

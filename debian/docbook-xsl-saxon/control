@@ -1,0 +1,28 @@
+Source: docbook-xsl-saxon
+Section: text
+Priority: optional
+Maintainer: Rodrigo Siqueira <siqueira@ime.usp.br>
+Build-Depends: ant,
+               debhelper (>= 10),
+               default-jdk,
+               default-jdk-doc,
+               javahelper,
+               libsaxon-java (>> 1:6.5)
+Standards-Version: 4.1.2
+Homepage: http://wiki.docbook.org/topic/DocBookXsltExtensions
+Vcs-Browser: http://svn.debian.org/wsvn/debian-xml-sgml/packages/docbook-xsl-saxon/trunk/
+Vcs-Svn: svn://svn.debian.org/svn/debian-xml-sgml/packages/docbook-xsl-saxon/trunk/
+
+Package: docbook-xsl-saxon
+Architecture: all
+Depends: libsaxon-java (>> 1:6.5), ${java:Depends}, ${misc:Depends}
+Recommends: ${java:Recommends}
+Breaks: docbook-xsl (<< 1.68.1.dfsg.1-0.1)
+Enhances: docbook-xsl
+Description: Java extensions for use with DocBook XML stylesheets (Saxon)
+ These are Java extensions for use with the DocBook XML stylesheets
+ and the Saxon XSLT engine. You need these extensions to enable e.g.
+ the callouts and linenumbering extensions of the docbook-xsl suite.
+ .
+ In the past these extensions were shipped with the docbook-xsl tarball
+ distribution directly.

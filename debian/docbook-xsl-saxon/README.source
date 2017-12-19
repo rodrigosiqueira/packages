@@ -1,0 +1,9 @@
+docbook-xsl-saxon for Debian
+----------------------------
+
+To avoid problems with binaries and binary changes in the Debian package (e.g.
+with dpkg-source), the binaries are removed from the distributed tarball and
+the archive is repackaged for Debian. This also reduces the size of the source
+to 1/4 of the original size.
+
+ -- Daniel Leidert (dale) <daniel.leidert@wgdd.de>  Tue, 04 Sep 2007 00:25:50 +0200

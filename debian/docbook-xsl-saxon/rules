@@ -1,0 +1,37 @@
+#!/usr/bin/make -f
+
+PACKAGE = docbook-xsl-saxon
+
+export JAVA_HOME = /usr/lib/jvm/default-java
+export CLASSPATH = /usr/share/java/saxon.jar
+
+uversion = $(shell dpkg-parsechangelog | sed -n -e 's/^Version: \(.*\)\.dfsg.*$$/\1/p' )
+
+ANT_ARGS += -lib /usr/share/java \
+            -Dplatform.active=debian \
+            -Dplatforms.debian.home=$(JAVA_HOME) \
+            -Djavac.classpath=$(CLASSPATH) \
+            -Ddist.javadoc.dir=api \
+            -Ddist.jar=$(PACKAGE).jar
+
+%:
+	dh $@ --buildsystem=ant --with=javahelper --parallel
+
+override_dh_auto_clean:
+	dh_auto_clean -- $(ANT_ARGS)
+	$(MAKE) -C debian/examples/ clean
+
+override_dh_auto_build:
+	dh_auto_build -- $(ANT_ARGS)
+
+override_jh_installlibs-indep:
+	jh_installlibs --upstream-version=$(uversion)
+
+override_jh_installlibs-arch:
+	jh_installlibs --upstream-version=$(uversion)
+
+#override_dh_link:
+#	dh_link -pdocbook-xsl-saxon usr/share/java/$(PACKAGE)_$(uversion).jar usr/share/java/$(PACKAGE).jar
+
+override_dh_compress:
+	dh_compress -Xusr/share/doc/docbook-xsl-saxon/examples
