@@ -1,9 +1,9 @@
 Source: dia-shapes
 Section: graphics
 Priority: optional
-Maintainer: Debian QA Group <packages@qa.debian.org>
+Maintainer: Rodrigo Siqueira <siqueira@ime.usp.br>
 Build-Depends: debhelper (>= 9), intltool (>= 0.35)
-Standards-Version: 3.9.8
+Standards-Version: 4.1.2
 Homepage: http://dia-installer.de/shapes/
 Vcs-Git: git://anonscm.debian.org/collab-maint/dia-shapes.git
 Vcs-Browser: https://anonscm.debian.org/gitweb/?p=collab-maint/dia-shapes.git
