@@ -1,3 +1,13 @@
+sgml-base (1.29-1) unstable; urgency=medium
+
+  * New maintainer (closes: #802381)
+  * Bumped Standards-Version to 4.1.2
+  * Bumped debhelper to 10
+  * debian/source/format: update to use quilt
+  * debian/sgml-base.triggers: update to explicit use await
+
+ -- Rodrigo Siqueira <siqueira@ime.usp.br>  Tue, 19 Dec 2017 14:50:45 -0200
+
 sgml-base (1.29) unstable; urgency=medium
 
   * QA upload.

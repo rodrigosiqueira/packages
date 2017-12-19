@@ -1,4 +1,4 @@
-interest update-sgmlcatalog
-interest /etc/sgml
-interest /usr/share/sgml
-interest /usr/share/xml
+interest-await update-sgmlcatalog
+interest-await /etc/sgml
+interest-await /usr/share/sgml
+interest-await /usr/share/xml
