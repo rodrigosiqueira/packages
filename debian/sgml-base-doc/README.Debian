@@ -10,7 +10,7 @@ as follows:
 
     For more information on this see the manual page sources.list(5).
 
-2.  Download the source withthe following command:
+2.  Download the source with the following command:
 
       apt-get source sgml-base-doc
 

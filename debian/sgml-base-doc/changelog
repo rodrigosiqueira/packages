@@ -1,3 +1,15 @@
+sgml-base-doc (1.99.2-1) unstable; urgency=medium
+
+  * New maintainer (closes: #802378)
+  * debian/control: Bumped Standards-Version to 4.1.2
+  * debian/control: Bumped debhelper to 10
+  * debian/control: Changed Conflict for Breaks
+  * debian/compat: Bumped to 10
+  * debian/README.Debian: Fix typo
+  * debian/source/format: Added format file
+
+ -- Rodrigo Siqueira <siqueira@ime.usp.br>  Tue, 19 Dec 2017 15:41:54 -0200
+
 sgml-base-doc (1.99.2) unstable; urgency=medium
 
   * QA upload.
