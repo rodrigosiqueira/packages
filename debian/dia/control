@@ -2,11 +2,11 @@ Source: dia
 Section: graphics
 Priority: optional
 Maintainer: Rodrigo Siqueira <siqueira@ime.usp.br>
-Standards-Version: 4.1.1
+Standards-Version: 4.1.2
 Build-Depends: autoconf,
 	automake,
 	dblatex,
-	debhelper (>= 9),
+	debhelper (>= 10),
 	dh-python,
 	docbook-xml,
 	docbook-xsl,

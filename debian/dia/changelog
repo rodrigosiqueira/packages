@@ -1,3 +1,14 @@
+dia (0.97.3+git20160930-7) unstable; urgency=medium
+
+  * New maintainer (closes: #838537)
+  * debian/control: Bumped Standards-Version to 4.1.2
+  * debian/control: Bumped debhelper to 10
+  * debian/patches: Added a patch to fix typos
+  * debian/rules: Remove empty directories
+  * debian/rules: Added extra flags
+
+ -- Rodrigo Siqueira <siqueira@ime.usp.br>  Tue, 19 Dec 2017 21:47:30 -0200
+
 dia (0.97.3+git20160930-6) unstable; urgency=medium
 
   * QA upload.
