@@ -2,7 +2,7 @@ Source: dia
 Section: graphics
 Priority: optional
 Maintainer: Rodrigo Siqueira <siqueira@ime.usp.br>
-Standards-Version: 4.1.2
+Standards-Version: 4.1.3
 Build-Depends: autoconf,
 	automake,
 	dblatex,
@@ -47,16 +47,6 @@ Description: Diagram editor (common files)
  .
  This package contains the architecture independent files.
 
-Package: dia-libs
-Architecture: all
-Depends: dia (>= ${source:Version}), ${misc:Depends}
-Section: oldlibs
-Priority: optional
-Description: transitional dummy package
- This transitional package allows one to migrate from dia-libs to dia.
- .
- It can be safely removed after the upgrade.
-
 Package: dia
 Architecture: any
 Depends: ${shlibs:Depends}, ${misc:Depends}, dia-common (=${source:Version})
@@ -68,13 +58,3 @@ Description: Diagram editor
  static structure diagrams (class diagrams), Entity-Relationship diagrams,
  network diagrams and much more. Diagrams can be exported to postscript and
  many other formats.
-
-Package: dia-gnome
-Architecture: all
-Depends: dia (>= ${source:Version}), ${misc:Depends}
-Section: oldlibs
-Priority: optional
-Description: transitional dummy package
- This transitional package allows one to migrate from dia-gnome to dia.
- .
- It can be safely removed after the upgrade.
